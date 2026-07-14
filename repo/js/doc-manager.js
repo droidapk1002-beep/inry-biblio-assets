@@ -210,15 +210,14 @@ function renderAdminDocTable() {
 
   // Toolbar row
   html += `<tr class="selection-toolbar"><td colspan="8" style="padding:0.5rem 1rem;background:var(--surface);border-bottom:1px solid var(--kraft-line);">
-    <div style="display:flex;gap:var(--space-2);align-items:center;flex-wrap:wrap;">
+    <div style="display:flex;gap:var(--space-2);align-items:center;justify-content:center;flex-wrap:wrap;">
       <button class="btn btn-ghost btn-xs" id="select-all-btn">☐ Tout</button>
       <button class="btn btn-ghost btn-xs" id="deselect-all-btn">☐ Aucun</button>
       <span style="color:var(--ink-soft);font-size:var(--fs-xs);" id="sel-count"></span>
-      <span style="flex:1;"></span>
-      <button class="btn btn-danger btn-xs" id="delete-selected-btn" disabled>🗑 Supprimer</button>
-      <button class="btn btn-secondary btn-xs" id="hide-selected-btn" disabled>👁 Masquer</button>
+      <button class="btn btn-danger btn-xs" id="delete-selected-btn" style="display:none;">🗑 Supprimer</button>
+      <button class="btn btn-secondary btn-xs" id="hide-selected-btn" style="display:none;">👁 Masquer</button>
       <button class="btn btn-secondary btn-xs" id="unhide-selected-btn" style="display:none;">👁 Afficher</button>
-      <button class="btn btn-primary btn-xs" id="bulk-edit-btn" disabled>✏️ Modifier</button>
+      <button class="btn btn-primary btn-xs" id="bulk-edit-btn" style="display:none;">✏️ Modifier</button>
     </div>
   </td></tr>`;
 
@@ -327,10 +326,10 @@ function renderAdminDocTable() {
     const hasHidden = [...checked].some(cb => hiddenIds.includes(cb.dataset.docId));
     const hasVisible = [...checked].some(cb => !hiddenIds.includes(cb.dataset.docId));
     if (selCountEl) selCountEl.textContent = count ? count + ' sélectionné(s)' : '';
-    if (deleteSelBtn) deleteSelBtn.disabled = count === 0;
-    if (hideSelBtn) { hideSelBtn.disabled = count === 0; hideSelBtn.style.display = hasVisible ? '' : 'none'; }
+    if (deleteSelBtn) { deleteSelBtn.disabled = count === 0; deleteSelBtn.style.display = count === 0 ? 'none' : ''; }
+    if (hideSelBtn) { hideSelBtn.disabled = count === 0; hideSelBtn.style.display = hasVisible && count > 0 ? '' : 'none'; }
     if (unhideSelBtn) { unhideSelBtn.style.display = hasHidden ? '' : 'none'; }
-    if (bulkEditBtn) bulkEditBtn.disabled = count === 0;
+    if (bulkEditBtn) { bulkEditBtn.disabled = count === 0; bulkEditBtn.style.display = count === 0 ? 'none' : ''; }
   }
 
   tbody.querySelectorAll('.doc-select-cb').forEach(cb => {
