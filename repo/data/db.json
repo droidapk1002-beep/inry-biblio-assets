@@ -417,1550 +417,581 @@
     {
       "id": "doc-0001",
       "title": {
-        "fr": "BAC 2023 — Mathématiques — Filière Sciences Expérimentales",
-        "ar": "بكالوريا 2023 — رياضيات — شعبة علوم تجريبية",
-        "en": "BAC 2023 — Mathematics — Experimental Sciences"
+        "fr": "Thème 4 - Chapitre 1 - Mathématiques - Solution préparatoire 2025",
+        "ar": "المحور الرابع - الفصل الأول - الرياضيات - الحل التحضيري 2025",
+        "en": "Theme 4 - Chapter 1 - Mathematics - Preparatory Solution 2025"
       },
-      "level": "s3",
-      "stream": "sciences",
+      "level": "presco",
+      "stream": null,
       "subject": "math",
-      "type": "bac-bem",
-      "year": 2023,
-      "wilaya": "National",
+      "type": "devoir",
+      "year": 2025,
+      "trimestre": null,
+      "wilaya": null,
       "description": {
-        "fr": "Sujet officiel du Baccalauréat 2023, session normale, filière Sciences Expérimentales.",
-        "ar": "الموضوع الرسمي لشهادة البكالوريا 2023، الدورة العادية، شعبة علوم تجريبية.",
-        "en": "Official 2023 Baccalauréat exam, normal session, Experimental Sciences stream."
+        "fr": "Thème 4 - Chapitre 1 - Mathématiques - Solution préparatoire 2025",
+        "ar": "المحور الرابع - الفصل الأول - الرياضيات - الحل التحضيري 2025",
+        "en": "Theme 4 - Chapter 1 - Mathematics - Preparatory Solution 2025"
       },
       "fileType": "pdf",
-      "pages": 4,
-      "size": "1.2 MB",
-      "previewUrl": "https://drive.google.com/file/d/1A2B3C4D5E6F7G8H9I0J/preview",
-      "downloadUrl": "https://drive.google.com/uc?export=download&id=1A2B3C4D5E6F7G8H9I0J",
+      "pages": 1,
+      "size": "1.4 MB",
+      "previewUrl": "https://drive.google.com/file/d/1zzIpoLAs6LUgtc0S9XkZybswPXuvyqDI/view?usp=drivesdk",
+      "downloadUrl": "https://drive.google.com/uc?id=1zzIpoLAs6LUgtc0S9XkZybswPXuvyqDI&export=download",
       "host": "drive",
-      "downloads": 15420,
-      "rating": 4.8,
-      "tags": [
-        "bac2023",
-        "sujet-officiel",
-        "sciences"
-      ],
-      "trimestre": null
+      "source": "dzexams",
+      "urlSource": "https://www.dzexams.com/ar/sujets/V0ZqUndySEhvNU5QRjErMW5ub0xiUT09",
+      "urlPdf": "https://www.dzexams.com/uploads/sujets/sujets2025/dzexams-0ap-mathematiques-1506439.pdf",
+      "downloads": 0,
+      "rating": 0,
+      "tags": []
     },
     {
       "id": "doc-0002",
       "title": {
-        "fr": "Corrigé BAC 2023 — Mathématiques — Sciences Expérimentales",
-        "ar": "تصحيح بكالوريا 2023 — رياضيات — علوم تجريبية",
-        "en": "BAC 2023 Correction — Mathematics — Experimental Sciences"
+        "fr": "Thème 3 - Chapitre 1 - Mathématiques - Préparation de la solution   2023",
+        "ar": "المحور الثالث - الفصل الأول - الرياضيات - إعداد حل   2023",
+        "en": "Theme 3 - Chapter 1 - Mathematics - Preparation of the 2023 solution"
       },
-      "level": "s3",
-      "stream": "sciences",
+      "level": "presco",
+      "stream": null,
       "subject": "math",
-      "type": "corriges",
+      "type": "devoir",
       "year": 2023,
-      "wilaya": "National",
+      "trimestre": null,
+      "wilaya": null,
       "description": {
-        "fr": "Corrigé type détaillé du sujet de Mathématiques BAC 2023.",
-        "ar": "التصحيح النموذجي المفصل لموضوع الرياضيات بكالوريا 2023.",
-        "en": "Detailed model correction for the 2023 BAC Mathematics exam."
+        "fr": "Thème 3 - Chapitre 1 - Mathématiques - Préparation de la solution   2023",
+        "ar": "المحور الثالث - الفصل الأول - الرياضيات - إعداد حل   2023",
+        "en": "Theme 3 - Chapter 1 - Mathematics - Preparation of the 2023 solution"
       },
       "fileType": "pdf",
-      "pages": 6,
-      "size": "0.9 MB",
-      "previewUrl": "https://drive.google.com/file/d/2B3C4D5E6F7G8H9I0J1K/preview",
-      "downloadUrl": "https://drive.google.com/uc?export=download&id=2B3C4D5E6F7G8H9I0J1K",
+      "pages": 1,
+      "size": "206 KB",
+      "previewUrl": "https://drive.google.com/file/d/1hHaCY0BRX_mj0JnmXQ_egMwdZHw-Krin/view?usp=drivesdk",
+      "downloadUrl": "https://drive.google.com/uc?id=1hHaCY0BRX_mj0JnmXQ_egMwdZHw-Krin&export=download",
       "host": "drive",
-      "downloads": 12100,
-      "rating": 4.9,
-      "tags": [
-        "bac2023",
-        "corrige",
-        "sciences"
-      ],
-      "trimestre": null
+      "source": "dzexams",
+      "urlSource": "https://www.dzexams.com/ar/sujets/Rmd1Vnd4WTlBUEJaU2FhMW9TbThTdz09",
+      "urlPdf": "https://www.dzexams.com/uploads/sujets/sujets2023/dzexams-0ap-mathematiques-212049.pdf",
+      "downloads": 0,
+      "rating": 0,
+      "tags": []
     },
     {
       "id": "doc-0003",
       "title": {
-        "fr": "BAC 2022 — Sciences Physiques — Filière Mathématiques",
-        "ar": "بكالوريا 2022 — علوم فيزيائية — شعبة رياضيات",
-        "en": "BAC 2022 — Physics & Chemistry — Mathematics Stream"
+        "fr": "Thème 2 - Chapitre 1 - Mathématiques - Préparation de la solution   2023",
+        "ar": "المحور الثاني - الفصل الأول - الرياضيات - إعداد حل   2023",
+        "en": "Theme 2 - Chapter 1 - Mathematics - Preparation of the 2023 solution"
       },
-      "level": "s3",
-      "stream": "math",
-      "subject": "physique",
-      "type": "bac-bem",
-      "year": 2022,
-      "wilaya": "National",
+      "level": "presco",
+      "stream": null,
+      "subject": "math",
+      "type": "devoir",
+      "year": 2023,
+      "trimestre": null,
+      "wilaya": null,
       "description": {
-        "fr": "Sujet officiel du Baccalauréat 2022, session normale, filière Mathématiques.",
-        "ar": "الموضوع الرسمي لبكالوريا 2022، الدورة العادية، شعبة رياضيات.",
-        "en": "Official 2022 Baccalauréat exam, normal session, Mathematics stream."
+        "fr": "Thème 2 - Chapitre 1 - Mathématiques - Préparation de la solution   2023",
+        "ar": "المحور الثاني - الفصل الأول - الرياضيات - إعداد حل   2023",
+        "en": "Theme 2 - Chapter 1 - Mathematics - Preparation of the 2023 solution"
       },
       "fileType": "pdf",
-      "pages": 3,
-      "size": "0.8 MB",
-      "previewUrl": "https://drive.google.com/file/d/3C4D5E6F7G8H9I0J1K2L/preview",
-      "downloadUrl": "https://drive.google.com/uc?export=download&id=3C4D5E6F7G8H9I0J1K2L",
+      "pages": 1,
+      "size": "208 KB",
+      "previewUrl": "https://drive.google.com/file/d/1vfgg3Yo8RbTVRWHnJabES_8yrpe-A1XE/view?usp=drivesdk",
+      "downloadUrl": "https://drive.google.com/uc?id=1vfgg3Yo8RbTVRWHnJabES_8yrpe-A1XE&export=download",
       "host": "drive",
-      "downloads": 9870,
-      "rating": 4.7,
-      "tags": [
-        "bac2022",
-        "sujet-officiel",
-        "math"
-      ],
-      "trimestre": null
+      "source": "dzexams",
+      "urlSource": "https://www.dzexams.com/ar/sujets/ZkhKM3A3SzIwUThtZ2lxZDZVeG5sQT09",
+      "urlPdf": "https://www.dzexams.com/uploads/sujets/sujets2023/dzexams-0ap-mathematiques-105783.pdf",
+      "downloads": 0,
+      "rating": 0,
+      "tags": []
     },
     {
       "id": "doc-0004",
       "title": {
-        "fr": "BEM 2023 — Mathématiques — Sujet National",
-        "ar": "شهادة التعليم المتوسط 2023 — رياضيات — الموضوع الوطني",
-        "en": "BEM 2023 — Mathematics — National Subject"
+        "fr": "Thème 1 - Chapitre 1 - Mathématiques - Préparation de la solution   2023",
+        "ar": "الموضوع رقم 1 - الفصل الأول - الرياضيات - تحضيري الحل ❌ 📅 2023",
+        "en": "Topic 1 - Chapter 1 - Mathematics - Solution Preparation 2023"
       },
-      "level": "m4",
+      "level": "presco",
       "stream": null,
       "subject": "math",
-      "type": "bac-bem",
-      "year": 2023,
-      "wilaya": "National",
+      "type": "devoir",
+      "year": "2023",
+      "trimestre": null,
+      "wilaya": "",
       "description": {
-        "fr": "Sujet officiel du BEM 2023 en Mathématiques.",
-        "ar": "الموضوع الرسمي لشهادة التعليم المتوسط 2023 في الرياضيات.",
-        "en": "Official BEM 2023 exam in Mathematics."
+        "fr": "Thème 1 - Chapitre 1 - Mathématiques - Préparation de la solution   2023",
+        "ar": "الموضوع رقم 1 - الفصل الأول - الرياضيات - تحضيري الحل ❌ 📅 2023",
+        "en": "Topic 1 - Chapter 1 - Mathematics - Solution Preparation 2023"
       },
       "fileType": "pdf",
-      "pages": 2,
-      "size": "0.5 MB",
-      "previewUrl": "https://drive.google.com/file/d/4D5E6F7G8H9I0J1K2L3M/preview",
-      "downloadUrl": "https://drive.google.com/uc?export=download&id=4D5E6F7G8H9I0J1K2L3M",
+      "pages": "",
+      "size": "126 KB",
+      "previewUrl": "https://drive.google.com/file/d/16QEM62Kwfxts2waVaEIz4nGJGZ54VpFx/view?usp=drivesdk",
+      "downloadUrl": "https://drive.google.com/uc?id=16QEM62Kwfxts2waVaEIz4nGJGZ54VpFx&export=download",
       "host": "drive",
-      "downloads": 21300,
-      "rating": 4.8,
-      "tags": [
-        "bem2023",
-        "sujet-officiel"
-      ],
-      "trimestre": null
+      "source": "dzexams",
+      "urlSource": "https://www.dzexams.com/ar/sujets/b1FDTVVpU3BZbGhZR2oxMnk1SmNnZz09",
+      "urlPdf": "https://www.dzexams.com/uploads/sujets/sujets2023/dzexams-0ap-mathematiques-130134.pdf",
+      "downloads": 0,
+      "rating": 0,
+      "tags": []
     },
     {
       "id": "doc-0005",
       "title": {
-        "fr": "Corrigé BEM 2023 — Mathématiques",
-        "ar": "تصحيح شهادة التعليم المتوسط 2023 — رياضيات",
-        "en": "BEM 2023 Correction — Mathematics"
+        "fr": "Thème 11 - Chapitre 2 - Mathématiques - Solution préparatoire 2024",
+        "ar": "الموضوع رقم 11 - الفصل الثاني - الرياضيات - تحضيري الحل ❌ 📅 2024",
+        "en": "Topic 11 - Chapter 2 - Mathematics - Preparatory Solution   2024"
       },
-      "level": "m4",
+      "level": "presco",
       "stream": null,
       "subject": "math",
-      "type": "corriges",
-      "year": 2023,
-      "wilaya": "National",
+      "type": "devoir",
+      "year": "2024",
+      "trimestre": null,
+      "wilaya": "",
       "description": {
-        "fr": "Corrigé détaillé officiel du sujet BEM 2023 Mathématiques.",
-        "ar": "التصحيح المفصل الرسمي لموضوع شهادة التعليم المتوسط 2023 رياضيات.",
-        "en": "Detailed official correction for BEM 2023 Mathematics."
+        "fr": "Thème 11 - Chapitre 2 - Mathématiques - Solution préparatoire 2024",
+        "ar": "الموضوع رقم 11 - الفصل الثاني - الرياضيات - تحضيري الحل ❌ 📅 2024",
+        "en": "Topic 11 - Chapter 2 - Mathematics - Preparatory Solution   2024"
       },
       "fileType": "pdf",
-      "pages": 3,
-      "size": "0.6 MB",
-      "previewUrl": "https://drive.google.com/file/d/5E6F7G8H9I0J1K2L3M4N/preview",
-      "downloadUrl": "https://drive.google.com/uc?export=download&id=5E6F7G8H9I0J1K2L3M4N",
+      "pages": "",
+      "size": "316 KB",
+      "previewUrl": "https://drive.google.com/file/d/1yLS-vhVbBCnawwRUSUUpSx2ccAXEMLSN/view?usp=drivesdk",
+      "downloadUrl": "https://drive.google.com/uc?id=1yLS-vhVbBCnawwRUSUUpSx2ccAXEMLSN&export=download",
       "host": "drive",
-      "downloads": 18900,
-      "rating": 4.9,
-      "tags": [
-        "bem2023",
-        "corrige"
-      ],
-      "trimestre": null
+      "source": "dzexams",
+      "urlSource": "https://www.dzexams.com/ar/sujets/dFNGM3hqa2w1L3JpenpOKzlneGZmQT09",
+      "urlPdf": "https://www.dzexams.com/uploads/sujets/sujets2024/dzexams-0ap-mathematiques-326865.pdf",
+      "downloads": 0,
+      "rating": 0,
+      "tags": []
     },
     {
       "id": "doc-0006",
       "title": {
-        "fr": "Cours complet — Suites numériques",
-        "ar": "دروس كاملة — المتتاليات العددية",
-        "en": "Complete Course — Numeric Sequences"
+        "fr": "Thème 10 - Chapitre 2 - Mathématiques - Solution préparatoire 2024",
+        "ar": "الموضوع رقم 10 - الفصل الثاني - الرياضيات - تحضيري الحل ❌ 📅 2024",
+        "en": "Topic 10 - Chapter 2 - Mathematics - Preparatory Solution   2024"
       },
-      "level": "s3",
-      "stream": "math",
+      "level": "presco",
+      "stream": null,
       "subject": "math",
-      "type": "cours",
-      "year": 2024,
-      "wilaya": null,
+      "type": "devoir",
+      "year": "2024",
+      "trimestre": null,
+      "wilaya": "",
       "description": {
-        "fr": "Cours complet sur les suites numériques avec démonstrations et méthodes.",
-        "ar": "درس كامل حول المتتاليات العددية مع البرهان والطرق.",
-        "en": "Complete course on numeric sequences with proofs and methods."
+        "fr": "Thème 10 - Chapitre 2 - Mathématiques - Solution préparatoire 2024",
+        "ar": "الموضوع رقم 10 - الفصل الثاني - الرياضيات - تحضيري الحل ❌ 📅 2024",
+        "en": "Topic 10 - Chapter 2 - Mathematics - Preparatory Solution   2024"
       },
       "fileType": "pdf",
-      "pages": 18,
-      "size": "2.1 MB",
-      "previewUrl": "https://drive.google.com/file/d/6F7G8H9I0J1K2L3M4N5O/preview",
-      "downloadUrl": "https://drive.google.com/uc?export=download&id=6F7G8H9I0J1K2L3M4N5O",
+      "pages": "",
+      "size": "188 KB",
+      "previewUrl": "https://drive.google.com/file/d/1FoQmDADnSPbxaDJPuujuDZ_Z18w1zQRT/view?usp=drivesdk",
+      "downloadUrl": "https://drive.google.com/uc?id=1FoQmDADnSPbxaDJPuujuDZ_Z18w1zQRT&export=download",
       "host": "drive",
-      "downloads": 7600,
-      "rating": 4.6,
-      "tags": [
-        "cours",
-        "suites"
-      ],
-      "trimestre": null
+      "source": "dzexams",
+      "urlSource": "https://www.dzexams.com/ar/sujets/V3ZBYnN1YUJsQnA0M3FxTnE5Vmdidz09",
+      "urlPdf": "https://www.dzexams.com/uploads/sujets/sujets2024/dzexams-0ap-mathematiques-193200.pdf",
+      "downloads": 0,
+      "rating": 0,
+      "tags": []
     },
     {
       "id": "doc-0007",
       "title": {
-        "fr": "Série d'exercices — Fonctions et limites",
-        "ar": "سلسلة تمارين — الدوال والنهايات",
-        "en": "Exercise Series — Functions & Limits"
+        "fr": "Thème 9 - Chapitre 2 - Mathématiques - Solution préparatoire 2024",
+        "ar": "الموضوع رقم 9 - الفصل الثاني - الرياضيات - تحضيري الحل ❌ 📅 2024",
+        "en": "Topic 9 - Chapter 2 - Mathematics - Preparatory Solution   2024"
       },
-      "level": "s2",
-      "stream": "sciences",
+      "level": "presco",
+      "stream": null,
       "subject": "math",
-      "type": "exercices",
-      "year": 2024,
-      "wilaya": null,
+      "type": "devoir",
+      "year": "2024",
+      "trimestre": null,
+      "wilaya": "",
       "description": {
-        "fr": "Série d'exercices corrigés sur les fonctions et le calcul de limites.",
-        "ar": "سلسلة تمارين محلولة حول الدوال وحساب النهايات.",
-        "en": "Series of solved exercises on functions and limit calculation."
+        "fr": "Thème 9 - Chapitre 2 - Mathématiques - Solution préparatoire 2024",
+        "ar": "الموضوع رقم 9 - الفصل الثاني - الرياضيات - تحضيري الحل ❌ 📅 2024",
+        "en": "Topic 9 - Chapter 2 - Mathematics - Preparatory Solution   2024"
       },
       "fileType": "pdf",
-      "pages": 8,
-      "size": "1.0 MB",
-      "previewUrl": "https://mega.nz/embed/aBcD1EfG2!h3IjKlMnOpQrStUvWxYz",
-      "downloadUrl": "https://mega.nz/file/aBcD1EfG2#h3IjKlMnOpQrStUvWxYz",
-      "host": "mega",
-      "downloads": 5400,
-      "rating": 4.5,
-      "tags": [
-        "exercices",
-        "fonctions"
-      ],
-      "trimestre": null
+      "pages": "",
+      "size": "194 KB",
+      "previewUrl": "https://drive.google.com/file/d/15GyXJRRNBZdvlvvcH40az3XEXTcPoIbL/view?usp=drivesdk",
+      "downloadUrl": "https://drive.google.com/uc?id=15GyXJRRNBZdvlvvcH40az3XEXTcPoIbL&export=download",
+      "host": "drive",
+      "source": "dzexams",
+      "urlSource": "https://www.dzexams.com/ar/sujets/V1BMWW5MVzFIVW15SUVxUm5uWTdhdz09",
+      "urlPdf": "https://www.dzexams.com/uploads/sujets/sujets2024/dzexams-0ap-mathematiques-200752.pdf",
+      "downloads": 0,
+      "rating": 0,
+      "tags": []
     },
     {
       "id": "doc-0008",
       "title": {
-        "fr": "BAC 2023 — Langue Française — Toutes filières",
-        "ar": "بكالوريا 2023 — اللغة الفرنسية — جميع الشعب",
-        "en": "BAC 2023 — French Language — All Streams"
+        "fr": "Thème 8 - Chapitre 2 - Mathématiques - Préparation de la solution   2023",
+        "ar": "الموضوع رقم 8 - الفصل الثاني - الرياضيات - تحضيري الحل ❌ 📅 2023",
+        "en": "Topic 8 - Chapter 2 - Mathematics - Solution Preparation 2023"
       },
-      "level": "s3",
-      "stream": "general",
-      "subject": "francais",
-      "type": "bac-bem",
-      "year": 2023,
-      "wilaya": "National",
+      "level": "presco",
+      "stream": null,
+      "subject": "math",
+      "type": "devoir",
+      "year": "2023",
+      "trimestre": null,
+      "wilaya": "",
       "description": {
-        "fr": "Sujet officiel BAC 2023 de Français, session normale.",
-        "ar": "الموضوع الرسمي لبكالوريا 2023 في اللغة الفرنسية، الدورة العادية.",
-        "en": "Official BAC 2023 French exam, normal session."
+        "fr": "Thème 8 - Chapitre 2 - Mathématiques - Préparation de la solution   2023",
+        "ar": "الموضوع رقم 8 - الفصل الثاني - الرياضيات - تحضيري الحل ❌ 📅 2023",
+        "en": "Topic 8 - Chapter 2 - Mathematics - Solution Preparation 2023"
       },
       "fileType": "pdf",
-      "pages": 2,
-      "size": "0.4 MB",
-      "previewUrl": "https://drive.google.com/file/d/7G8H9I0J1K2L3M4N5O6P/preview",
-      "downloadUrl": "https://drive.google.com/uc?export=download&id=7G8H9I0J1K2L3M4N5O6P",
+      "pages": "",
+      "size": "371 KB",
+      "previewUrl": "https://drive.google.com/file/d/1Q6iaGVemKt587cXOKWUKZvZusiLWFGee/view?usp=drivesdk",
+      "downloadUrl": "https://drive.google.com/uc?id=1Q6iaGVemKt587cXOKWUKZvZusiLWFGee&export=download",
       "host": "drive",
-      "downloads": 11200,
-      "rating": 4.6,
-      "tags": [
-        "bac2023",
-        "francais"
-      ],
-      "trimestre": null
+      "source": "dzexams",
+      "urlSource": "https://www.dzexams.com/ar/sujets/K1FRWStkWWZURnh2ZGhDV3BsaDdGQT09",
+      "urlPdf": "https://www.dzexams.com/uploads/sujets/sujets2023/dzexams-0ap-mathematiques-381167.pdf",
+      "downloads": 0,
+      "rating": 0,
+      "tags": []
     },
     {
       "id": "doc-0009",
       "title": {
-        "fr": "BAC 2023 — Langue Arabe — Toutes filières",
-        "ar": "بكالوريا 2023 — اللغة العربية — جميع الشعب",
-        "en": "BAC 2023 — Arabic Language — All Streams"
+        "fr": "Thème 7 - Chapitre 2 - Mathématiques - Préparation de la solution   2023",
+        "ar": "الموضوع رقم 7 - الفصل الثاني - الرياضيات - تحضيري الحل ❌ 📅 2023",
+        "en": "Topic 7 - Chapter 2 - Mathematics - Solution Preparation 2023"
       },
-      "level": "s3",
-      "stream": "general",
-      "subject": "arabe",
-      "type": "bac-bem",
-      "year": 2023,
-      "wilaya": "National",
+      "level": "presco",
+      "stream": null,
+      "subject": "math",
+      "type": "devoir",
+      "year": "2023",
+      "trimestre": null,
+      "wilaya": "",
       "description": {
-        "fr": "Sujet officiel BAC 2023 de Langue Arabe, session normale.",
-        "ar": "الموضوع الرسمي لبكالوريا 2023 في اللغة العربية، الدورة العادية.",
-        "en": "Official BAC 2023 Arabic Language exam, normal session."
+        "fr": "Thème 7 - Chapitre 2 - Mathématiques - Préparation de la solution   2023",
+        "ar": "الموضوع رقم 7 - الفصل الثاني - الرياضيات - تحضيري الحل ❌ 📅 2023",
+        "en": "Topic 7 - Chapter 2 - Mathematics - Solution Preparation 2023"
       },
       "fileType": "pdf",
-      "pages": 2,
-      "size": "0.4 MB",
-      "previewUrl": "https://drive.google.com/file/d/8H9I0J1K2L3M4N5O6P7Q/preview",
-      "downloadUrl": "https://drive.google.com/uc?export=download&id=8H9I0J1K2L3M4N5O6P7Q",
+      "pages": "",
+      "size": "310 KB",
+      "previewUrl": "https://drive.google.com/file/d/1w84OyBMhj0dZbNXMji8JwQoVh98Ks36S/view?usp=drivesdk",
+      "downloadUrl": "https://drive.google.com/uc?id=1w84OyBMhj0dZbNXMji8JwQoVh98Ks36S&export=download",
       "host": "drive",
-      "downloads": 13400,
-      "rating": 4.7,
-      "tags": [
-        "bac2023",
-        "arabe"
-      ],
-      "trimestre": null
+      "source": "dzexams",
+      "urlSource": "https://www.dzexams.com/ar/sujets/Y2FwMEFQYWw5ejVIbVFOQU5LNXZNZz09",
+      "urlPdf": "https://www.dzexams.com/uploads/sujets/sujets2023/dzexams-0ap-mathematiques-318905.pdf",
+      "downloads": 0,
+      "rating": 0,
+      "tags": []
     },
     {
       "id": "doc-0010",
       "title": {
-        "fr": "BAC 2023 — Anglais — Toutes filières",
-        "ar": "بكالوريا 2023 — اللغة الإنجليزية — جميع الشعب",
-        "en": "BAC 2023 — English — All Streams"
+        "fr": "Thème 6 - Chapitre 2 - Mathématiques - Préparation de la solution   2023",
+        "ar": "الموضوع رقم 6 - الفصل الثاني - الرياضيات - تحضيري الحل ❌ 📅 2023",
+        "en": "Topic 6 - Chapter 2 - Mathematics - Solution Preparation 2023"
       },
-      "level": "s3",
-      "stream": "general",
-      "subject": "anglais",
-      "type": "bac-bem",
-      "year": 2023,
-      "wilaya": "National",
+      "level": "presco",
+      "stream": null,
+      "subject": "math",
+      "type": "devoir",
+      "year": "2023",
+      "trimestre": null,
+      "wilaya": "",
       "description": {
-        "fr": "Sujet officiel BAC 2023 d'Anglais, session normale.",
-        "ar": "الموضوع الرسمي لبكالوريا 2023 في اللغة الإنجليزية، الدورة العادية.",
-        "en": "Official BAC 2023 English exam, normal session."
+        "fr": "Thème 6 - Chapitre 2 - Mathématiques - Préparation de la solution   2023",
+        "ar": "الموضوع رقم 6 - الفصل الثاني - الرياضيات - تحضيري الحل ❌ 📅 2023",
+        "en": "Topic 6 - Chapter 2 - Mathematics - Solution Preparation 2023"
       },
       "fileType": "pdf",
-      "pages": 2,
-      "size": "0.3 MB",
-      "previewUrl": "https://drive.google.com/file/d/9I0J1K2L3M4N5O6P7Q8R/preview",
-      "downloadUrl": "https://drive.google.com/uc?export=download&id=9I0J1K2L3M4N5O6P7Q8R",
+      "pages": "",
+      "size": "385 KB",
+      "previewUrl": "https://drive.google.com/file/d/1Hbsnm3G6qGdDLPdU2SwNhG27I-V75flU/view?usp=drivesdk",
+      "downloadUrl": "https://drive.google.com/uc?id=1Hbsnm3G6qGdDLPdU2SwNhG27I-V75flU&export=download",
       "host": "drive",
-      "downloads": 8700,
-      "rating": 4.5,
-      "tags": [
-        "bac2023",
-        "anglais"
-      ],
-      "trimestre": null
+      "source": "dzexams",
+      "urlSource": "https://www.dzexams.com/ar/sujets/Q2ZIVGMzOWNDaUJBYzY4ZlJ6ME1Gdz09",
+      "urlPdf": "https://www.dzexams.com/uploads/sujets/sujets2023/dzexams-0ap-mathematiques-395704.pdf",
+      "downloads": 0,
+      "rating": 0,
+      "tags": []
     },
     {
       "id": "doc-0011",
       "title": {
-        "fr": "BAC 2021 — Philosophie — Filière Lettres",
-        "ar": "بكالوريا 2021 — فلسفة — شعبة آداب",
-        "en": "BAC 2021 — Philosophy — Literature Stream"
+        "fr": "Thème 5 - Chapitre 2 - Mathématiques - Préparation de la solution   2020",
+        "ar": "الموضوع رقم 5 - الفصل الثاني - الرياضيات - تحضيري الحل ❌ 📅 2020",
+        "en": "Topic 5 - Chapter 2 - Mathematics - Solution Preparation 2020"
       },
-      "level": "s3",
-      "stream": "lettres",
-      "subject": "philosophie",
-      "type": "bac-bem",
-      "year": 2021,
-      "wilaya": "National",
+      "level": "presco",
+      "stream": null,
+      "subject": "math",
+      "type": "devoir",
+      "year": "2020",
+      "trimestre": null,
+      "wilaya": "",
       "description": {
-        "fr": "Sujet officiel BAC 2021 de Philosophie, filière Lettres et Philosophie.",
-        "ar": "الموضوع الرسمي لبكالوريا 2021 في الفلسفة، شعبة آداب وفلسفة.",
-        "en": "Official BAC 2021 Philosophy exam, Literature & Philosophy stream."
+        "fr": "Thème 5 - Chapitre 2 - Mathématiques - Préparation de la solution   2020",
+        "ar": "الموضوع رقم 5 - الفصل الثاني - الرياضيات - تحضيري الحل ❌ 📅 2020",
+        "en": "Topic 5 - Chapter 2 - Mathematics - Solution Preparation 2020"
       },
       "fileType": "pdf",
-      "pages": 2,
-      "size": "0.3 MB",
-      "previewUrl": "https://drive.google.com/file/d/0J1K2L3M4N5O6P7Q8R9S/preview",
-      "downloadUrl": "https://drive.google.com/uc?export=download&id=0J1K2L3M4N5O6P7Q8R9S",
+      "pages": "",
+      "size": "910 KB",
+      "previewUrl": "https://drive.google.com/file/d/1jxUOqp6iVRgjhCOT930tiwCa18zZXmBW/view?usp=drivesdk",
+      "downloadUrl": "https://drive.google.com/uc?id=1jxUOqp6iVRgjhCOT930tiwCa18zZXmBW&export=download",
       "host": "drive",
-      "downloads": 4300,
-      "rating": 4.4,
-      "tags": [
-        "bac2021",
-        "philosophie"
-      ],
-      "trimestre": null
+      "source": "dzexams",
+      "urlSource": "https://www.dzexams.com/ar/sujets/WjAvQXUxQkI3UTM3Z09rYzg1RmZ3Zz09",
+      "urlPdf": "https://www.dzexams.com/uploads/sujets/sujets2020/dzexams-0ap-mathematiques-823273.pdf",
+      "downloads": 0,
+      "rating": 0,
+      "tags": []
     },
     {
       "id": "doc-0012",
       "title": {
-        "fr": "Résumé — Histoire : La Guerre de Libération Nationale",
-        "ar": "ملخص — التاريخ: حرب التحرير الوطني",
-        "en": "Summary — History: The National Liberation War"
+        "fr": "Thème 4 - Chapitre 2 - Mathématiques - Préparation de la solution   2018",
+        "ar": "الموضوع رقم 4 - الفصل الثاني - الرياضيات - تحضيري الحل ❌ 📅 2018",
+        "en": "Topic 4 - Chapter 2 - Mathematics - Solution Preparation 2018"
       },
-      "level": "s3",
-      "stream": "general",
-      "subject": "histoire-geo",
-      "type": "resumes",
-      "year": 2024,
-      "wilaya": null,
+      "level": "presco",
+      "stream": null,
+      "subject": "math",
+      "type": "devoir",
+      "year": "2018",
+      "trimestre": null,
+      "wilaya": "",
       "description": {
-        "fr": "Résumé synthétique du chapitre sur la guerre de libération nationale algérienne.",
-        "ar": "ملخص شامل لفصل حرب التحرير الوطني الجزائرية.",
-        "en": "Concise summary of the chapter on the Algerian National Liberation War."
+        "fr": "Thème 4 - Chapitre 2 - Mathématiques - Préparation de la solution   2018",
+        "ar": "الموضوع رقم 4 - الفصل الثاني - الرياضيات - تحضيري الحل ❌ 📅 2018",
+        "en": "Topic 4 - Chapter 2 - Mathematics - Solution Preparation 2018"
       },
       "fileType": "pdf",
-      "pages": 5,
-      "size": "0.7 MB",
-      "previewUrl": "https://mega.nz/embed/bCdE2FgH3!i4JkLmNoPqRsTuVwXy",
-      "downloadUrl": "https://mega.nz/file/bCdE2FgH3#i4JkLmNoPqRsTuVwXy",
-      "host": "mega",
-      "downloads": 6200,
-      "rating": 4.6,
-      "tags": [
-        "histoire",
-        "resume"
-      ],
-      "trimestre": null
+      "pages": "",
+      "size": "573 KB",
+      "previewUrl": "https://drive.google.com/file/d/1esadv2n7xvm4hQhh-HTHrNjBXC0a78kf/view?usp=drivesdk",
+      "downloadUrl": "https://drive.google.com/uc?id=1esadv2n7xvm4hQhh-HTHrNjBXC0a78kf&export=download",
+      "host": "drive",
+      "source": "dzexams",
+      "urlSource": "https://www.dzexams.com/ar/sujets/S0tTeGkzRlI5TlMwbDc5WGJJZFhzQT09",
+      "urlPdf": "https://www.dzexams.com/uploads/sujets/sujets2018/dzexams-0ap-mathematiques-478360.pdf",
+      "downloads": 0,
+      "rating": 0,
+      "tags": []
     },
     {
       "id": "doc-0013",
       "title": {
-        "fr": "BEM 2022 — Sciences Naturelles",
-        "ar": "شهادة التعليم المتوسط 2022 — علوم الطبيعة والحياة",
-        "en": "BEM 2022 — Natural Sciences"
+        "fr": "Thème 3 - Chapitre 2 - Mathématiques - Préparation de la solution   2017",
+        "ar": "الموضوع رقم 3 - الفصل الثاني - الرياضيات - تحضيري الحل ❌ 📅 2017",
+        "en": "Topic 3 - Chapter 2 - Mathematics - Solution Preparation 2017"
       },
-      "level": "m4",
+      "level": "presco",
       "stream": null,
-      "subject": "svt",
-      "type": "bac-bem",
-      "year": 2022,
-      "wilaya": "National",
+      "subject": "math",
+      "type": "devoir",
+      "year": "2017",
+      "trimestre": null,
+      "wilaya": "",
       "description": {
-        "fr": "Sujet officiel BEM 2022 en Sciences Naturelles.",
-        "ar": "الموضوع الرسمي لشهادة التعليم المتوسط 2022 في علوم الطبيعة والحياة.",
-        "en": "Official BEM 2022 exam in Natural Sciences."
+        "fr": "Thème 3 - Chapitre 2 - Mathématiques - Préparation de la solution   2017",
+        "ar": "الموضوع رقم 3 - الفصل الثاني - الرياضيات - تحضيري الحل ❌ 📅 2017",
+        "en": "Topic 3 - Chapter 2 - Mathematics - Solution Preparation 2017"
       },
       "fileType": "pdf",
-      "pages": 3,
-      "size": "0.9 MB",
-      "previewUrl": "https://drive.google.com/file/d/1K2L3M4N5O6P7Q8R9S0T/preview",
-      "downloadUrl": "https://drive.google.com/uc?export=download&id=1K2L3M4N5O6P7Q8R9S0T",
+      "pages": "",
+      "size": "539 KB",
+      "previewUrl": "https://drive.google.com/file/d/1kf2Giabw0MFeMXxKNmg7QUEMjya14MsK/view?usp=drivesdk",
+      "downloadUrl": "https://drive.google.com/uc?id=1kf2Giabw0MFeMXxKNmg7QUEMjya14MsK&export=download",
       "host": "drive",
-      "downloads": 7800,
-      "rating": 4.5,
-      "tags": [
-        "bem2022",
-        "svt"
-      ],
-      "trimestre": null
+      "source": "dzexams",
+      "urlSource": "https://www.dzexams.com/ar/sujets/eHFtMkF6VFlENVdoZWdlem8rNzZ5QT09",
+      "urlPdf": "https://www.dzexams.com/uploads/sujets/sujets2017/dzexams-0ap-mathematiques-443112.pdf",
+      "downloads": 0,
+      "rating": 0,
+      "tags": []
     },
     {
       "id": "doc-0014",
       "title": {
-        "fr": "Devoir n°1 — Physique : Mécanique",
-        "ar": "الفرض الأول — فيزياء: الميكانيك",
-        "en": "Homework #1 — Physics: Mechanics"
+        "fr": "Thème 2 - Chapitre 2 - Mathématiques - Préparation de la solution   2015",
+        "ar": "الموضوع رقم 2 - الفصل الثاني - الرياضيات - تحضيري الحل ❌ 📅 2015",
+        "en": "Topic 2 - Chapter 2 - Mathematics - Solution Preparation 2015"
       },
-      "level": "s2",
-      "stream": "sciences",
-      "subject": "physique",
+      "level": "presco",
+      "stream": null,
+      "subject": "math",
       "type": "devoir",
-      "year": 2024,
-      "wilaya": "Oran",
+      "year": "2015",
+      "trimestre": null,
+      "wilaya": "",
       "description": {
-        "fr": "Devoir surveillé n°1 sur les chapitres de mécanique, avec corrigé.",
-        "ar": "الفرض المحروس الأول حول فصول الميكانيك، مع التصحيح.",
-        "en": "Monitored homework #1 on mechanics chapters, with correction."
+        "fr": "Thème 2 - Chapitre 2 - Mathématiques - Préparation de la solution   2015",
+        "ar": "الموضوع رقم 2 - الفصل الثاني - الرياضيات - تحضيري الحل ❌ 📅 2015",
+        "en": "Topic 2 - Chapter 2 - Mathematics - Solution Preparation 2015"
       },
       "fileType": "pdf",
-      "pages": 4,
-      "size": "1.1 MB",
-      "previewUrl": "https://drive.google.com/file/d/2L3M4N5O6P7Q8R9S0T1U/preview",
-      "downloadUrl": "https://drive.google.com/uc?export=download&id=2L3M4N5O6P7Q8R9S0T1U",
+      "pages": "",
+      "size": "586 KB",
+      "previewUrl": "https://drive.google.com/file/d/1SiWGYycQZdHfGVfjV19YJsWmwTdyfP5E/view?usp=drivesdk",
+      "downloadUrl": "https://drive.google.com/uc?id=1SiWGYycQZdHfGVfjV19YJsWmwTdyfP5E&export=download",
       "host": "drive",
-      "downloads": 3200,
-      "rating": 4.3,
-      "tags": [
-        "devoir",
-        "mecanique",
-        "oran"
-      ],
-      "trimestre": "t1"
+      "source": "dzexams",
+      "urlSource": "https://www.dzexams.com/ar/sujets/SjlqYjZvdmM5bXRtbDVGMGJqYzg0QT09",
+      "urlPdf": "https://www.dzexams.com/uploads/sujets/sujets2015/dzexams-0ap-mathematiques-449930.pdf",
+      "downloads": 0,
+      "rating": 0,
+      "tags": []
     },
     {
       "id": "doc-0015",
       "title": {
-        "fr": "BAC 2024 — Mathématiques — Filière Technique Mathématique",
-        "ar": "بكالوريا 2024 — رياضيات — شعبة تقني رياضي",
-        "en": "BAC 2024 — Mathematics — Technical Mathematics Stream"
+        "fr": "Thème 5 - Chapitre 3 - Mathématiques - Préparation de la solution   2023",
+        "ar": "الموضوع رقم 5 - الفصل الثالث - الرياضيات - تحضيري الحل ❌ 📅 2023",
+        "en": "Topic 5 - Chapter 3 - Mathematics - Solution Preparation 2023"
       },
-      "level": "s3",
-      "stream": "techno",
+      "level": "presco",
+      "stream": null,
       "subject": "math",
-      "type": "bac-bem",
-      "year": 2024,
-      "wilaya": "National",
+      "type": "devoir",
+      "year": "2023",
+      "trimestre": null,
+      "wilaya": "",
       "description": {
-        "fr": "Sujet officiel BAC 2024, filière Technique Mathématique.",
-        "ar": "الموضوع الرسمي لبكالوريا 2024، شعبة تقني رياضي.",
-        "en": "Official BAC 2024 exam, Technical Mathematics stream."
+        "fr": "Thème 5 - Chapitre 3 - Mathématiques - Préparation de la solution   2023",
+        "ar": "الموضوع رقم 5 - الفصل الثالث - الرياضيات - تحضيري الحل ❌ 📅 2023",
+        "en": "Topic 5 - Chapter 3 - Mathematics - Solution Preparation 2023"
       },
       "fileType": "pdf",
-      "pages": 4,
-      "size": "1.3 MB",
-      "previewUrl": "https://drive.google.com/file/d/3M4N5O6P7Q8R9S0T1U2V/preview",
-      "downloadUrl": "https://drive.google.com/uc?export=download&id=3M4N5O6P7Q8R9S0T1U2V",
+      "pages": "",
+      "size": "325 KB",
+      "previewUrl": "https://drive.google.com/file/d/1xWxuGqUEnu2waz9UnWutekD3MoAOKHYj/view?usp=drivesdk",
+      "downloadUrl": "https://drive.google.com/uc?id=1xWxuGqUEnu2waz9UnWutekD3MoAOKHYj&export=download",
       "host": "drive",
-      "downloads": 16700,
-      "rating": 4.8,
-      "tags": [
-        "bac2024",
-        "techno-math"
-      ],
-      "trimestre": null
+      "source": "dzexams",
+      "urlSource": "https://www.dzexams.com/ar/sujets/b0d0d3M4QkZxWDBsS1AxT1J3MWFJdz09",
+      "urlPdf": "https://www.dzexams.com/uploads/sujets/sujets2023/dzexams-0ap-mathematiques-334392.pdf",
+      "downloads": 0,
+      "rating": 0,
+      "tags": []
     },
     {
       "id": "doc-0016",
       "title": {
-        "fr": "Cours — La Cellule et son Fonctionnement",
-        "ar": "درس — الخلية وتشغيلها",
-        "en": "Course — The Cell and its Function"
+        "fr": "Thème 4 - Chapitre 3 - Mathématiques - Préparation de la solution   2018",
+        "ar": "الموضوع رقم 4 - الفصل الثالث - الرياضيات - تحضيري الحل ❌ 📅 2018",
+        "en": "Topic 4 - Chapter 3 - Mathematics - Solution Preparation 2018"
       },
-      "level": "s1",
-      "stream": "general",
-      "subject": "svt",
-      "type": "cours",
-      "year": 2024,
-      "wilaya": null,
+      "level": "presco",
+      "stream": null,
+      "subject": "math",
+      "type": "devoir",
+      "year": "2018",
+      "trimestre": null,
+      "wilaya": "",
       "description": {
-        "fr": "Cours illustré sur la structure et le fonctionnement de la cellule.",
-        "ar": "درس موضح حول بنية الخلية وتشغيلها.",
-        "en": "Illustrated course on cell structure and function."
+        "fr": "Thème 4 - Chapitre 3 - Mathématiques - Préparation de la solution   2018",
+        "ar": "الموضوع رقم 4 - الفصل الثالث - الرياضيات - تحضيري الحل ❌ 📅 2018",
+        "en": "Topic 4 - Chapter 3 - Mathematics - Solution Preparation 2018"
       },
       "fileType": "pdf",
-      "pages": 12,
-      "size": "3.4 MB",
-      "previewUrl": "https://drive.google.com/file/d/4N5O6P7Q8R9S0T1U2V3W/preview",
-      "downloadUrl": "https://drive.google.com/uc?export=download&id=4N5O6P7Q8R9S0T1U2V3W",
+      "pages": "",
+      "size": "584 KB",
+      "previewUrl": "https://drive.google.com/file/d/1vXVPwtENLg2Kfe3DkO7c3p2MODIkgvla/view?usp=drivesdk",
+      "downloadUrl": "https://drive.google.com/uc?id=1vXVPwtENLg2Kfe3DkO7c3p2MODIkgvla&export=download",
       "host": "drive",
-      "downloads": 5100,
-      "rating": 4.4,
-      "tags": [
-        "cours",
-        "biologie"
-      ],
-      "trimestre": null
+      "source": "dzexams",
+      "urlSource": "https://www.dzexams.com/ar/sujets/MXFEcWZlQ21qWTZsYXEycVE0T1FHdz09",
+      "urlPdf": "https://www.dzexams.com/uploads/sujets/sujets2018/dzexams-0ap-mathematiques-489808.pdf",
+      "downloads": 0,
+      "rating": 0,
+      "tags": []
     },
     {
       "id": "doc-0017",
       "title": {
-        "fr": "Examen Trimestriel — Mathématiques — 3AM",
-        "ar": "اختبار الفصل — رياضيات — السنة الثالثة متوسط",
-        "en": "Term Exam — Mathematics — 3rd Year Middle"
+        "fr": "Thème 3 - Chapitre 3 - Mathématiques - Préparation de la solution   2016",
+        "ar": "الموضوع رقم 3 - الفصل الثالث - الرياضيات - تحضيري الحل ❌ 📅 2016",
+        "en": "Topic 3 - Chapter 3 - Mathematics - Solution Preparation 2016"
       },
-      "level": "m3",
+      "level": "presco",
       "stream": null,
       "subject": "math",
-      "type": "composition",
-      "year": 2024,
-      "wilaya": "Alger",
+      "type": "devoir",
+      "year": "2016",
+      "trimestre": null,
+      "wilaya": "",
       "description": {
-        "fr": "Examen du 2ème trimestre pour la 3ème année moyenne, avec barème.",
-        "ar": "اختبار الفصل الثاني للسنة الثالثة متوسط، مع سلم التنقيط.",
-        "en": "2nd term exam for 3rd year middle school, with grading scale."
+        "fr": "Thème 3 - Chapitre 3 - Mathématiques - Préparation de la solution   2016",
+        "ar": "الموضوع رقم 3 - الفصل الثالث - الرياضيات - تحضيري الحل ❌ 📅 2016",
+        "en": "Topic 3 - Chapter 3 - Mathematics - Solution Preparation 2016"
       },
       "fileType": "pdf",
-      "pages": 3,
-      "size": "0.8 MB",
-      "previewUrl": "https://mega.nz/embed/cDeF3GhI4!j5KlMnOpQrStUvWxYzA",
-      "downloadUrl": "https://mega.nz/file/cDeF3GhI4#j5KlMnOpQrStUvWxYzA",
-      "host": "mega",
-      "downloads": 4800,
-      "rating": 4.5,
-      "tags": [
-        "examen",
-        "trimestre2",
-        "alger"
-      ],
-      "trimestre": "t2"
+      "pages": "",
+      "size": "4.3 MB",
+      "previewUrl": "https://drive.google.com/file/d/1M-4i1q_6VfY6GBADX6EQVH-4KbeCiUKl/view?usp=drivesdk",
+      "downloadUrl": "https://drive.google.com/uc?id=1M-4i1q_6VfY6GBADX6EQVH-4KbeCiUKl&export=download",
+      "host": "drive",
+      "source": "dzexams",
+      "urlSource": "https://www.dzexams.com/ar/sujets/Y1lFeUhDbU43aW5QY1VTRWk1Nk04Zz09",
+      "urlPdf": "https://www.dzexams.com/uploads/sujets/sujets2016/dzexams-0ap-mathematiques-4429532.pdf",
+      "downloads": 0,
+      "rating": 0,
+      "tags": []
     },
     {
       "id": "doc-0018",
       "title": {
-        "fr": "BAC 2023 — Sciences Physiques — Filière Sciences Expérimentales",
-        "ar": "بكالوريا 2023 — علوم فيزيائية — شعبة علوم تجريبية",
-        "en": "BAC 2023 — Physics & Chemistry — Experimental Sciences"
+        "fr": "Thème 2 - Chapitre 3 - Mathématiques - Préparation de la solution   2015",
+        "ar": "الموضوع رقم 2 - الفصل الثالث - الرياضيات - تحضيري الحل ❌ 📅 2015",
+        "en": "Topic 2 - Chapter 3 - Mathematics - Solution Preparation 2015"
       },
-      "level": "s3",
-      "stream": "sciences",
-      "subject": "physique",
-      "type": "bac-bem",
-      "year": 2023,
-      "wilaya": "National",
-      "description": {
-        "fr": "Sujet officiel BAC 2023 de Sciences Physiques, filière Sciences Expérimentales.",
-        "ar": "الموضوع الرسمي لبكالوريا 2023 في العلوم الفيزيائية، شعبة علوم تجريبية.",
-        "en": "Official BAC 2023 Physics & Chemistry exam, Experimental Sciences stream."
-      },
-      "fileType": "pdf",
-      "pages": 5,
-      "size": "1.4 MB",
-      "previewUrl": "https://drive.google.com/file/d/5O6P7Q8R9S0T1U2V3W4X/preview",
-      "downloadUrl": "https://drive.google.com/uc?export=download&id=5O6P7Q8R9S0T1U2V3W4X",
-      "host": "drive",
-      "downloads": 14600,
-      "rating": 4.7,
-      "tags": [
-        "bac2023",
-        "physique",
-        "sciences"
-      ],
-      "trimestre": null
-    },
-    {
-      "id": "doc-0019",
-      "title": {
-        "fr": "Corrigé BAC 2023 — Sciences Physiques — Sciences Expérimentales",
-        "ar": "تصحيح بكالوريا 2023 — علوم فيزيائية — علوم تجريبية",
-        "en": "BAC 2023 Correction — Physics & Chemistry — Experimental Sciences"
-      },
-      "level": "s3",
-      "stream": "sciences",
-      "subject": "physique",
-      "type": "corriges",
-      "year": 2023,
-      "wilaya": "National",
-      "description": {
-        "fr": "Corrigé type du sujet de Sciences Physiques BAC 2023.",
-        "ar": "التصحيح النموذجي لموضوع العلوم الفيزيائية بكالوريا 2023.",
-        "en": "Model correction for the 2023 BAC Physics & Chemistry exam."
-      },
-      "fileType": "pdf",
-      "pages": 7,
-      "size": "1.0 MB",
-      "previewUrl": "https://drive.google.com/file/d/6P7Q8R9S0T1U2V3W4X5Y/preview",
-      "downloadUrl": "https://drive.google.com/uc?export=download&id=6P7Q8R9S0T1U2V3W4X5Y",
-      "host": "drive",
-      "downloads": 11900,
-      "rating": 4.8,
-      "tags": [
-        "bac2023",
-        "corrige",
-        "physique"
-      ],
-      "trimestre": null
-    },
-    {
-      "id": "doc-0020",
-      "title": {
-        "fr": "BEM 2023 — Langue Française",
-        "ar": "شهادة التعليم المتوسط 2023 — اللغة الفرنسية",
-        "en": "BEM 2023 — French Language"
-      },
-      "level": "m4",
-      "stream": null,
-      "subject": "francais",
-      "type": "bac-bem",
-      "year": 2023,
-      "wilaya": "National",
-      "description": {
-        "fr": "Sujet officiel BEM 2023 en Langue Française.",
-        "ar": "الموضوع الرسمي لشهادة التعليم المتوسط 2023 في اللغة الفرنسية.",
-        "en": "Official BEM 2023 exam in French Language."
-      },
-      "fileType": "pdf",
-      "pages": 2,
-      "size": "0.4 MB",
-      "previewUrl": "https://drive.google.com/file/d/7Q8R9S0T1U2V3W4X5Y6Z/preview",
-      "downloadUrl": "https://drive.google.com/uc?export=download&id=7Q8R9S0T1U2V3W4X5Y6Z",
-      "host": "drive",
-      "downloads": 10200,
-      "rating": 4.6,
-      "tags": [
-        "bem2023",
-        "francais"
-      ],
-      "trimestre": null
-    },
-    {
-      "id": "doc-0021",
-      "title": {
-        "fr": "Fiche de Révision — Théorème de Thalès et Pythagore",
-        "ar": "بطاقة مراجعة — نظرية طالس وفيثاغورس",
-        "en": "Revision Sheet — Thales & Pythagoras Theorems"
-      },
-      "level": "m3",
+      "level": "presco",
       "stream": null,
       "subject": "math",
-      "type": "resumes",
-      "year": 2024,
-      "wilaya": null,
-      "description": {
-        "fr": "Fiche synthétique avec formules, schémas et exemples résolus.",
-        "ar": "بطاقة شاملة تحتوي على الصيغ والمخططات والأمثلة المحلولة.",
-        "en": "Concise sheet with formulas, diagrams, and solved examples."
-      },
-      "fileType": "pdf",
-      "pages": 4,
-      "size": "0.6 MB",
-      "previewUrl": "https://mega.nz/embed/dEfG4HiJ5!k6LmNoPqRsTuVwXyZa",
-      "downloadUrl": "https://mega.nz/file/dEfG4HiJ5#k6LmNoPqRsTuVwXyZa",
-      "host": "mega",
-      "downloads": 9300,
-      "rating": 4.7,
-      "tags": [
-        "resume",
-        "geometrie"
-      ],
-      "trimestre": null
-    },
-    {
-      "id": "doc-0022",
-      "title": {
-        "fr": "BAC 2022 — Gestion Comptable — Filière Gestion et Économie",
-        "ar": "بكالوريا 2022 — محاسبة وتسيير المؤسسات — شعبة تسيير واقتصاد",
-        "en": "BAC 2022 — Accounting & Management — Management & Economics Stream"
-      },
-      "level": "s3",
-      "stream": "gestion",
-      "subject": "math",
-      "type": "bac-bem",
-      "year": 2022,
-      "wilaya": "National",
-      "description": {
-        "fr": "Sujet officiel BAC 2022, filière Gestion et Économie.",
-        "ar": "الموضوع الرسمي لبكالوريا 2022، شعبة تسيير واقتصاد.",
-        "en": "Official BAC 2022 exam, Management & Economics stream."
-      },
-      "fileType": "pdf",
-      "pages": 4,
-      "size": "1.0 MB",
-      "previewUrl": "https://drive.google.com/file/d/8R9S0T1U2V3W4X5Y6Z7A/preview",
-      "downloadUrl": "https://drive.google.com/uc?export=download&id=8R9S0T1U2V3W4X5Y6Z7A",
-      "host": "drive",
-      "downloads": 3900,
-      "rating": 4.3,
-      "tags": [
-        "bac2022",
-        "gestion"
-      ],
-      "trimestre": null
-    },
-    {
-      "id": "doc-0023",
-      "title": {
-        "fr": "Cahier d'exercices — Conjugaison et Grammaire (5AP)",
-        "ar": "كراس تمارين — التصريف والقواعد (السنة الخامسة ابتدائي)",
-        "en": "Exercise Book — Conjugation & Grammar (5th Year Primary)"
-      },
-      "level": "p5",
-      "stream": null,
-      "subject": "francais",
-      "type": "exercices",
-      "year": 2024,
-      "wilaya": null,
-      "description": {
-        "fr": "Exercices progressifs de conjugaison et grammaire pour la 5ème année primaire.",
-        "ar": "تمارين تدريجية في التصريف والقواعد للسنة الخامسة ابتدائي.",
-        "en": "Progressive conjugation and grammar exercises for 5th year primary."
-      },
-      "fileType": "pdf",
-      "pages": 10,
-      "size": "1.5 MB",
-      "previewUrl": "https://drive.google.com/file/d/9S0T1U2V3W4X5Y6Z7A8B/preview",
-      "downloadUrl": "https://drive.google.com/uc?export=download&id=9S0T1U2V3W4X5Y6Z7A8B",
-      "host": "drive",
-      "downloads": 6700,
-      "rating": 4.4,
-      "tags": [
-        "exercices",
-        "primaire"
-      ],
-      "trimestre": null
-    },
-    {
-      "id": "doc-0024",
-      "title": {
-        "fr": "BAC 2024 — Sciences Naturelles — Filière Sciences Expérimentales",
-        "ar": "بكالوريا 2024 — علوم الطبيعة والحياة — شعبة علوم تجريبية",
-        "en": "BAC 2024 — Natural Sciences — Experimental Sciences Stream"
-      },
-      "level": "s3",
-      "stream": "sciences",
-      "subject": "svt",
-      "type": "bac-bem",
-      "year": 2024,
-      "wilaya": "National",
-      "description": {
-        "fr": "Sujet officiel BAC 2024 de Sciences Naturelles.",
-        "ar": "الموضوع الرسمي لبكالوريا 2024 في علوم الطبيعة والحياة.",
-        "en": "Official BAC 2024 Natural Sciences exam."
-      },
-      "fileType": "pdf",
-      "pages": 4,
-      "size": "1.2 MB",
-      "previewUrl": "https://drive.google.com/file/d/0T1U2V3W4X5Y6Z7A8B9C/preview",
-      "downloadUrl": "https://drive.google.com/uc?export=download&id=0T1U2V3W4X5Y6Z7A8B9C",
-      "host": "drive",
-      "downloads": 13800,
-      "rating": 4.7,
-      "tags": [
-        "bac2024",
-        "svt"
-      ],
-      "trimestre": null
-    },
-    {
-      "id": "doc-0025",
-      "title": {
-        "fr": "Devoir n°2 — Éducation Islamique — 1AM",
-        "ar": "الفرض الثاني — التربية الإسلامية — السنة الأولى متوسط",
-        "en": "Homework #2 — Islamic Education — 1st Year Middle"
-      },
-      "level": "m1",
-      "stream": null,
-      "subject": "education-islamique",
       "type": "devoir",
-      "year": 2024,
-      "wilaya": "Constantine",
+      "year": "2015",
+      "trimestre": null,
+      "wilaya": "",
       "description": {
-        "fr": "Devoir du 2ème trimestre, avec grille de correction.",
-        "ar": "فرض الفصل الثاني، مع شبكة التصحيح.",
-        "en": "2nd term homework, with grading grid."
+        "fr": "Thème 2 - Chapitre 3 - Mathématiques - Préparation de la solution   2015",
+        "ar": "الموضوع رقم 2 - الفصل الثالث - الرياضيات - تحضيري الحل ❌ 📅 2015",
+        "en": "Topic 2 - Chapter 3 - Mathematics - Solution Preparation 2015"
       },
       "fileType": "pdf",
-      "pages": 2,
-      "size": "0.3 MB",
-      "previewUrl": "https://mega.nz/embed/eFgH5IjK6!l7MnOpQrStUvWxYzAb",
-      "downloadUrl": "https://mega.nz/file/eFgH5IjK6#l7MnOpQrStUvWxYzAb",
-      "host": "mega",
-      "downloads": 2100,
-      "rating": 4.2,
-      "tags": [
-        "devoir",
-        "constantine"
-      ],
-      "trimestre": "t1"
-    },
-    {
-      "id": "doc-0026",
-      "title": {
-        "fr": "BAC 2023 — Informatique — Filière Technique Mathématique",
-        "ar": "بكالوريا 2023 — معلوماتية — شعبة تقني رياضي",
-        "en": "BAC 2023 — Computer Science — Technical Mathematics Stream"
-      },
-      "level": "s3",
-      "stream": "techno",
-      "subject": "informatique",
-      "type": "bac-bem",
-      "year": 2023,
-      "wilaya": "National",
-      "description": {
-        "fr": "Sujet officiel BAC 2023 d'Informatique.",
-        "ar": "الموضوع الرسمي لبكالوريا 2023 في المعلوماتية.",
-        "en": "Official BAC 2023 Computer Science exam."
-      },
-      "fileType": "pdf",
-      "pages": 3,
-      "size": "0.7 MB",
-      "previewUrl": "https://drive.google.com/file/d/1U2V3W4X5Y6Z7A8B9C0D/preview",
-      "downloadUrl": "https://drive.google.com/uc?export=download&id=1U2V3W4X5Y6Z7A8B9C0D",
+      "pages": "",
+      "size": "591 KB",
+      "previewUrl": "https://drive.google.com/file/d/1Umm6CXLtO4cJ8StpyUWNLH47qIOHD6Yq/view?usp=drivesdk",
+      "downloadUrl": "https://drive.google.com/uc?id=1Umm6CXLtO4cJ8StpyUWNLH47qIOHD6Yq&export=download",
       "host": "drive",
-      "downloads": 5600,
-      "rating": 4.6,
-      "tags": [
-        "bac2023",
-        "informatique"
-      ],
-      "trimestre": null
-    },
-    {
-      "id": "doc-0027",
-      "title": {
-        "fr": "Résumé — Tout le programme de Chimie (Terminale)",
-        "ar": "ملخص — كامل برنامج الكيمياء (نهائي)",
-        "en": "Summary — Full Chemistry Program (Final Year)"
-      },
-      "level": "s3",
-      "stream": "sciences",
-      "subject": "physique",
-      "type": "resumes",
-      "year": 2024,
-      "wilaya": null,
-      "description": {
-        "fr": "Résumé complet de toutes les notions de chimie au programme du BAC.",
-        "ar": "ملخص شامل لجميع مفاهيم الكيمياء في برنامج البكالوريا.",
-        "en": "Complete summary of all chemistry concepts in the BAC program."
-      },
-      "fileType": "pdf",
-      "pages": 22,
-      "size": "4.1 MB",
-      "previewUrl": "https://drive.google.com/file/d/2V3W4X5Y6Z7A8B9C0D1E/preview",
-      "downloadUrl": "https://drive.google.com/uc?export=download&id=2V3W4X5Y6Z7A8B9C0D1E",
-      "host": "drive",
-      "downloads": 19500,
-      "rating": 4.9,
-      "tags": [
-        "resume",
-        "chimie",
-        "synthese"
-      ],
-      "trimestre": null
-    },
-    {
-      "id": "doc-0028",
-      "title": {
-        "fr": "BAC 2021 — Mathématiques — Filière Sciences Expérimentales",
-        "ar": "بكالوريا 2021 — رياضيات — شعبة علوم تجريبية",
-        "en": "BAC 2021 — Mathematics — Experimental Sciences"
-      },
-      "level": "s3",
-      "stream": "sciences",
-      "subject": "math",
-      "type": "bac-bem",
-      "year": 2021,
-      "wilaya": "National",
-      "description": {
-        "fr": "Sujet officiel BAC 2021, filière Sciences Expérimentales.",
-        "ar": "الموضوع الرسمي لبكالوريا 2021، شعبة علوم تجريبية.",
-        "en": "Official BAC 2021 exam, Experimental Sciences stream."
-      },
-      "fileType": "pdf",
-      "pages": 4,
-      "size": "1.1 MB",
-      "previewUrl": "https://drive.google.com/file/d/3W4X5Y6Z7A8B9C0D1E2F/preview",
-      "downloadUrl": "https://drive.google.com/uc?export=download&id=3W4X5Y6Z7A8B9C0D1E2F",
-      "host": "drive",
-      "downloads": 8200,
-      "rating": 4.6,
-      "tags": [
-        "bac2021",
-        "sciences"
-      ],
-      "trimestre": null
-    },
-    {
-      "id": "doc-0029",
-      "title": {
-        "fr": "BEM 2021 — Langue Arabe",
-        "ar": "شهادة التعليم المتوسط 2021 — اللغة العربية",
-        "en": "BEM 2021 — Arabic Language"
-      },
-      "level": "m4",
-      "stream": null,
-      "subject": "arabe",
-      "type": "bac-bem",
-      "year": 2021,
-      "wilaya": "National",
-      "description": {
-        "fr": "Sujet officiel BEM 2021 en Langue Arabe.",
-        "ar": "الموضوع الرسمي لشهادة التعليم المتوسط 2021 في اللغة العربية.",
-        "en": "Official BEM 2021 exam in Arabic Language."
-      },
-      "fileType": "pdf",
-      "pages": 2,
-      "size": "0.4 MB",
-      "previewUrl": "https://drive.google.com/file/d/4X5Y6Z7A8B9C0D1E2F3G/preview",
-      "downloadUrl": "https://drive.google.com/uc?export=download&id=4X5Y6Z7A8B9C0D1E2F3G",
-      "host": "drive",
-      "downloads": 6900,
-      "rating": 4.5,
-      "tags": [
-        "bem2021",
-        "arabe"
-      ],
-      "trimestre": null
-    },
-    {
-      "id": "doc-0030",
-      "title": {
-        "fr": "Cours — La Révolution Française et ses Conséquences",
-        "ar": "درس — الثورة الفرنسية ونتائجها",
-        "en": "Course — The French Revolution and its Consequences"
-      },
-      "level": "s2",
-      "stream": "general",
-      "subject": "histoire-geo",
-      "type": "cours",
-      "year": 2024,
-      "wilaya": null,
-      "description": {
-        "fr": "Cours détaillé avec chronologie et cartes sur la Révolution française.",
-        "ar": "درس مفصل مع التسلسل الزمني والخرائط حول الثورة الفرنسية.",
-        "en": "Detailed course with timeline and maps on the French Revolution."
-      },
-      "fileType": "pdf",
-      "pages": 9,
-      "size": "2.0 MB",
-      "previewUrl": "https://mega.nz/embed/fGhI6JkL7!m8NoPqRsTuVwXyZaBc",
-      "downloadUrl": "https://mega.nz/file/fGhI6JkL7#m8NoPqRsTuVwXyZaBc",
-      "host": "mega",
-      "downloads": 4100,
-      "rating": 4.4,
-      "tags": [
-        "cours",
-        "histoire"
-      ],
-      "trimestre": null
+      "source": "dzexams",
+      "urlSource": "https://www.dzexams.com/ar/sujets/STNLblZnNGowVmxYbFJEcXArTWhxdz09",
+      "urlPdf": "https://www.dzexams.com/uploads/sujets/sujets2015/dzexams-0ap-mathematiques-469387.pdf",
+      "downloads": 0,
+      "rating": 0,
+      "tags": []
     }
   ],
-  "wilayas": [
-    {
-      "code": "01",
-      "name": {
-        "fr": "Adrar",
-        "ar": "أدرار",
-        "en": "Adrar"
-      }
-    },
-    {
-      "code": "02",
-      "name": {
-        "fr": "Chlef",
-        "ar": "الشلف",
-        "en": "Chlef"
-      }
-    },
-    {
-      "code": "03",
-      "name": {
-        "fr": "Laghouat",
-        "ar": "الأغواط",
-        "en": "Laghouat"
-      }
-    },
-    {
-      "code": "04",
-      "name": {
-        "fr": "Oum El Bouaghi",
-        "ar": "أم البواقي",
-        "en": "Oum El Bouaghi"
-      }
-    },
-    {
-      "code": "05",
-      "name": {
-        "fr": "Batna",
-        "ar": "باتنة",
-        "en": "Batna"
-      }
-    },
-    {
-      "code": "06",
-      "name": {
-        "fr": "Béjaïa",
-        "ar": "بجاية",
-        "en": "Béjaïa"
-      }
-    },
-    {
-      "code": "07",
-      "name": {
-        "fr": "Biskra",
-        "ar": "بسكرة",
-        "en": "Biskra"
-      }
-    },
-    {
-      "code": "08",
-      "name": {
-        "fr": "Béchar",
-        "ar": "بشار",
-        "en": "Béchar"
-      }
-    },
-    {
-      "code": "09",
-      "name": {
-        "fr": "Blida",
-        "ar": "البليدة",
-        "en": "Blida"
-      }
-    },
-    {
-      "code": "10",
-      "name": {
-        "fr": "Bouira",
-        "ar": "البويرة",
-        "en": "Bouira"
-      }
-    },
-    {
-      "code": "11",
-      "name": {
-        "fr": "Tamanrasset",
-        "ar": "تمنراست",
-        "en": "Tamanrasset"
-      }
-    },
-    {
-      "code": "12",
-      "name": {
-        "fr": "Tébessa",
-        "ar": "تبسة",
-        "en": "Tébessa"
-      }
-    },
-    {
-      "code": "13",
-      "name": {
-        "fr": "Tlemcen",
-        "ar": "تلمسان",
-        "en": "Tlemcen"
-      }
-    },
-    {
-      "code": "14",
-      "name": {
-        "fr": "Tiaret",
-        "ar": "تيارت",
-        "en": "Tiaret"
-      }
-    },
-    {
-      "code": "15",
-      "name": {
-        "fr": "Tizi Ouzou",
-        "ar": "تيزي وزو",
-        "en": "Tizi Ouzou"
-      }
-    },
-    {
-      "code": "16",
-      "name": {
-        "fr": "Alger",
-        "ar": "الجزائر",
-        "en": "Alger"
-      }
-    },
-    {
-      "code": "17",
-      "name": {
-        "fr": "Djelfa",
-        "ar": "الجلفة",
-        "en": "Djelfa"
-      }
-    },
-    {
-      "code": "18",
-      "name": {
-        "fr": "Jijel",
-        "ar": "جيجل",
-        "en": "Jijel"
-      }
-    },
-    {
-      "code": "19",
-      "name": {
-        "fr": "Sétif",
-        "ar": "سطيف",
-        "en": "Sétif"
-      }
-    },
-    {
-      "code": "20",
-      "name": {
-        "fr": "Saïda",
-        "ar": "سعيدة",
-        "en": "Saïda"
-      }
-    },
-    {
-      "code": "21",
-      "name": {
-        "fr": "Skikda",
-        "ar": "سكيكدة",
-        "en": "Skikda"
-      }
-    },
-    {
-      "code": "22",
-      "name": {
-        "fr": "Sidi Bel Abbès",
-        "ar": "سيدي بلعباس",
-        "en": "Sidi Bel Abbès"
-      }
-    },
-    {
-      "code": "23",
-      "name": {
-        "fr": "Annaba",
-        "ar": "عنابة",
-        "en": "Annaba"
-      }
-    },
-    {
-      "code": "24",
-      "name": {
-        "fr": "Guelma",
-        "ar": "قالمة",
-        "en": "Guelma"
-      }
-    },
-    {
-      "code": "25",
-      "name": {
-        "fr": "Constantine",
-        "ar": "قسنطينة",
-        "en": "Constantine"
-      }
-    },
-    {
-      "code": "26",
-      "name": {
-        "fr": "Médéa",
-        "ar": "المدية",
-        "en": "Médéa"
-      }
-    },
-    {
-      "code": "27",
-      "name": {
-        "fr": "Mostaganem",
-        "ar": "مستغانم",
-        "en": "Mostaganem"
-      }
-    },
-    {
-      "code": "28",
-      "name": {
-        "fr": "M'Sila",
-        "ar": "المسيلة",
-        "en": "M'Sila"
-      }
-    },
-    {
-      "code": "29",
-      "name": {
-        "fr": "Mascara",
-        "ar": "معسكر",
-        "en": "Mascara"
-      }
-    },
-    {
-      "code": "30",
-      "name": {
-        "fr": "Ouargla",
-        "ar": "ورقلة",
-        "en": "Ouargla"
-      }
-    },
-    {
-      "code": "31",
-      "name": {
-        "fr": "Oran",
-        "ar": "وهران",
-        "en": "Oran"
-      }
-    },
-    {
-      "code": "32",
-      "name": {
-        "fr": "El Bayadh",
-        "ar": "البيض",
-        "en": "El Bayadh"
-      }
-    },
-    {
-      "code": "33",
-      "name": {
-        "fr": "Illizi",
-        "ar": "إليزي",
-        "en": "Illizi"
-      }
-    },
-    {
-      "code": "34",
-      "name": {
-        "fr": "Bordj Bou Arréridj",
-        "ar": "برج بوعريريج",
-        "en": "Bordj Bou Arréridj"
-      }
-    },
-    {
-      "code": "35",
-      "name": {
-        "fr": "Boumerdès",
-        "ar": "بومرداس",
-        "en": "Boumerdès"
-      }
-    },
-    {
-      "code": "36",
-      "name": {
-        "fr": "El Tarf",
-        "ar": "الطارف",
-        "en": "El Tarf"
-      }
-    },
-    {
-      "code": "37",
-      "name": {
-        "fr": "Tindouf",
-        "ar": "تندوف",
-        "en": "Tindouf"
-      }
-    },
-    {
-      "code": "38",
-      "name": {
-        "fr": "Tissemsilt",
-        "ar": "تيسمسيلت",
-        "en": "Tissemsilt"
-      }
-    },
-    {
-      "code": "39",
-      "name": {
-        "fr": "El Oued",
-        "ar": "الوادي",
-        "en": "El Oued"
-      }
-    },
-    {
-      "code": "40",
-      "name": {
-        "fr": "Khenchela",
-        "ar": "خنشلة",
-        "en": "Khenchela"
-      }
-    },
-    {
-      "code": "41",
-      "name": {
-        "fr": "Souk Ahras",
-        "ar": "سوق أهراس",
-        "en": "Souk Ahras"
-      }
-    },
-    {
-      "code": "42",
-      "name": {
-        "fr": "Tipaza",
-        "ar": "تيبازة",
-        "en": "Tipaza"
-      }
-    },
-    {
-      "code": "43",
-      "name": {
-        "fr": "Mila",
-        "ar": "ميلة",
-        "en": "Mila"
-      }
-    },
-    {
-      "code": "44",
-      "name": {
-        "fr": "Aïn Defla",
-        "ar": "عين الدفلى",
-        "en": "Aïn Defla"
-      }
-    },
-    {
-      "code": "45",
-      "name": {
-        "fr": "Naâma",
-        "ar": "النعامة",
-        "en": "Naâma"
-      }
-    },
-    {
-      "code": "46",
-      "name": {
-        "fr": "Aïn Témouchent",
-        "ar": "عين تموشنت",
-        "en": "Aïn Témouchent"
-      }
-    },
-    {
-      "code": "47",
-      "name": {
-        "fr": "Ghardaïa",
-        "ar": "غرداية",
-        "en": "Ghardaïa"
-      }
-    },
-    {
-      "code": "48",
-      "name": {
-        "fr": "Relizane",
-        "ar": "غليزان",
-        "en": "Relizane"
-      }
-    },
-    {
-      "code": "49",
-      "name": {
-        "fr": "Timimoun",
-        "ar": "تيميمون",
-        "en": "Timimoun"
-      }
-    },
-    {
-      "code": "50",
-      "name": {
-        "fr": "Bordj Badji Mokhtar",
-        "ar": "برج باجي مختار",
-        "en": "Bordj Badji Mokhtar"
-      }
-    },
-    {
-      "code": "51",
-      "name": {
-        "fr": "Ouled Djellal",
-        "ar": "أولاد جلال",
-        "en": "Ouled Djellal"
-      }
-    },
-    {
-      "code": "52",
-      "name": {
-        "fr": "Béni Abbès",
-        "ar": "بني عباس",
-        "en": "Béni Abbès"
-      }
-    },
-    {
-      "code": "53",
-      "name": {
-        "fr": "In Salah",
-        "ar": "عين صالح",
-        "en": "In Salah"
-      }
-    },
-    {
-      "code": "54",
-      "name": {
-        "fr": "In Guezzam",
-        "ar": "عين قزام",
-        "en": "In Guezzam"
-      }
-    },
-    {
-      "code": "55",
-      "name": {
-        "fr": "Touggourt",
-        "ar": "تقرت",
-        "en": "Touggourt"
-      }
-    },
-    {
-      "code": "56",
-      "name": {
-        "fr": "Djanet",
-        "ar": "جانت",
-        "en": "Djanet"
-      }
-    },
-    {
-      "code": "57",
-      "name": {
-        "fr": "El M'Ghair",
-        "ar": "المغير",
-        "en": "El M'Ghair"
-      }
-    },
-    {
-      "code": "58",
-      "name": {
-        "fr": "El Ménia",
-        "ar": "المنيعة",
-        "en": "El Ménia"
-      }
-    },
-    {
-      "code": "59",
-      "name": {
-        "fr": "Aflou",
-        "ar": "أفلو",
-        "en": "Aflou"
-      }
-    },
-    {
-      "code": "60",
-      "name": {
-        "fr": "Barika",
-        "ar": "بريكة",
-        "en": "Barika"
-      }
-    },
-    {
-      "code": "61",
-      "name": {
-        "fr": "El Kantara",
-        "ar": "القنطرة",
-        "en": "El Kantara"
-      }
-    },
-    {
-      "code": "62",
-      "name": {
-        "fr": "Bir El Ater",
-        "ar": "بئر العاتر",
-        "en": "Bir El Ater"
-      }
-    },
-    {
-      "code": "63",
-      "name": {
-        "fr": "El Aricha",
-        "ar": "العريشة",
-        "en": "El Aricha"
-      }
-    },
-    {
-      "code": "64",
-      "name": {
-        "fr": "Ksar Chellala",
-        "ar": "قصر الشلالة",
-        "en": "Ksar Chellala"
-      }
-    },
-    {
-      "code": "65",
-      "name": {
-        "fr": "Aïn Oussera",
-        "ar": "عين وسارة",
-        "en": "Aïn Oussera"
-      }
-    },
-    {
-      "code": "66",
-      "name": {
-        "fr": "Messaad",
-        "ar": "مسعد",
-        "en": "Messaad"
-      }
-    },
-    {
-      "code": "67",
-      "name": {
-        "fr": "Ksar El Boukhari",
-        "ar": "قصر البخاري",
-        "en": "Ksar El Boukhari"
-      }
-    },
-    {
-      "code": "68",
-      "name": {
-        "fr": "Bou Saâda",
-        "ar": "بوسعادة",
-        "en": "Bou Saâda"
-      }
-    },
-    {
-      "code": "69",
-      "name": {
-        "fr": "El Abiodh Sidi Cheikh",
-        "ar": "الأبيض سيدي الشيخ",
-        "en": "El Abiodh Sidi Cheikh"
-      }
-    }
-  ],
-  "trimestres": [
-    {
-      "id": "t1",
-      "name": {
-        "fr": "1er Trimestre",
-        "ar": "الفصل الأول",
-        "en": "1st Term"
-      }
-    },
-    {
-      "id": "t2",
-      "name": {
-        "fr": "2ème Trimestre",
-        "ar": "الفصل الثاني",
-        "en": "2nd Term"
-      }
-    },
-    {
-      "id": "t3",
-      "name": {
-        "fr": "3ème Trimestre",
-        "ar": "الفصل الثالث",
-        "en": "3rd Term"
-      }
-    }
-  ]
+  "hidden": {
+    "docIds": []
+  }
 }
