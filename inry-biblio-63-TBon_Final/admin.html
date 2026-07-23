@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://api.openai.com https://api.anthropic.com https://generativelanguage.googleapis.com https://api.mymemory.translated.net; frame-src https://drive.google.com; object-src 'none'; base-uri 'self';">
+<script>window.addEventListener('pageshow',function(e){if(e.persisted)location.reload();});</script>
+<title>Administration — INRY-Biblio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700;900&family=Source+Sans+3:wght@400;600;700&family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="css/tokens.css?v=39">
+<link rel="stylesheet" href="css/components.css?v=39">
+<link rel="stylesheet" href="css/assistant-admin.css?v=39">
+</head>
+<body>
+<a href="#main" class="skip-link">Aller au contenu</a>
+<div id="header-root"></div>
+
+<main id="main" class="admin-page">
+
+  <div class="admin-lock" id="admin-lock-screen">
+    <div id="lock-icon"></div>
+    <h2 data-i18n="admin.title" style="font-size:var(--fs-lg);"></h2>
+    <p style="color:var(--ink-soft); font-size:var(--fs-sm); margin-top:0.5rem;" data-i18n="admin.subtitle"></p>
+    <form class="admin-lock-form" id="admin-login-form">
+      <input type="password" id="admin-password-input" data-i18n-placeholder="admin.passwordPlaceholder" required>
+      <div class="admin-error" id="admin-error"></div>
+      <button class="btn btn-primary" type="submit" data-i18n="admin.login"></button>
+    </form>
+  </div>
+
+  <div id="admin-content" class="hidden">
+    <div class="admin-toprow">
+      <div>
+        <div class="eyebrow" data-i18n="nav.admin"></div>
+        <h2 data-i18n="admin.title" style="font-size:var(--fs-xl);"></h2>
+      </div>
+      <button class="btn btn-secondary btn-sm" id="admin-logout-btn" data-i18n="admin.logout"></button>
+    </div>
+
+    <div class="admin-tabs">
+      <button class="admin-tab-btn active" data-tab="docs" data-i18n="admin.tabDocs"></button>
+      <button class="admin-tab-btn" data-tab="keys" data-i18n="admin.tabKeys"></button>
+      <button class="admin-tab-btn" data-tab="password" data-i18n="admin.tabPassword"></button>
+    </div>
+
+    <!-- ============== DOCUMENTS TAB ============== -->
+    <div class="admin-tab-panel" id="tab-panel-docs">
+
+      <div class="admin-sub-tabs">
+        <button class="admin-sub-tab active" data-subtab="docs-add">➕ Ajouter</button>
+        <button class="admin-sub-tab" data-subtab="docs-list">📋 Liste</button>
+        <button class="admin-sub-tab" data-subtab="docs-db">💾 Base de données</button>
+        <button class="admin-sub-tab" data-subtab="docs-import">📥 Import</button>
+        <button class="admin-sub-tab" data-subtab="docs-github">☁️ GitHub Sync</button>
+      </div>
+
+      <div class="admin-sub-panel" id="sub-panel-docs-add">
+        <div class="admin-section" id="doc-form-section">
+          <h3><span id="doc-form-icon"></span> <span id="doc-form-title-heading" data-i18n="admin.addDoc"></span></h3>
+          <form id="doc-form">
+            <div class="form-row-cols-3">
+              <div class="form-row">
+                <label data-i18n="admin.titleFr"></label>
+                <input type="text" id="doc-form-title-fr" required>
+              </div>
+              <div class="form-row">
+                <label data-i18n="admin.titleAr"></label>
+                <input type="text" id="doc-form-title-ar" dir="rtl">
+              </div>
+              <div class="form-row">
+                <label data-i18n="admin.titleEn"></label>
+                <input type="text" id="doc-form-title-en">
+              </div>
+            </div>
+            <div class="form-row-cols-3">
+              <div class="form-row">
+                <label data-i18n="admin.descFr"></label>
+                <textarea id="doc-form-desc-fr" rows="2"></textarea>
+              </div>
+              <div class="form-row">
+                <label data-i18n="admin.descAr"></label>
+                <textarea id="doc-form-desc-ar" rows="2" dir="rtl"></textarea>
+              </div>
+              <div class="form-row">
+                <label data-i18n="admin.descEn"></label>
+                <textarea id="doc-form-desc-en" rows="2"></textarea>
+              </div>
+            </div>
+            <div class="form-row" style="display:flex;gap:var(--space-3);align-items:center;flex-wrap:wrap;">
+              <button class="btn btn-secondary btn-sm" id="spell-check-btn" type="button" data-i18n="admin.spellCheck">Corriger l'orthographe (descriptions)</button>
+              <label style="display:flex;align-items:center;gap:var(--space-1);font-size:var(--fs-xs);cursor:pointer;">
+                <input type="checkbox" id="auto-translate-toggle" checked>
+                <span>Traduction auto (FR → AR/EN)</span>
+              </label>
+            </div>
+            <div class="form-row-cols">
+              <div class="form-row">
+                <label data-i18n="admin.level"></label>
+                <select id="doc-form-level" required></select>
+              </div>
+              <div class="form-row">
+                <label data-i18n="admin.stream"></label>
+                <select id="doc-form-stream"></select>
+              </div>
+            </div>
+            <div class="form-row-cols">
+              <div class="form-row">
+                <label data-i18n="admin.subject"></label>
+                <select id="doc-form-subject" required></select>
+              </div>
+              <div class="form-row">
+                <label data-i18n="admin.type"></label>
+                <select id="doc-form-type" required></select>
+              </div>
+            </div>
+            <div class="form-row-cols-3">
+              <div class="form-row">
+                <label data-i18n="admin.year"></label>
+                <input type="number" id="doc-form-year" min="2000" max="2100">
+              </div>
+              <div class="form-row">
+                <label data-i18n="admin.trimestre"></label>
+                <select id="doc-form-trimestre"></select>
+              </div>
+              <div class="form-row">
+                <label data-i18n="admin.pages"></label>
+                <input type="number" id="doc-form-pages" min="1">
+              </div>
+            </div>
+            <div class="form-row-cols">
+              <div class="form-row">
+                <label data-i18n="admin.wilaya"></label>
+                <select id="doc-form-wilaya"></select>
+              </div>
+              <div class="form-row">
+                <label data-i18n="admin.size"></label>
+                <input type="text" id="doc-form-size" placeholder="1.2 MB">
+              </div>
+            </div>
+            <div class="form-row-cols">
+              <div class="form-row">
+                <label data-i18n="admin.host"></label>
+                <select id="doc-form-host"></select>
+              </div>
+              <div class="form-row" style="visibility:hidden;"></div>
+            </div>
+            <div class="form-row">
+              <label data-i18n="admin.previewUrl"></label>
+              <input type="url" id="doc-form-preview-url" required placeholder="https://drive.google.com/file/d/ID/preview">
+              <span class="export-hint" data-i18n="admin.previewUrlHint"></span>
+            </div>
+            <div class="form-row">
+              <label data-i18n="admin.downloadUrl"></label>
+              <input type="url" id="doc-form-download-url" required placeholder="https://drive.google.com/uc?export=download&id=ID">
+              <span class="export-hint" data-i18n="admin.downloadUrlHint"></span>
+            </div>
+            <div class="form-row-cols">
+              <div class="form-row">
+                <label data-i18n="admin.source"></label>
+                <input type="text" id="doc-form-source" placeholder="dzexams, eddirasa, ency-education…">
+              </div>
+              <div class="form-row">
+                <label data-i18n="admin.urlSource"></label>
+                <input type="url" id="doc-form-url-source" placeholder="https://www.dzexams.com/ar/sujets/...">
+              </div>
+            </div>
+            <div class="form-row">
+              <label data-i18n="admin.urlPdf"></label>
+              <input type="url" id="doc-form-url-pdf" placeholder="https://www.dzexams.com/uploads/sujets/...">
+            </div>
+            <div class="doc-form-actions">
+              <button class="btn btn-primary" type="submit" id="doc-form-submit-btn" data-i18n="admin.save"></button>
+              <button class="btn btn-secondary" type="button" id="doc-form-cancel-btn" data-i18n="admin.cancel"></button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="admin-sub-panel hidden" id="sub-panel-docs-list">
+        <div class="admin-section">
+          <div class="admin-doc-search-row">
+            <h3 style="margin-bottom:0;" data-i18n="admin.docManagerTitle"></h3>
+            <input type="search" id="admin-doc-search" class="filter-select" data-i18n-placeholder="admin.searchDocsPlaceholder" style="min-width:240px;">
+          </div>
+          <div class="admin-doc-table-wrap">
+            <table class="admin-doc-table">
+              <thead>
+                <tr>
+                  <th style="width:36px;"><input type="checkbox" id="select-all-docs" title="Tout sélectionner"></th>
+                  <th data-i18n="admin.docTableTitle" data-sort="title" class="sortable" title="Cliquer pour trier"></th>
+                  <th data-i18n="admin.docTableSubject" data-sort="subject" class="sortable" title="Cliquer pour trier"></th>
+                  <th data-i18n="admin.docTableType" data-sort="type" class="sortable" title="Cliquer pour trier"></th>
+                  <th data-i18n="admin.docTableTrimestre" data-sort="trimestre" class="sortable" title="Cliquer pour trier"></th>
+                  <th data-i18n="admin.docTableYear" data-sort="year" class="sortable" title="Cliquer pour trier"></th>
+                  <th data-i18n="admin.docTableHost" data-sort="host" class="sortable" title="Cliquer pour trier"></th>
+                  <th data-i18n="admin.docTableSource" data-sort="source" class="sortable" title="Cliquer pour trier"></th>
+                  <th style="width:36px;" title="Lien source"></th>
+                  <th data-i18n="admin.docTableActions"></th>
+                </tr>
+              </thead>
+              <tbody id="admin-doc-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-sub-panel hidden" id="sub-panel-docs-db">
+        <div class="admin-section">
+          <h3><span id="export-icon"></span> <span data-i18n="admin.exportDb"></span></h3>
+          <p class="export-hint" data-i18n="admin.exportHint" style="margin-bottom:1rem;"></p>
+          <button class="btn btn-secondary" id="export-db-btn"><span id="export-btn-icon"></span> <span data-i18n="admin.exportDb"></span></button>
+        </div>
+
+        <div class="admin-section">
+          <h3>📥 Export Manifest JSON</h3>
+          <p class="export-hint" style="margin-bottom:1rem;">Génère un manifest compatible avec fp-smart / dzexams. Télécharge le fichier ou copie-le dans le presse-papier pour un upload cloud.</p>
+          <div style="display:flex;gap:var(--space-2);align-items:center;flex-wrap:wrap;">
+            <button class="btn btn-primary btn-sm" id="export-manifest-btn">📥 Télécharger le manifest</button>
+            <button class="btn btn-ghost btn-sm" id="copy-manifest-btn">📋 Copier le manifest</button>
+          </div>
+        </div>
+
+        <div class="admin-section">
+          <h3><span id="import-icon"></span> <span>Importer / Sauvegardes</span></h3>
+          <p class="export-hint" style="margin-bottom:1rem;">Importe un fichier db.json ou restaure une sauvegarde locale.</p>
+          <div style="display:flex;gap:var(--space-2);align-items:center;flex-wrap:wrap;">
+            <input type="file" id="import-db-file-input" accept=".json" style="flex:1;min-width:200px;padding:var(--space-2);border:2px solid var(--kraft);border-radius:var(--radius-sm);font-size:var(--fs-sm);background:var(--surface);">
+            <button class="btn btn-primary" id="import-db-btn">Importer</button>
+            <button class="btn btn-ghost btn-sm" id="reset-db-btn">↺ Réinitialiser</button>
+          </div>
+          <div id="db-backup-list" style="margin-top:var(--space-3);"></div>
+
+          <div class="admin-section" style="margin-top:var(--space-4);padding-top:var(--space-4);border-top:1px solid var(--kraft-line);">
+            <label style="font-weight:600;font-size:var(--fs-sm);display:block;margin-bottom:var(--space-2);">Sauvegarde automatique</label>
+
+            <div style="display:flex;flex-direction:column;gap:var(--space-2);">
+              <label style="display:flex;align-items:center;gap:var(--space-2);font-size:var(--fs-sm);">
+                <input type="radio" name="auto-backup-mode" value="off"> Désactivée
+              </label>
+              <label style="display:flex;align-items:center;gap:var(--space-2);font-size:var(--fs-sm);">
+                <input type="radio" name="auto-backup-mode" value="interval"> Intervalle régulier
+              </label>
+              <label style="display:flex;align-items:center;gap:var(--space-2);font-size:var(--fs-sm);">
+                <input type="radio" name="auto-backup-mode" value="fixed"> Horaire fixe (chaque jour)
+              </label>
+            </div>
+
+            <div id="auto-backup-interval-group" style="display:none;margin-top:var(--space-2);align-items:center;gap:var(--space-2);">
+              <span style="font-size:var(--fs-sm);">Toutes les</span>
+              <input type="number" id="auto-backup-interval-val" min="1" max="365" value="1" style="width:70px;padding:var(--space-1) var(--space-2);border:2px solid var(--kraft);border-radius:var(--radius-md);background:var(--surface);color:var(--ink);font-size:var(--fs-sm);">
+              <select id="auto-backup-interval-unit" style="padding:var(--space-1) var(--space-2);border:2px solid var(--kraft);border-radius:var(--radius-md);background:var(--surface);color:var(--ink);font-size:var(--fs-sm);">
+                <option value="minutes">minutes</option>
+                <option value="hours" selected>heures</option>
+                <option value="days">jours</option>
+              </select>
+            </div>
+
+            <div id="auto-backup-fixed-group" style="display:none;margin-top:var(--space-2);align-items:center;gap:var(--space-2);">
+              <span style="font-size:var(--fs-sm);">À</span>
+              <input type="time" id="auto-backup-fixed-hour" value="08:00" style="padding:var(--space-1) var(--space-2);border:2px solid var(--kraft);border-radius:var(--radius-md);background:var(--surface);color:var(--ink);font-size:var(--fs-sm);">
+            </div>
+
+            <button class="btn btn-primary btn-sm" id="auto-backup-save" style="margin-top:var(--space-2);">Appliquer</button>
+            <span class="export-hint" style="display:block;margin-top:var(--space-1);">Une sauvegarde automatique est créée dans la liste ci-dessus selon l'horaire choisi.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-sub-panel hidden" id="sub-panel-docs-import">
+        <div class="admin-section">
+          <h3>📥 Import par fichier JSON (dzexams)</h3>
+          <p class="export-hint">Importe un fichier JSON contenant des documents (format dzexams) pour les ajouter en un clic.</p>
+          <div style="display:flex;gap:var(--space-2);align-items:center;flex-wrap:wrap;margin-bottom:var(--space-3);">
+            <input type="file" id="import-manifest-input" accept=".json" style="flex:1;min-width:200px;padding:var(--space-2);border:2px solid var(--kraft);border-radius:var(--radius-sm);font-size:var(--fs-sm);background:var(--surface);">
+            <button class="btn btn-primary" id="import-analyze-btn">Analyser</button>
+          </div>
+          <div id="import-preview-container" style="display:none;"></div>
+          <div style="margin-top:var(--space-4);padding-top:var(--space-4);border-top:1px solid var(--kraft-line);display:flex;gap:var(--space-2);align-items:center;flex-wrap:wrap;">
+            <button class="btn btn-secondary btn-sm" id="migrate-host-btn" title="Détecter le provider (google/mega/onedrive/dropbox) depuis l'URL des documents importés">🔄 Migrer hôtes</button>
+            <span style="font-size:var(--fs-xs);color:var(--ink-soft);">Met à jour la colonne Hébergeur d'après l'URL des documents</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="admin-sub-panel hidden" id="sub-panel-docs-github">
+        <div class="admin-section">
+          <h3>☁️ Synchronisation GitHub</h3>
+          <p class="export-hint" style="margin-bottom:var(--space-2);">Push automatique de db.json vers GitHub pour synchroniser entre PC.</p>
+          <div class="form-row" style="margin-bottom:var(--space-2);">
+            <label style="font-size:var(--fs-xs);">GitHub Personal Access Token</label>
+            <input type="password" id="github-pat-input" placeholder="ghp_xxxxxxxxxxxx" style="width:100%;padding:var(--space-2);border:1px solid var(--kraft-line);border-radius:var(--radius-sm);background:var(--surface);font-family:monospace;">
+          </div>
+          <div style="display:flex;gap:var(--space-2);margin-bottom:var(--space-2);flex-wrap:wrap;">
+            <div class="form-row" style="flex:1;min-width:200px;">
+              <label style="font-size:var(--fs-xs);">Dépôt (owner/repo)</label>
+              <input type="text" id="github-repo-input" value="" style="width:100%;padding:var(--space-2);border:1px solid var(--kraft-line);border-radius:var(--radius-sm);background:var(--surface);">
+            </div>
+            <div class="form-row" style="flex:0 0 120px;">
+              <label style="font-size:var(--fs-xs);">Branche</label>
+              <input type="text" id="github-branch-input" value="main" style="width:100%;padding:var(--space-2);border:1px solid var(--kraft-line);border-radius:var(--radius-sm);background:var(--surface);">
+            </div>
+            <div class="form-row" style="flex:0 0 250px;">
+              <label style="font-size:var(--fs-xs);">Chemin du fichier</label>
+              <input type="text" id="github-path-input" value="data/db.json" style="width:100%;padding:var(--space-2);border:1px solid var(--kraft-line);border-radius:var(--radius-sm);background:var(--surface);">
+            </div>
+          </div>
+          <div style="display:flex;gap:var(--space-2);align-items:center;flex-wrap:wrap;margin-bottom:var(--space-2);">
+            <button class="btn btn-primary btn-sm" id="github-push-btn">⬆️ Pousser db.json vers GitHub</button>
+            <button class="btn btn-secondary btn-sm" id="github-save-config-btn">💾 Sauvegarder la config</button>
+            <span id="github-push-status" style="font-size:var(--fs-xs);color:var(--ink-soft);"></span>
+          </div>
+          <label style="font-size:var(--fs-xs);display:flex;align-items:center;gap:var(--space-2);margin-bottom:var(--space-2);cursor:pointer;">
+            <input type="checkbox" id="github-auto-push" style="width:auto;"> Pousser automatiquement après chaque modification
+          </label>
+          <div id="github-push-log" style="font-size:var(--fs-xs);max-height:120px;overflow-y:auto;border:1px solid var(--kraft-line);border-radius:var(--radius-sm);padding:var(--space-2);display:none;"></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ============== API KEYS TAB ============== -->
+    <div class="admin-tab-panel hidden" id="tab-panel-keys">
+
+      <div class="admin-section">
+        <h3><span id="settings-icon"></span> <span data-i18n="admin.keysList"></span></h3>
+        <div class="key-list" id="admin-key-list"></div>
+      </div>
+
+      <div class="admin-section">
+        <h3 data-i18n="admin.provider"></h3>
+        <form id="admin-key-form">
+          <div class="form-row-cols">
+            <div class="form-row">
+              <label data-i18n="admin.provider"></label>
+              <select id="admin-provider"></select>
+            </div>
+            <div class="form-row">
+              <label data-i18n="admin.model"></label>
+              <input type="text" id="admin-model" placeholder="claude-sonnet-4-6">
+              <span class="export-hint" data-i18n="admin.modelHint"></span>
+              <a id="admin-model-help-link" href="#" target="_blank" rel="noopener" class="export-hint" style="text-decoration:underline; display:inline-block; margin-top:2px;" data-i18n="admin.modelHelpLink"></a>
+            </div>
+          </div>
+          <div class="form-row" id="admin-endpoint-row" style="display:none;">
+            <label data-i18n="admin.endpoint"></label>
+            <input type="url" id="admin-endpoint" placeholder="https://mon-api.exemple.com/v1/chat/completions">
+            <span class="export-hint" data-i18n="admin.endpointHint"></span>
+          </div>
+          <div class="form-row">
+            <label data-i18n="admin.apiKey"></label>
+            <input type="password" id="admin-api-key" data-i18n-placeholder="admin.apiKeyPlaceholder" autocomplete="off">
+          </div>
+          <div style="display:flex; align-items:center; gap:1rem;">
+            <button class="btn btn-primary" type="submit" data-i18n="admin.save"></button>
+            <span class="save-confirm" id="admin-save-confirm" data-i18n="admin.saved"></span>
+          </div>
+        </form>
+      </div>
+
+      <div class="admin-section">
+        <h3 data-i18n="admin.systemPrompt"></h3>
+        <div class="form-row">
+          <textarea id="admin-system-prompt" rows="10"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- ============== PASSWORD TAB ============== -->
+    <div class="admin-tab-panel hidden" id="tab-panel-password">
+      <div class="admin-section">
+        <h3><span id="password-icon"></span> <span data-i18n="admin.changePassword"></span></h3>
+        <form id="admin-password-form">
+          <div class="form-row">
+            <label data-i18n="admin.currentPassword"></label>
+            <input type="password" id="admin-current-password" required autocomplete="off">
+          </div>
+          <div class="form-row">
+            <label data-i18n="admin.newPassword"></label>
+            <input type="password" id="admin-new-password" required minlength="6" autocomplete="off">
+          </div>
+          <div class="form-row">
+            <label data-i18n="admin.confirmPassword"></label>
+            <input type="password" id="admin-confirm-password" required minlength="6" autocomplete="off">
+          </div>
+          <div class="admin-error" id="admin-password-error"></div>
+          <div style="display:flex; align-items:center; gap:1rem;">
+            <button class="btn btn-primary" type="submit" data-i18n="admin.save"></button>
+            <span class="save-confirm" id="admin-password-save-confirm" data-i18n="admin.passwordChanged"></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="footer-root"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="js/icons.js?v=39"></script>
+<script src="js/i18n.js?v=39"></script>
+<script src="js/layout.js?v=39"></script>
+<script src="js/documents.js?v=39"></script>
+<script src="js/admin.js?v=39"></script>
+<script src="js/assistant.js?v=39"></script>
+<script src="js/doc-manager.js?v=39"></script>
+<script>
+function getFieldValue(item, aliases) {
+  for (const alias of aliases) {
+    let val;
+    if (alias.includes('.')) {
+      val = alias.split('.').reduce((o, k) => (o != null ? o[k] : undefined), item);
+    } else {
+      val = item[alias];
+    }
+    if (val != null && val !== '') return val;
+  }
+  return '';
+}
+
+var IMPORT_ALIASES = {
+  'title.ar': ['titre', 'title.ar', 'title', 'العنوان'],
+  'title.fr': ['title.fr', 'titreFr', 'titre_fr'],
+  'title.en': ['title.en', 'titreEn', 'titre_en'],
+  level: ['niveau', 'level', 'grade', 'المستوى', 'classe'],
+  stream: ['filiere', 'stream', 'branch', 'الشعبة'],
+  subject: ['matiere', 'subject', 'subjectName', 'المادة'],
+  type: ['type_doc_label', 'type', 'type_doc', 'docType', 'النوع'],
+  year: ['annee', 'year', 'année', 'السنة'],
+  trimestre: ['trimestre', 'trimester', 'term', 'الفصل'],
+  wilaya: ['wilaya', 'codeWilaya', 'ولاية'],
+  size: ['tailleFichier', 'taille_octets', 'tailleOctets', 'size', 'fileSize', 'filesize', 'الحجم'],
+  pages: ['pages', 'nbrPages', 'pageCount', 'عدد الصفحات'],
+  previewUrl: ['urlCloud', 'url_cloud', 'previewUrl', 'cloudUrl', 'preview'],
+  downloadUrl: ['urlPartage', 'url_partage', 'downloadUrl', 'shareUrl', 'downloadLink'],
+  host: ['provider', 'site', 'host', 'website', 'platform'],
+  source: ['source', 'siteSource', 'origin'],
+  urlSource: ['urlSource', 'url_source', 'sourceUrl'],
+  urlPdf: ['urlPdf', 'url_pdf', 'pdfUrl'],
+  hasSolution: ['hasSolution', 'corrige', 'solution', 'avecCorrection', 'مع التصحيح']
+};
+
+function normalizeImportItem(item) {
+  const size = getFieldValue(item, IMPORT_ALIASES.size);
+  const sizeNum = parseInt(size, 10);
+  const sizeStr = !isNaN(sizeNum) && sizeNum > 0
+    ? (sizeNum >= 1048576 ? (sizeNum / 1048576).toFixed(1) + ' MB' : Math.round(sizeNum / 1024) + ' KB')
+    : String(size || '');
+  const hasSolution = getFieldValue(item, IMPORT_ALIASES.hasSolution);
+  return {
+    title: {
+      ar: getFieldValue(item, IMPORT_ALIASES['title.ar']),
+      fr: getFieldValue(item, IMPORT_ALIASES['title.fr']),
+      en: getFieldValue(item, IMPORT_ALIASES['title.en'])
+    },
+    level: getFieldValue(item, IMPORT_ALIASES.level),
+    stream: getFieldValue(item, IMPORT_ALIASES.stream) || null,
+    subject: getFieldValue(item, IMPORT_ALIASES.subject),
+    type: getFieldValue(item, IMPORT_ALIASES.type),
+    year: getFieldValue(item, IMPORT_ALIASES.year),
+    trimestre: getFieldValue(item, IMPORT_ALIASES.trimestre) || null,
+    wilaya: getFieldValue(item, IMPORT_ALIASES.wilaya) || '',
+    size: sizeStr,
+    pages: getFieldValue(item, IMPORT_ALIASES.pages) || '',
+    previewUrl: getFieldValue(item, IMPORT_ALIASES.previewUrl),
+    downloadUrl: getFieldValue(item, IMPORT_ALIASES.downloadUrl),
+    host: getFieldValue(item, IMPORT_ALIASES.host) || 'dzexams',
+    source: getFieldValue(item, IMPORT_ALIASES.source) || '',
+    urlSource: getFieldValue(item, IMPORT_ALIASES.urlSource) || '',
+    urlPdf: getFieldValue(item, IMPORT_ALIASES.urlPdf) || '',
+    tags: hasSolution ? ['solution'] : []
+  };
+}
+
+function renderImportPreview(parsedDocs, rawDocs) {
+  const container = document.getElementById('import-preview-container');
+  if (!container || !parsedDocs.length) return;
+  let html = '<div style="display:flex;align-items:center;gap:var(--space-2);margin-bottom:var(--space-2);flex-wrap:wrap;">';
+  html += '<h4 style="margin:0;">' + parsedDocs.length + ' document(s) trouvé(s)</h4>';
+  html += '<button class="btn btn-primary" id="import-add-all-btn">➕ Tout ajouter en une fois</button>';
+  html += '</div>';
+  html += '<div style="max-height:400px;overflow-y:auto;border:1px solid var(--kraft-line);border-radius:var(--radius-sm);">';
+  html += '<table class="admin-doc-table"><thead><tr>' +
+    '<th>Titre (AR)</th><th>Niveau</th><th>Matière</th><th>Type</th><th>Taille</th><th>Action</th>' +
+    '</tr></thead><tbody>';
+  parsedDocs.forEach((doc, i) => {
+    html += '<tr>' +
+      '<td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" dir="rtl">' + escapeHTML(doc.title.ar.slice(0,60)) + '</td>' +
+      '<td>' + escapeHTML(doc.level) + '</td>' +
+      '<td>' + escapeHTML(doc.subject) + '</td>' +
+      '<td>' + escapeHTML(doc.type) + '</td>' +
+      '<td>' + escapeHTML(doc.size) + '</td>' +
+      '<td><button class="btn btn-primary btn-sm prefill-from-import-btn" data-index="' + i + '">Pré-remplir</button></td>' +
+      '</tr>';
+  });
+  html += '</tbody></table></div>';
+  html += '<p class="export-hint" style="margin-top:var(--space-2);">Cliquez sur "Pré-remplir" pour un document, ou "Tout ajouter en une fois" pour tous les importer directement.</p>';
+  container.innerHTML = html;
+  container.style.display = 'block';
+  container.querySelectorAll('.prefill-from-import-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const idx = parseInt(btn.dataset.index, 10);
+      prefillFormFromImport(parsedDocs[idx], rawDocs[idx]);
+    });
+  });
+  const addAllBtn = document.getElementById('import-add-all-btn');
+  if (addAllBtn) {
+    addAllBtn.addEventListener('click', () => batchAddAll(parsedDocs, rawDocs));
+  }
+}
+
+async function prefillFormFromImport(doc, raw) {
+  const setVal = (id, val) => { const el = document.getElementById(id); if (el) el.value = val; };
+  const [frTitle, enTitle] = await Promise.all([
+    doc.title.fr || translateFromAr(doc.title.ar, 'fr'),
+    doc.title.en || translateFromAr(doc.title.ar, 'en')
+  ]);
+  setVal('doc-form-title-fr', frTitle);
+  setVal('doc-form-title-ar', doc.title.ar);
+  setVal('doc-form-title-en', enTitle);
+  setVal('doc-form-desc-fr', frTitle);
+  setVal('doc-form-desc-ar', doc.title.ar);
+  setVal('doc-form-desc-en', enTitle);
+  setVal('doc-form-level', doc.level);
+  setVal('doc-form-stream', doc.stream || '');
+  setVal('doc-form-subject', doc.subject);
+  setVal('doc-form-type', doc.type);
+  setVal('doc-form-year', doc.year);
+  setVal('doc-form-trimestre', doc.trimestre || '');
+  setVal('doc-form-wilaya', doc.wilaya || '');
+  setVal('doc-form-pages', doc.pages);
+  setVal('doc-form-size', doc.size);
+  setVal('doc-form-host', doc.host);
+  setVal('doc-form-source', doc.source || '');
+  setVal('doc-form-url-source', doc.urlSource || '');
+  setVal('doc-form-url-pdf', doc.urlPdf || '');
+  setVal('doc-form-preview-url', doc.previewUrl);
+  setVal('doc-form-download-url', doc.downloadUrl);
+  document.querySelectorAll('.admin-sub-tab').forEach(b => b.classList.remove('active'));
+  document.querySelector('.admin-sub-tab[data-subtab="docs-add"]')?.classList.add('active');
+  document.querySelectorAll('#tab-panel-docs .admin-sub-panel').forEach(p => p.classList.add('hidden'));
+  document.getElementById('sub-panel-docs-add')?.classList.remove('hidden');
+}
+
+async function init() {
+  await loadData();
+  applyLocalDocOverrides();
+  applyLangToDocument();
+  render();
+}
+
+function render() {
+  document.title = t('admin.title') + ' — ' + t('siteName');
+  document.getElementById('header-root').innerHTML = renderHeader('admin');
+  document.getElementById('footer-root').innerHTML = renderFooter();
+  translateStaticDOM();
+  document.getElementById('theme-toggle').innerHTML = icon(APP.theme === 'light' ? 'moon' : 'sun');
+  document.getElementById('lock-icon').innerHTML = icon('lock');
+  document.getElementById('settings-icon').innerHTML = icon('settings');
+  document.getElementById('password-icon').innerHTML = icon('lock');
+  document.getElementById('doc-form-icon').innerHTML = icon('fileText');
+  document.getElementById('export-icon').innerHTML = icon('download');
+  document.getElementById('export-btn-icon').innerHTML = icon('download');
+  document.getElementById('import-icon').innerHTML = icon('upload');
+
+  wireLayoutEvents();
+  initAdminPage();
+  wireAdminTabs();
+}
+
+function wireAdminTabs() {
+  document.querySelectorAll('.admin-tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.admin-tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('tab-panel-docs').classList.toggle('hidden', btn.dataset.tab !== 'docs');
+      document.getElementById('tab-panel-keys').classList.toggle('hidden', btn.dataset.tab !== 'keys');
+      document.getElementById('tab-panel-password').classList.toggle('hidden', btn.dataset.tab !== 'password');
+    });
+  });
+  // Sub-tabs within Documents tab
+  document.querySelectorAll('.admin-sub-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.admin-sub-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('#tab-panel-docs .admin-sub-panel').forEach(p => p.classList.add('hidden'));
+      document.getElementById('sub-panel-' + btn.dataset.subtab).classList.remove('hidden');
+    });
+  });
+
+  // Import tab wiring
+  const importAnalyzeBtn = document.getElementById('import-analyze-btn');
+  const importInput = document.getElementById('import-manifest-input');
+  if (importAnalyzeBtn && importInput) {
+    importAnalyzeBtn.addEventListener('click', () => {
+      const file = importInput.files[0];
+      if (!file) { showToast('Sélectionne un fichier JSON d\'abord.'); return; }
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          const raw = JSON.parse(e.target.result);
+          const items = raw.items || raw.documents || raw.fichiers || raw.data || (Array.isArray(raw) ? raw : [raw]);
+          if (!items.length) { showToast('Aucun document trouvé dans le fichier.'); return; }
+          const normalized = items.map(normalizeImportItem);
+          renderImportPreview(normalized, items);
+        } catch(err) { showToast('Erreur de lecture: ' + err.message); }
+      };
+      reader.readAsText(file);
+    });
+  }
+
+  // Migration button
+  const migrateBtn = document.getElementById('migrate-host-btn');
+  if (migrateBtn) migrateBtn.addEventListener('click', migrateHostFromUrl);
+}
+
+function onLangChange() { render(); }
+
+init();
+</script>
+</body>
+</html>

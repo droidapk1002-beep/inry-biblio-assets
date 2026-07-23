@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://api.openai.com https://api.anthropic.com https://generativelanguage.googleapis.com https://api.mymemory.translated.net; frame-src https://drive.google.com; object-src 'none'; base-uri 'self';">
+<script>window.addEventListener('pageshow',function(e){if(e.persisted)location.reload();});</script>
+<title>Assistant IA — INRY-Biblio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700;900&family=Source+Sans+3:wght@400;600;700&family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="css/tokens.css?v=39">
+<link rel="stylesheet" href="css/components.css?v=39">
+<link rel="stylesheet" href="css/assistant-admin.css?v=39">
+</head>
+<body>
+<a href="#main" class="skip-link">Aller au contenu</a>
+<div id="header-root"></div>
+
+<main id="main" class="assistant-page">
+  <div class="assistant-header">
+    <div class="assistant-header-text">
+      <h2 data-i18n="assistant.title"></h2>
+      <p data-i18n="assistant.subtitle"></p>
+    </div>
+    <span class="provider-pill" id="provider-pill"></span>
+  </div>
+
+  <div class="assistant-key-row">
+    <select id="assistant-key-select" class="filter-select"></select>
+    <div id="assistant-custom-row" style="display:none; gap:var(--space-2); flex:1;">
+      <select id="assistant-custom-provider" class="filter-select" style="max-width:160px;">
+        <option value="openai">OpenAI</option>
+        <option value="anthropic">Anthropic</option>
+        <option value="google">Google</option>
+      </select>
+      <input type="password" id="assistant-custom-key" class="filter-select" data-i18n-placeholder="assistant.customKeyPlaceholder" autocomplete="off" style="flex:1;">
+    </div>
+    <button class="btn btn-secondary btn-sm" id="assistant-add-key-btn" title="Ajouter une clé API" style="flex-shrink:0;">+</button>
+  </div>
+
+  <div id="assistant-add-key-panel" class="admin-section" style="display:none; margin-bottom:var(--space-3); padding:var(--space-4);">
+    <div class="form-row" style="margin-bottom:var(--space-3);">
+      <label data-i18n="admin.provider"></label>
+      <select id="assistant-add-provider" class="filter-select">
+        <option value="anthropic">Anthropic (Claude)</option>
+        <option value="openai" selected>OpenAI (GPT)</option>
+        <option value="google">Google (Gemini)</option>
+        <option value="custom">Autre (compatible OpenAI)</option>
+      </select>
+    </div>
+    <div class="form-row" style="margin-bottom:var(--space-3);">
+      <label data-i18n="admin.model"></label>
+      <input type="text" id="assistant-add-model" class="filter-select" placeholder="gpt-4.1" value="gpt-4.1">
+    </div>
+    <div class="form-row" style="margin-bottom:var(--space-3);" id="assistant-add-endpoint-row" style="display:none;">
+      <label data-i18n="admin.endpoint"></label>
+      <input type="text" id="assistant-add-endpoint" class="filter-select" placeholder="https://votre-serveur.com/v1/chat/completions">
+    </div>
+    <div class="form-row" style="margin-bottom:var(--space-3);">
+      <label data-i18n="admin.apiKey"></label>
+      <input type="password" id="assistant-add-apikey" class="filter-select" data-i18n-placeholder="admin.apiKeyPlaceholder" autocomplete="off">
+    </div>
+    <div style="display:flex; gap:var(--space-2); align-items:center;">
+      <button class="btn btn-primary btn-sm" id="assistant-add-key-save" data-i18n="admin.save"></button>
+      <button class="btn btn-ghost btn-sm" id="assistant-add-key-cancel" data-i18n="admin.cancel"></button>
+      <span class="save-confirm" id="assistant-add-key-confirm" data-i18n="admin.saved"></span>
+    </div>
+  </div>
+
+  <div class="chat-toolbar" id="chat-toolbar">
+    <button class="btn btn-ghost btn-sm" id="conv-toggle-btn" title="Conversations">☰</button>
+    <input type="text" id="chat-search-inp" placeholder="🔍 Rechercher dans le chat…" style="flex:1;max-width:300px;padding:var(--space-2)var(--space-3);border:2px solid var(--kraft);border-radius:var(--radius-md);background:var(--surface);color:var(--ink);font-size:var(--fs-xs);display:none;">
+    <div style="display:flex;gap:var(--space-1);margin-inline-start:auto;">
+      <button class="btn btn-ghost btn-sm" id="saved-prompts-btn" title="Prompts sauvegardés">📋</button>
+      <button class="btn btn-ghost btn-sm" id="export-chat-btn" title="Exporter le chat">↓</button>
+      <button class="btn btn-ghost btn-sm" id="toggle-search-btn" title="Rechercher">🔍</button>
+    </div>
+  </div>
+
+  <div class="conv-sidebar" id="conv-sidebar" style="display:none;">
+    <div class="conv-sidebar-header">
+      <strong>Conversations</strong>
+      <button class="btn btn-primary btn-sm" id="conv-new-btn">+ Nouvelle</button>
+    </div>
+    <div class="conv-list" id="conv-list"></div>
+  </div>
+
+  <div class="chat-area" id="chat-area" style="display:flex;flex-direction:column;flex:1;min-height:0;">
+    <div class="chat-scroll" id="chat-scroll"></div>
+
+    <div class="chat-empty" id="chat-empty">
+      <div></div>
+      <h3 data-i18n="assistant.title" style="font-family:var(--font-display); font-size:var(--fs-lg); color:var(--ink);"></h3>
+      <p data-i18n="assistant.subtitle"></p>
+      <div id="chat-empty-recent" style="margin-top:var(--space-4);"></div>
+    </div>
+
+    <div class="chat-suggestions" id="suggestion-chips" style="display:none;"></div>
+    <div class="chat-attachments" id="chat-attachments"></div>
+  </div>
+
+  <div class="saved-prompts-panel" id="saved-prompts-panel" style="display:none;">
+    <div class="conv-sidebar-header">
+      <strong>Prompts sauvegardés</strong>
+      <button class="btn btn-ghost btn-sm" id="close-prompts-btn">✕</button>
+    </div>
+    <div class="conv-list" id="prompts-list"></div>
+  </div>
+
+  <form class="chat-input-row" id="chat-form">
+    <div class="chat-input-main">
+      <label class="btn btn-secondary btn-attach" id="chat-attach-btn" title="Joindre un fichier">
+        <span id="attach-icon"></span>
+        <input type="file" id="chat-file-input" accept="image/*,.pdf,.txt" style="display:none;">
+      </label>
+      <textarea id="chat-textarea" rows="1" dir="auto" data-i18n-placeholder="assistant.placeholder" required></textarea>
+      <button class="btn btn-primary" type="submit"><span class="btn-send-icon"></span> <span data-i18n="assistant.send"></span></button>
+    </div>
+    <div class="chat-input-tools">
+      <button class="btn btn-secondary btn-sm" id="chat-img-btn"><span>Image</span></button>
+      <button class="btn btn-secondary btn-sm" id="chat-canvas-btn"><span>Canvas</span></button>
+      <button class="btn btn-ghost btn-sm" id="chat-clear-btn"><span data-i18n="assistant.clear"></span></button>
+    </div>
+  </form>
+</main>
+
+<div id="footer-root-hidden" style="display:none;"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="js/icons.js?v=39"></script>
+<script src="js/i18n.js?v=39"></script>
+<script src="js/layout.js?v=39"></script>
+<script src="js/documents.js?v=39"></script>
+<script src="js/admin.js?v=39"></script>
+<script src="js/assistant.js?v=39"></script>
+<script>
+window.onerror = function(msg, url, line) {
+  console.error('[FATAL]', msg, url, line);
+  var d = document.createElement('div');
+  d.style.cssText = 'position:fixed;top:0;left:0;right:0;background:red;color:#fff;padding:8px;z-index:9999;font-size:14px;';
+  d.textContent = 'JS Error: ' + msg + ' (line ' + line + ')';
+  document.body.prepend(d);
+};
+
+async function init() {
+  try {
+    await loadData();
+    applyLangToDocument();
+    render();
+  } catch(e) {
+    console.error('[init]', e);
+    var d = document.createElement('div');
+    d.style.cssText = 'position:fixed;top:0;left:0;right:0;background:red;color:#fff;padding:8px;z-index:9999;font-size:14px;';
+    d.textContent = 'Init Error: ' + e.message;
+    document.body.prepend(d);
+  }
+}
+
+function render() {
+  try {
+  document.title = t('assistant.title') + ' — ' + t('siteName');
+  document.getElementById('header-root').innerHTML = renderHeader('assistant');
+  translateStaticDOM();
+  document.getElementById('theme-toggle').innerHTML = icon(APP.theme === 'light' ? 'moon' : 'sun');
+  document.getElementById('chat-clear-btn').innerHTML = icon('trash') + ' <span>' + t('assistant.clear') + '</span>';
+  var imgBtn = document.getElementById('chat-img-btn');
+  var canvasBtn = document.getElementById('chat-canvas-btn');
+  if (imgBtn) imgBtn.innerHTML = icon('image') + ' <span>Image</span>';
+  if (canvasBtn) canvasBtn.innerHTML = icon('feather') + ' <span>Canvas</span>';
+  document.getElementById('attach-icon').innerHTML = icon('paperclip');
+
+  document.querySelector('.chat-empty > div').innerHTML = icon('robot');
+  document.querySelector('button[type="submit"] .btn-send-icon').innerHTML = icon('send');
+  } catch(e) { console.error('[render 1/2]', e); }
+
+  try {
+  const suggestions = {
+    ar: ['اشرح لي نظرية طالس', 'أعطني تمرين تصريف (سنة خامسة ابتدائي)', 'لخص لي الثورة الفرنسية', 'أنشئ موضوع بكالوريا في الرياضيات'],
+    en: ['Explain Thales\' theorem to me', 'Give me a conjugation exercise (5th primary)', 'Summarize the French Revolution', 'Generate a BEM Math exam topic'],
+    fr: ['Explique-moi le théorème de Thalès', 'Donne-moi un exercice de conjugaison (5e primaire)', 'Résume la Révolution française', 'Génère un sujet de bac en mathématiques']
+  };
+  const chipsEl = document.getElementById('suggestion-chips');
+  if (chipsEl && suggestions[APP.lang]) chipsEl.innerHTML = suggestions[APP.lang].map(s => `<button type="button" class="chip" data-prompt="${s}">${s}</button>`).join('');
+  else if (chipsEl && suggestions.en) chipsEl.innerHTML = suggestions.en.map(s => `<button type="button" class="chip" data-prompt="${s}">${s}</button>`).join('');
+
+  } catch(e) { console.error('[render 2/2]', e); }
+
+  try {
+  try { if (typeof wireLayoutEvents === 'function') wireLayoutEvents(); else console.error('wireLayoutEvents not found'); }
+  catch(e) { console.error('[wireLayoutEvents]', e); }
+  try { if (typeof initAssistantPage === 'function') initAssistantPage(); else console.error('initAssistantPage not found'); }
+  catch(e) { console.error('[initAssistantPage]', e); }
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const initialQuery = urlParams.get('q');
+  if (initialQuery) {
+    const ta = document.getElementById('chat-textarea');
+    if (ta) { ta.value = initialQuery; document.getElementById('chat-form')?.requestSubmit(); }
+  }
+
+  document.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const ta = document.getElementById('chat-textarea');
+      if (ta) { ta.value = chip.dataset.prompt; document.getElementById('chat-form')?.requestSubmit(); }
+    });
+  });
+  } catch(e) { console.error('[render 3/3]', e); }
+}
+
+function onLangChange() { render(); }
+
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,3569 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+<head>
+<meta charset='UTF-8'/>
+<meta content='width=device-width, initial-scale=1.0' name='viewport'/>
+<meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+<title><data:blog.pageTitle/></title>
+<meta content='Cours, exercices, devoirs, sujets BAC/BEM et corrigés pour les élèves algériens du primaire au secondaire.' name='description'/>
+<b:include data='blog' name='all-head-content'/>
+<link href='https://fonts.googleapis.com' rel='preconnect'/>
+<link href='https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700;900&amp;family=Source+Sans+3:wght@400;600;700&amp;family=Amiri:wght@400;700&amp;family=Noto+Sans+Arabic:wght@400;600;700&amp;family=JetBrains+Mono:wght@500&amp;display=swap' rel='stylesheet'/>
+<b:skin><![CDATA[
+/* ============================================================
+   INRY-BIBLIO — DESIGN TOKENS
+   Direction: "Dossier scolaire" — cahier, tampon administratif,
+   papier kraft, vert/or sobre. Pas de bleu corporate edtech.
+   ============================================================ */
+
+:root {
+  /* --- Palette --- */
+  --paper: #f3ead8;          /* fond papier kraft clair */
+  --paper-dark: #e8dcc2;
+  --ink: #2a2620;            /* texte principal, encre noire/brune */
+  --ink-soft: #5c5446;
+  --kraft: #c9a96b;          /* bordures, lignes de cahier */
+  --kraft-line: #d8c49a;
+  --green: #1f6f50;          /* vert "tampon officiel" */
+  --green-dark: #154d38;
+  --gold: #b8862f;           /* or / sceau */
+  --gold-light: #d9ab52;
+  --red-stamp: #9c3b2e;      /* rouge tampon */
+  --cream-card: #fbf6ea;
+  --surface: #ffffff;
+  --shadow-color: rgba(42, 38, 32, 0.18);
+
+  /* --- Type scale --- */
+  --font-display: 'Fraunces', 'Amiri', serif;
+  --font-body: 'Source Sans 3', 'Noto Sans Arabic', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-md: 1.125rem;
+  --fs-lg: 1.375rem;
+  --fs-xl: 1.875rem;
+  --fs-2xl: 2.5rem;
+  --fs-3xl: 3.5rem;
+
+  /* --- Spacing --- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-8: 3rem;
+  --space-10: 4rem;
+  --space-12: 6rem;
+
+  /* --- Misc --- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --border-w: 1.5px;
+  --transition: 180ms cubic-bezier(0.4, 0, 0.2, 1);
+  --max-width: 1240px;
+}
+
+[data-theme="dark"] {
+  --paper: #1b1812;
+  --paper-dark: #15120e;
+  --ink: #ede4d2;
+  --ink-soft: #b8ab8f;
+  --kraft: #4a3f2a;
+  --kraft-line: #382f20;
+  --green: #4caf83;
+  --green-dark: #2e7a58;
+  --gold: #d9ab52;
+  --gold-light: #e8c785;
+  --red-stamp: #c25646;
+  --cream-card: #241f17;
+  --surface: #211c14;
+  --shadow-color: rgba(0, 0, 0, 0.45);
+}
+
+/* ============================================================
+   RESET
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+img, svg { display: block; max-width: 100%; }
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+h1, h2, h3, h4, p { margin: 0; }
+input, select, textarea, button { font-size: inherit; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--fs-base);
+  line-height: 1.55;
+  transition: background var(--transition), color var(--transition);
+  background-image:
+    radial-gradient(ellipse at top left, rgba(184, 134, 47, 0.05), transparent 50%),
+    radial-gradient(ellipse at bottom right, rgba(31, 111, 80, 0.05), transparent 50%);
+}
+
+/* RTL handling */
+html[dir="rtl"] body { font-family: 'Noto Sans Arabic', 'Source Sans 3', sans-serif; }
+html[dir="rtl"] .ltr-only { direction: ltr; unicode-bidi: isolate; }
+
+:focus-visible {
+  outline: 2.5px solid var(--gold);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* ============================================================
+   PAPER TEXTURE / NOTEBOOK LINES (signature element)
+   ============================================================ */
+.paper-texture {
+  background-image:
+    repeating-linear-gradient(
+      transparent, transparent 27px,
+      var(--kraft-line) 27px, var(--kraft-line) 28px
+    );
+  background-position: 0 6px;
+}
+
+.stamp {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  border: 2px solid var(--green);
+  color: var(--green);
+  border-radius: 50px;
+  padding: var(--space-1) var(--space-4);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  letter-spacing: 0.04em;
+  transform: rotate(-2deg);
+  background: transparent;
+}
+
+[data-theme="dark"] .stamp { color: var(--green); border-color: var(--green); }
+
+/* ============================================================
+   TYPOGRAPHY
+   ============================================================ */
+.font-display {
+  font-family: var(--font-display);
+}
+
+h1, h2, h3, .heading {
+  font-family: var(--font-display);
+  font-weight: 600;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+html[dir="rtl"] h1, html[dir="rtl"] h2, html[dir="rtl"] h3, html[dir="rtl"] .heading {
+  font-family: 'Amiri', 'Noto Sans Arabic', serif;
+  letter-spacing: 0;
+}
+
+.eyebrow {
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  font-weight: 700;
+}
+html[dir="rtl"] .eyebrow { text-transform: none; letter-spacing: 0.02em; }
+
+/* ============================================================
+   LAYOUT
+   ============================================================ */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-5);
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--green);
+  color: #fff;
+  padding: var(--space-2) var(--space-4);
+  z-index: 200;
+}
+.skip-link:focus { left: var(--space-3); top: var(--space-3); }
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--paper);
+  border-bottom: var(--border-w) solid var(--kraft);
+  backdrop-filter: blur(6px);
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-5);
+  padding: var(--space-3) 0;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.brand-seal {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.brand-tagline {
+  font-size: var(--fs-xs);
+  color: var(--ink-soft);
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.nav-link {
+  position: relative;
+  padding: var(--space-2) var(--space-3);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  color: var(--ink-soft);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition), background var(--transition);
+  white-space: nowrap;
+}
+
+.nav-link:hover { color: var(--green); background: rgba(31, 111, 80, 0.08); }
+.nav-link.active { color: var(--green); }
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: var(--space-3);
+  right: var(--space-3);
+  bottom: -1px;
+  height: 2px;
+  background: var(--green);
+  border-radius: 2px;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-md);
+  border: var(--border-w) solid var(--kraft);
+  background: var(--surface);
+  color: var(--ink);
+  transition: border-color var(--transition), transform var(--transition);
+}
+.icon-btn:hover { border-color: var(--green); transform: translateY(-1px); }
+.icon-btn svg { width: 18px; height: 18px; }
+
+.lang-switch {
+  display: flex;
+  border: var(--border-w) solid var(--kraft);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.lang-btn {
+  padding: var(--space-2) var(--space-3);
+  background: var(--surface);
+  color: var(--ink-soft);
+  font-weight: 700;
+  font-size: var(--fs-xs);
+  border: none;
+  transition: background var(--transition), color var(--transition);
+}
+.lang-btn.active { background: var(--green); color: #fff; }
+.lang-btn:not(.active):hover { background: var(--paper-dark); }
+
+.mobile-nav-toggle { display: none; }
+
+@media (max-width: 900px) {
+  .main-nav { display: none; }
+  .mobile-nav-toggle { display: inline-flex; }
+}
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero {
+  position: relative;
+  padding: var(--space-10) 0 var(--space-8);
+  overflow: hidden;
+}
+
+.hero-inner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .hero-inner { grid-template-columns: 1fr; }
+}
+
+.hero-eyebrow-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 4.2vw, var(--fs-3xl));
+  line-height: 1.08;
+  margin-bottom: var(--space-4);
+}
+
+.hero-subtitle {
+  font-size: var(--fs-md);
+  color: var(--ink-soft);
+  max-width: 540px;
+  margin-bottom: var(--space-6);
+}
+
+.search-bar {
+  display: flex;
+  gap: var(--space-2);
+  max-width: 520px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: var(--space-3) var(--space-4);
+  border: 2px solid var(--kraft);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: var(--fs-base);
+  transition: border-color var(--transition);
+}
+.search-bar input:focus { border-color: var(--green); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-md);
+  border: 2px solid transparent;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+  white-space: nowrap;
+}
+.btn-primary {
+  background: var(--green);
+  color: #fff;
+}
+.btn-primary:hover { background: var(--green-dark); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(31,111,80,0.3); }
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--kraft);
+  color: var(--ink);
+}
+.btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink-soft);
+}
+.btn-ghost:hover { color: var(--green); }
+
+.hero-stats {
+  display: flex;
+  gap: var(--space-6);
+  margin-top: var(--space-6);
+}
+.hero-stat-num {
+  font-family: var(--font-display);
+  font-size: var(--fs-2xl);
+  color: var(--green);
+  font-weight: 700;
+}
+.hero-stat-label {
+  font-size: var(--fs-xs);
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* The "dossier" signature visual */
+.hero-visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.dossier-stack {
+  position: relative;
+  width: 320px;
+  height: 380px;
+}
+
+.dossier-card {
+  position: absolute;
+  width: 280px;
+  height: 360px;
+  background: var(--cream-card);
+  border: var(--border-w) solid var(--kraft);
+  border-radius: var(--radius-md);
+  box-shadow: 0 18px 40px var(--shadow-color);
+  padding: var(--space-5);
+}
+.dossier-card.back-1 { transform: rotate(-7deg) translate(-18px, 10px); opacity: 0.85; }
+.dossier-card.back-2 { transform: rotate(6deg) translate(20px, 18px); opacity: 0.7; }
+.dossier-card.front {
+  z-index: 2;
+  background: var(--surface);
+}
+
+.dossier-line {
+  height: 9px;
+  background: var(--kraft-line);
+  border-radius: 2px;
+  margin-bottom: var(--space-3);
+}
+.dossier-line.short { width: 60%; }
+.dossier-line.tiny { width: 35%; height: 7px; }
+
+.dossier-stamp-seal {
+  position: absolute;
+  bottom: var(--space-5);
+  right: var(--space-5);
+  width: 76px;
+  height: 76px;
+  transform: rotate(-12deg);
+}
+html[dir="rtl"] .dossier-stamp-seal { right: auto; left: var(--space-5); transform: rotate(12deg); }
+
+/* ============================================================
+   SECTION HEADERS
+   ============================================================ */
+.section {
+  padding: var(--space-10) 0;
+}
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  flex-wrap: wrap;
+}
+.section-header h2 {
+  font-size: var(--fs-2xl);
+}
+
+/* ============================================================
+   SUBJECT / LEVEL QUICK GRID (home)
+   ============================================================ */
+.quick-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-4);
+}
+
+.quick-tile {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  background: var(--cream-card);
+  border: var(--border-w) solid var(--kraft);
+  border-radius: var(--radius-lg);
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+.quick-tile:hover {
+  transform: translateY(-3px);
+  border-color: var(--green);
+  box-shadow: 0 10px 24px var(--shadow-color);
+}
+.quick-tile-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-md);
+  background: rgba(31, 111, 80, 0.1);
+  color: var(--green);
+}
+.quick-tile-icon svg { width: 22px; height: 22px; }
+.quick-tile-name { font-weight: 700; font-family: var(--font-display); font-size: var(--fs-md); }
+.quick-tile-count { font-size: var(--fs-xs); color: var(--ink-soft); }
+.level-category {
+  grid-column: 1 / -1;
+  display: block;
+}
+.level-category .quick-tile {
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-4);
+  cursor: pointer;
+  position: relative;
+}
+.expand-icon {
+  margin-left: auto;
+  color: var(--ink-soft);
+  transition: transform var(--transition);
+}
+.level-category .quick-tile.expanded .expand-icon { transform: rotate(180deg); }
+.level-subgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-4);
+  margin-top: var(--space-3);
+}
+.sub-tile { background: var(--bg-subtle); border-color: var(--border-subtle); }
+.sub-tile:hover { border-color: var(--green); }
+.level-subgrid .quick-tile {
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-3);
+}
+
+/* ============================================================
+   FILTER BAR (library page)
+   ============================================================ */
+.filters-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+  padding: var(--space-4);
+  background: var(--cream-card);
+  border: var(--border-w) solid var(--kraft);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-6);
+}
+
+.filter-select {
+  padding: var(--space-2) var(--space-3);
+  border: 2px solid var(--kraft);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: var(--fs-sm);
+  min-width: 140px;
+  transition: border-color var(--transition);
+}
+.filter-select:focus { border-color: var(--green); }
+
+.filters-meta {
+  margin-left: auto;
+  font-size: var(--fs-sm);
+  color: var(--ink-soft);
+  font-weight: 600;
+}
+html[dir="rtl"] .filters-meta { margin-left: 0; margin-right: auto; }
+
+/* ============================================================
+   DOCUMENT GRID + CARD
+   ============================================================ */
+.doc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: var(--space-5);
+}
+
+.doc-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: var(--border-w) solid var(--kraft);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition);
+  position: relative;
+}
+.doc-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px var(--shadow-color);
+}
+
+.doc-card-head {
+  padding: var(--space-4) var(--space-4) 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+
+.doc-badge {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  padding: 2px var(--space-2);
+  border-radius: 50px;
+  white-space: nowrap;
+}
+.doc-badge.type-bac-bem { background: rgba(156, 59, 46, 0.12); color: var(--red-stamp); }
+.doc-badge.type-cours { background: rgba(31, 111, 80, 0.12); color: var(--green); }
+.doc-badge.type-corriges { background: rgba(184, 134, 47, 0.15); color: var(--gold); }
+.doc-badge.type-exercices { background: rgba(90, 60, 138, 0.12); color: #5a3c8a; }
+.doc-badge.type-devoir { background: rgba(44, 91, 138, 0.12); color: #2c5b8a; }
+.doc-badge.type-composition { background: rgba(156, 59, 46, 0.12); color: var(--red-stamp); }
+.doc-badge.type-examens { background: rgba(156, 59, 46, 0.12); color: var(--red-stamp); }
+.doc-badge.type-resumes { background: rgba(47, 122, 58, 0.12); color: #2f7a3a; }
+
+.doc-year {
+  font-size: var(--fs-xs);
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+}
+
+.doc-card-body {
+  padding: var(--space-3) var(--space-4);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.doc-title {
+  font-family: var(--font-display);
+  font-size: var(--fs-md);
+  font-weight: 600;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.doc-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  font-size: var(--fs-xs);
+  color: var(--ink-soft);
+}
+.doc-meta-row span { display: inline-flex; align-items: center; gap: 4px; }
+.doc-meta-row svg { width: 13px; height: 13px; }
+
+.doc-card-foot {
+  display: flex;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid var(--kraft-line);
+}
+.doc-card-foot .btn { flex: 1; padding: var(--space-2) var(--space-3); font-size: var(--fs-xs); }
+
+.host-tag {
+  position: absolute;
+  top: var(--space-3);
+  inset-inline-end: var(--space-3);
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 50px;
+  background: var(--ink);
+  color: var(--paper);
+  letter-spacing: 0.05em;
+}
+
+/* ============================================================
+   EMPTY STATE
+   ============================================================ */
+.empty-state {
+  text-align: center;
+  padding: var(--space-10) var(--space-4);
+  color: var(--ink-soft);
+}
+.empty-state svg { width: 64px; height: 64px; margin: 0 auto var(--space-4); opacity: 0.4; }
+.empty-state h3 { font-size: var(--fs-lg); color: var(--ink); margin-bottom: var(--space-2); }
+
+/* ============================================================
+   MODAL (preview + download)
+   ============================================================ */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(20, 18, 14, 0.65);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2);
+  z-index: 1000;
+  backdrop-filter: blur(3px);
+}
+.modal-overlay.open { display: flex; }
+
+.modal-box {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  width: min(98vw, 1600px);
+  height: min(96vh, 900px);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: var(--border-w) solid var(--kraft);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.35);
+}
+
+.modal-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  border-bottom: var(--border-w) solid var(--kraft-line);
+}
+.modal-head h3 { font-size: var(--fs-lg); line-height: 1.3; }
+
+.modal-body {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  flex: 1;
+  min-height: 0;
+}
+.modal-preview { flex: 0 0 50%; min-width: 200px; }
+.modal-info { flex: 1 1 50%; min-width: 200px; }
+.modal-resize-handle {
+  flex: 0 0 5px;
+  cursor: col-resize;
+  background: var(--kraft-line);
+  position: relative;
+  z-index: 2;
+  transition: background 0.15s;
+}
+.modal-resize-handle:hover,
+.modal-resize-handle.active { background: var(--green); }
+
+@media (max-width: 900px) {
+  .modal-body { flex-direction: column; }
+  .modal-preview { flex: 0 0 50vh !important; }
+  .modal-info { flex: 1 1 auto !important; }
+  .modal-resize-handle { display: none; }
+}
+
+.modal-preview {
+  background: var(--paper-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  overflow: hidden;
+}
+.modal-preview iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  border: none;
+}
+
+.preview-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: var(--space-4);
+  text-align: center;
+  color: var(--ink-soft);
+}
+
+.modal-info {
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  overflow: hidden;
+  min-height: 0;
+}
+.modal-info p { color: var(--ink-soft); font-size: var(--fs-sm); }
+
+.modal-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+  font-size: var(--fs-sm);
+}
+.modal-detail-grid dt { color: var(--ink-soft); font-size: var(--fs-xs); text-transform: uppercase; letter-spacing: 0.04em; }
+.modal-detail-grid dd { font-weight: 700; margin: 0; }
+
+.modal-actions {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.modal-close {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: var(--border-w) solid var(--kraft);
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.modal-close:hover { border-color: var(--red-stamp); color: var(--red-stamp); }
+
+.modal-ai-chat {
+  border-top: var(--border-w) solid var(--kraft-line);
+  padding-top: var(--space-2);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+.modal-ai-messages {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-2) 0;
+  min-height: 0;
+}
+.modal-ai-messages .chat-msg {
+  max-width: 80%;
+}
+/* Force same bot base styles as main assistant page */
+.modal-ai-messages .chat-msg.bot {
+  white-space: normal;
+}
+.modal-ai-messages .chat-msg.bot img {
+  max-width: 100%;
+  border-radius: var(--radius-md);
+  margin-top: var(--space-1);
+}
+.modal-ai-input-row {
+  display: flex;
+  gap: var(--space-1);
+  align-items: flex-end;
+  flex-shrink: 0;
+}
+.modal-ai-input-row textarea {
+  flex: 1;
+  resize: none;
+  padding: var(--space-2) var(--space-3);
+  border: 2px solid var(--kraft);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: var(--fs-xs);
+  min-height: 32px;
+  max-height: 80px;
+  box-sizing: border-box;
+}
+.modal-ai-input-row textarea:focus { border-color: var(--green); }
+.modal-ai-input-row .btn { padding: var(--space-2) var(--space-3); flex-shrink: 0; }
+.modal-ai-tools {
+  display: flex;
+  gap: var(--space-1);
+  flex-shrink: 0;
+}
+.modal-ai-tools .btn {
+  font-size: var(--fs-xs);
+  padding: var(--space-1) var(--space-2);
+}
+.modal-ai-file-tag { margin: 0; flex-shrink: 0; }
+
+.modal-ai-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+.modal-ai-suggestions .chip {
+  font-size: 11px;
+  padding: 4px 10px;
+  background: var(--cream-card);
+  border: var(--border-w) solid var(--kraft-line);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: border-color var(--transition);
+}
+.modal-ai-suggestions .chip:hover { border-color: var(--green); }
+
+/* Fullscreen chat mode — hides everything except the chat */
+.modal-box.chat-full .modal-preview { display: none; }
+.modal-box.chat-full .modal-info { flex: 1 1 100% !important; }
+.modal-box.chat-full .modal-body > .modal-resize-handle { display: none; }
+.modal-box.chat-full .modal-info > div:not(.modal-ai-chat),
+.modal-box.chat-full .eyebrow,
+.modal-box.chat-full #modal-description,
+.modal-box.chat-full .modal-detail-grid,
+.modal-box.chat-full .modal-actions { display: none; }
+.modal-box.chat-full .modal-info { padding: 0; overflow: hidden; }
+.modal-box.chat-full .modal-ai-chat { border-top: none; padding: var(--space-4); flex: 1; }
+.modal-box.chat-full .modal-ai-messages { flex: 1; min-height: 200px; }
+
+/* ============================================================
+   MOBILE NAV DRAWER
+   ============================================================ */
+.mobile-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 150;
+  display: none;
+}
+.mobile-drawer.open { display: block; }
+.mobile-drawer-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+}
+.mobile-drawer-panel {
+  position: absolute;
+  top: 0;
+  inset-inline-end: 0;
+  width: min(300px, 85vw);
+  height: 100%;
+  background: var(--paper);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  border-inline-start: var(--border-w) solid var(--kraft);
+}
+.mobile-drawer .nav-link { padding: var(--space-3); font-size: var(--fs-md); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  border-top: var(--border-w) solid var(--kraft);
+  padding: var(--space-8) 0 var(--space-6);
+  margin-top: var(--space-10);
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+.footer-about { max-width: 480px; color: var(--ink-soft); font-size: var(--fs-sm); }
+.footer-meta { font-size: var(--fs-xs); color: var(--ink-soft); text-align: end; }
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+.toast {
+  position: fixed;
+  bottom: var(--space-5);
+  inset-inline-start: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: var(--ink);
+  color: var(--paper);
+  padding: var(--space-3) var(--space-5);
+  border-radius: 50px;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  z-index: 2000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition), transform var(--transition);
+}
+html[dir="rtl"] .toast { transform: translateX(50%) translateY(20px); }
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+html[dir="rtl"] .toast.show { transform: translateX(50%) translateY(0); }
+
+/* ============================================================
+   PAGE LOAD ANIMATION (orchestrated, restrained)
+   ============================================================ */
+@keyframes riseIn {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-in { animation: riseIn 0.5s cubic-bezier(0.4,0,0.2,1) both; }
+.delay-1 { animation-delay: 0.06s; }
+.delay-2 { animation-delay: 0.12s; }
+.delay-3 { animation-delay: 0.18s; }
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+.hidden { display: none !important; }
+.text-center { text-align: center; }
+.flex-center { display: flex; align-items: center; justify-content: center; }
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+}
+/* ============================================================
+   ASSISTANT PAGE (chat)
+   ============================================================ */
+.assistant-page {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-5) var(--space-10);
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 70px);
+}
+
+.assistant-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-bottom: var(--space-4);
+  border-bottom: var(--border-w) solid var(--kraft-line);
+  margin-bottom: var(--space-4);
+}
+
+.assistant-header-text h2 { font-size: var(--fs-xl); }
+.assistant-header-text p { color: var(--ink-soft); font-size: var(--fs-sm); margin-top: 4px; }
+
+.provider-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  padding: var(--space-2) var(--space-3);
+  border-radius: 50px;
+  background: var(--cream-card);
+  border: var(--border-w) solid var(--kraft);
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+.provider-pill .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--green); flex-shrink: 0; }
+.provider-pill.off .dot { background: var(--red-stamp); }
+
+.chat-scroll {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-2) var(--space-1) var(--space-4);
+}
+
+.chat-msg {
+  max-width: 80%;
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-lg);
+  font-size: var(--fs-sm);
+  line-height: 1.55;
+  white-space: pre-wrap;
+}
+.chat-msg.user {
+  align-self: flex-end;
+  background: var(--green);
+  color: #fff;
+  border-bottom-right-radius: 4px;
+}
+html[dir="rtl"] .chat-msg.user { align-self: flex-start; border-bottom-right-radius: var(--radius-lg); border-bottom-left-radius: 4px; }
+
+.chat-msg.bot {
+  align-self: flex-start;
+  background: var(--cream-card);
+  border: var(--border-w) solid var(--kraft-line);
+  color: var(--ink);
+  border-bottom-left-radius: 4px;
+  white-space: normal;
+}
+html[dir="rtl"] .chat-msg.bot { align-self: flex-end; border-bottom-left-radius: var(--radius-lg); border-bottom-right-radius: 4px; }
+
+.chat-msg.system-note {
+  align-self: center;
+  background: transparent;
+  border: 1.5px dashed var(--kraft);
+  color: var(--ink-soft);
+  font-size: var(--fs-xs);
+  text-align: center;
+}
+
+.chat-empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: var(--ink-soft);
+  gap: var(--space-3);
+  padding: var(--space-6);
+}
+.chat-empty svg { width: 56px; height: 56px; opacity: 0.4; }
+
+.suggestion-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  justify-content: center;
+  margin-top: var(--space-3);
+}
+.chip {
+  padding: var(--space-2) var(--space-3);
+  border-radius: 50px;
+  border: var(--border-w) solid var(--kraft);
+  background: var(--surface);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--ink);
+  transition: border-color var(--transition), color var(--transition);
+}
+.chip:hover { border-color: var(--green); color: var(--green); }
+
+.typing-dots {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  padding: var(--space-1) 0;
+}
+.typing-dots span {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--ink-soft);
+  animation: typingPulse 1.2s infinite ease-in-out;
+}
+.typing-dots span:nth-child(2) { animation-delay: 0.15s; }
+.typing-dots span:nth-child(3) { animation-delay: 0.3s; }
+@keyframes typingPulse {
+  0%, 60%, 100% { opacity: 0.3; transform: translateY(0); }
+  30% { opacity: 1; transform: translateY(-3px); }
+}
+
+.chat-input-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-top: var(--space-4);
+  border-top: var(--border-w) solid var(--kraft-line);
+}
+.chat-input-main {
+  display: flex;
+  gap: var(--space-2);
+  align-items: flex-end;
+}
+.chat-input-main textarea {
+  flex: 1;
+  resize: none;
+  padding: var(--space-3) var(--space-4);
+  border: 2px solid var(--kraft);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: var(--fs-base);
+  min-height: 52px;
+  max-height: 140px;
+  transition: border-color var(--transition);
+}
+.chat-input-main textarea:focus { border-color: var(--green); }
+.chat-input-main .btn-primary { align-self: flex-end; }
+
+.chat-input-tools {
+  display: flex;
+  gap: var(--space-1);
+  justify-content: flex-start;
+}
+.chat-input-tools .btn {
+  font-size: var(--fs-xs);
+  padding: var(--space-1) var(--space-3);
+}
+
+.chat-toolbar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-2);
+}
+
+.assistant-key-row {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-3);
+}
+.assistant-key-row select, .assistant-key-row input {
+  flex: 1;
+}
+.recent-heading {
+  font-size: var(--fs-xs);
+  color: var(--ink-soft);
+  margin-bottom: var(--space-2);
+}
+.recent-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.recent-item {
+  padding: var(--space-1) var(--space-2);
+  cursor: pointer;
+  font-size: var(--fs-xs);
+  color: var(--ink);
+  border-radius: var(--radius-sm);
+  transition: background var(--transition);
+}
+.recent-item:hover { background: var(--cream-card); }
+
+.stop-generation-btn { display: none; }
+.btn-danger { background: var(--red-stamp); color: #fff; border: none; }
+.btn-danger:hover { background: #c0392b; }
+
+.chat-suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  padding: var(--space-2) 0;
+}
+.chat-suggestions .chip {
+  font-size: 11px;
+  padding: 4px 10px;
+  background: var(--cream-card);
+  border: var(--border-w) solid var(--kraft-line);
+  border-radius: 50px;
+  cursor: pointer;
+  transition: border-color var(--transition);
+}
+.chat-suggestions .chip:hover { border-color: var(--green); }
+
+.chat-attachments {
+  display: flex;
+  gap: var(--space-2);
+  padding-bottom: var(--space-2);
+  flex-wrap: wrap;
+}
+.file-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  padding: var(--space-1) var(--space-3);
+  background: var(--cream-card);
+  border: var(--border-w) solid var(--kraft);
+  border-radius: 50px;
+  color: var(--ink);
+}
+.file-tag svg { width: 14px; height: 14px; }
+.file-remove {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  color: var(--red-stamp);
+  display: inline-flex;
+  align-items: center;
+}
+.btn-attach {
+  padding: var(--space-2) var(--space-3);
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.btn-attach svg { width: 18px; height: 18px; }
+.chat-msg.has-file { padding-top: var(--space-2); }
+.chat-msg .file-tag { margin-bottom: var(--space-2); }
+
+/* Regenerate button */
+.regenerate-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: transparent;
+  border: 1px solid var(--kraft);
+  color: var(--ink-soft);
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: var(--space-2);
+  margin-inline-start: var(--space-1);
+  transition: color var(--transition), border-color var(--transition);
+}
+.regenerate-btn:hover { color: var(--green); border-color: var(--green); }
+.regenerate-btn .icon svg { width: 13px; height: 13px; }
+
+/* Copy button on bot messages */
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  color: var(--ink-soft);
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: var(--space-2);
+  transition: color var(--transition), background var(--transition);
+}
+.copy-btn:hover { color: var(--green); background: rgba(31,111,80,0.08); }
+.copy-btn .icon svg { width: 14px; height: 14px; }
+.copy-btn.copied { color: var(--green); }
+
+/* Markdown rendered styles inside bot messages */
+.chat-msg.bot h1, .chat-msg.bot h2, .chat-msg.bot h3 {
+  margin: var(--space-3) 0 var(--space-2);
+  font-family: var(--font-display);
+  line-height: 1.3;
+}
+.chat-msg.bot h1 { font-size: var(--fs-lg); }
+.chat-msg.bot h2 { font-size: var(--fs-md); }
+.chat-msg.bot h3 { font-size: var(--fs-base); }
+.chat-msg.bot p { margin: var(--space-2) 0; }
+.chat-msg.bot p:first-child { margin-top: 0; }
+.chat-msg.bot p:last-child { margin-bottom: 0; }
+.chat-msg.bot hr { margin: var(--space-3) 0; border: none; border-top: 2px solid var(--kraft-line); }
+.chat-msg.bot pre {
+  background: #1e1e2e;
+  color: #cdd6f4;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  margin: var(--space-2) 0;
+  white-space: pre;
+}
+.chat-msg.bot code {
+  background: var(--kraft);
+  padding: 1px 4px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-size: .9em;
+}
+.chat-msg.bot pre code { background: none; padding: 0; font-size: var(--fs-xs); }
+.chat-msg.bot blockquote {
+  margin: var(--space-2) 0;
+  padding: var(--space-2) var(--space-3);
+  border-inline-start: 3px solid var(--gold);
+  background: var(--cream-card);
+  border-radius: var(--radius-sm);
+  font-style: italic;
+  color: var(--ink-soft);
+}
+.chat-msg.bot ul, .chat-msg.bot ol {
+  margin: var(--space-2) 0;
+  padding-inline-start: var(--space-5);
+}
+.chat-msg.bot li { margin: var(--space-1) 0; }
+.chat-msg.bot a { color: var(--green); text-decoration: underline; }
+.chat-msg.bot table {
+  border-collapse: collapse;
+  margin: var(--space-2) 0;
+  width: 100%;
+  font-size: var(--fs-sm);
+}
+.chat-msg.bot th, .chat-msg.bot td {
+  border: 1px solid var(--kraft-line);
+  padding: var(--space-2) var(--space-3);
+  text-align: left;
+}
+html[dir="rtl"] .chat-msg.bot th, html[dir="rtl"] .chat-msg.bot td { text-align: right; }
+.chat-msg.bot th { background: var(--cream-card); font-weight: 700; }
+.chat-msg.bot .math-block { overflow-x: auto; margin: var(--space-2) 0; }
+.chat-msg.bot .katex { font-size: 1.05em; }
+.chat-msg.bot .katex-display > .katex { font-size: 1.15em; }
+.chat-msg.bot .math-fallback { font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--green); background: var(--green-bg); padding: 0.1em 0.3em; border-radius: var(--radius-sm); white-space: pre-wrap; }
+
+.conv-sidebar {
+  background: var(--cream-card);
+  border: var(--border-w) solid var(--kraft-line);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-2);
+  overflow: hidden;
+}
+.conv-sidebar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-3);
+  border-bottom: var(--border-w) solid var(--kraft-line);
+  font-size: var(--fs-sm);
+}
+.conv-list {
+  max-height: 200px;
+  overflow-y: auto;
+  padding: var(--space-1) 0;
+}
+.conv-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-3);
+  cursor: pointer;
+  font-size: var(--fs-xs);
+  border-bottom: 1px solid var(--kraft-line);
+  transition: background var(--transition);
+}
+.conv-item:hover { background: var(--surface); }
+.conv-item.active { background: var(--surface); font-weight: 700; }
+.conv-item-title { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.conv-item-actions { display: flex; gap: var(--space-1); flex-shrink: 0; }
+.conv-item-actions button { padding: 2px 4px; font-size: 10px; background: none; border: 1px solid var(--kraft); border-radius: 4px; cursor: pointer; }
+.saved-prompts-panel {
+  background: var(--cream-card);
+  border: var(--border-w) solid var(--kraft-line);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-2);
+  overflow: hidden;
+}
+.prompt-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  cursor: pointer;
+  font-size: var(--fs-xs);
+  border-bottom: 1px solid var(--kraft-line);
+  transition: background var(--transition);
+}
+.prompt-item:hover { background: var(--surface); }
+.prompt-item-text { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ============================================================
+   ADMIN PANEL
+   ============================================================ */
+.admin-page {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--space-8) var(--space-5) var(--space-10);
+}
+
+.admin-lock {
+  max-width: 420px;
+  margin: var(--space-10) auto;
+  text-align: center;
+  background: var(--cream-card);
+  border: var(--border-w) solid var(--kraft);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8) var(--space-6);
+}
+.admin-lock svg { width: 48px; height: 48px; color: var(--gold); margin: 0 auto var(--space-4); }
+.admin-lock-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+.admin-lock-form input {
+  padding: var(--space-3) var(--space-4);
+  border: 2px solid var(--kraft);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--ink);
+  text-align: center;
+}
+.admin-error {
+  color: var(--red-stamp);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  min-height: 1.2em;
+}
+
+.admin-section {
+  background: var(--cream-card);
+  border: var(--border-w) solid var(--kraft);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  margin-bottom: var(--space-5);
+}
+.admin-section h3 { font-size: var(--fs-md); margin-bottom: var(--space-4); display: flex; align-items: center; gap: var(--space-2); }
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+.form-row label { font-size: var(--fs-sm); font-weight: 700; color: var(--ink-soft); }
+.form-row input, .form-row select, .form-row textarea {
+  padding: var(--space-3) var(--space-4);
+  border: 2px solid var(--kraft);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: inherit;
+}
+.form-row textarea { min-height: 100px; resize: vertical; font-size: var(--fs-sm); }
+.form-row input:focus, .form-row select:focus, .form-row textarea:focus { border-color: var(--green); }
+.form-row-cols { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); }
+@media (max-width: 600px) { .form-row-cols { grid-template-columns: 1fr; } }
+.form-row-cols-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: var(--space-4); }
+@media (max-width: 700px) { .form-row-cols-3 { grid-template-columns: 1fr; } }
+
+.key-list { display: flex; flex-direction: column; gap: var(--space-3); }
+.key-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface);
+  border: var(--border-w) solid var(--kraft-line);
+  border-radius: var(--radius-md);
+  flex-wrap: wrap;
+}
+.key-item-info { display: flex; flex-direction: column; gap: 2px; }
+.key-item-provider { font-weight: 700; font-family: var(--font-display); }
+.key-item-meta { font-size: var(--fs-xs); color: var(--ink-soft); font-family: var(--font-mono); }
+.key-item-actions { display: flex; gap: var(--space-2); }
+.badge-active {
+  font-size: var(--fs-xs);
+  font-weight: 700;
+  color: var(--green);
+  background: rgba(31,111,80,0.12);
+  padding: 2px var(--space-2);
+  border-radius: 50px;
+}
+.btn-sm { padding: var(--space-2) var(--space-3); font-size: var(--fs-xs); }
+.btn-danger { background: transparent; border: 2px solid var(--red-stamp); color: var(--red-stamp); }
+.btn-danger:hover { background: var(--red-stamp); color: #fff; }
+
+.save-confirm {
+  font-size: var(--fs-sm);
+  color: var(--green);
+  font-weight: 700;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+.save-confirm.show { opacity: 1; }
+
+.admin-toprow { display: flex; align-items: center; justify-content: space-between; margin-bottom: var(--space-6); flex-wrap: wrap; gap: var(--space-3); }
+
+/* ---- Admin tabs ---- */
+.admin-tabs {
+  display: flex;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+  border-bottom: var(--border-w) solid var(--kraft-line);
+}
+.admin-tab-btn {
+  padding: var(--space-3) var(--space-4);
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  font-weight: 700;
+  font-size: var(--fs-sm);
+  color: var(--ink-soft);
+  transition: color var(--transition), border-color var(--transition);
+}
+.admin-tab-btn.active { color: var(--green); border-color: var(--green); }
+.admin-tab-btn:hover { color: var(--green); }
+.admin-tab-panel.hidden { display: none; }
+
+/* ---- Doc manager table ---- */
+.admin-doc-table-wrap {
+  overflow-x: auto;
+  margin-top: var(--space-4);
+}
+.admin-doc-table-wrap table {
+  min-width: 1200px;
+}
+.admin-doc-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-sm);
+}
+.admin-doc-table th {
+  text-align: left;
+  padding: var(--space-2) var(--space-3);
+  color: var(--ink-soft);
+  font-size: var(--fs-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-bottom: var(--border-w) solid var(--kraft-line);
+}
+html[dir="rtl"] .admin-doc-table th { text-align: right; }
+.admin-doc-table th.sortable { cursor: pointer; user-select: none; }
+.admin-doc-table th.sortable:hover { color: var(--green); }
+.btn-source-eye { cursor:pointer; background:none; border:none; font-size:1.1rem; padding:2px 6px; border-radius:var(--radius-sm); transition:background 0.15s; }
+.btn-source-eye:hover { background:var(--kraft-line); }
+.btn-preview-pdf { cursor:pointer; background:none; border:none; font-size:1rem; padding:2px 4px; border-radius:var(--radius-sm); transition:background 0.15s; }
+.btn-preview-pdf:hover { background:var(--kraft-line); }
+.admin-doc-table td {
+  padding: var(--space-3);
+  border-bottom: 1px solid var(--kraft-line);
+  vertical-align: middle;
+}
+.doc-table-title { font-weight: 600; max-width: 260px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.doc-table-actions { display: flex; gap: var(--space-1); white-space: nowrap; flex-shrink: 0; min-width: 100px; }
+.local-tag {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: rgba(31,111,80,0.12);
+  color: var(--green);
+  padding: 1px 6px;
+  border-radius: 50px;
+  margin-inline-start: var(--space-2);
+}
+
+.admin-doc-search-row {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.export-hint {
+  font-size: var(--fs-xs);
+  color: var(--ink-soft);
+  margin-top: var(--space-2);
+}
+
+.doc-form-actions {
+  display: flex;
+  gap: var(--space-3);
+  align-items: center;
+  margin-top: var(--space-2);
+}
+
+.btn-ghost.active {
+  background: var(--green-bg) !important;
+  color: var(--green) !important;
+  border-color: var(--green) !important;
+}
+
+/* Admin sub-tabs */
+.admin-sub-tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: var(--space-3);
+  border-bottom: 2px solid var(--kraft-line);
+}
+.admin-sub-tab {
+  padding: var(--space-2) var(--space-4);
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--ink-soft);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -2px;
+  transition: color .15s, border-color .15s;
+}
+.admin-sub-tab:hover { color: var(--ink); }
+.admin-sub-tab.active {
+  color: var(--green);
+  border-bottom-color: var(--green);
+}
+
+/* Admin collapsible sections */
+.admin-collapse {
+  border: var(--border-w) solid var(--kraft-line);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-3);
+  overflow: hidden;
+  background: var(--surface);
+}
+.admin-collapse-summary {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  cursor: pointer;
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  color: var(--ink);
+  background: var(--cream-card);
+  user-select: none;
+  list-style: none;
+}
+.admin-collapse-summary::-webkit-details-marker { display: none; }
+.admin-collapse-summary::before {
+  content: '\25B6';
+  font-size: 10px;
+  color: var(--ink-soft);
+  transition: transform .2s;
+}
+.admin-collapse[open] > .admin-collapse-summary::before { transform: rotate(90deg); }
+.admin-collapse-body {
+  padding: var(--space-3);
+}
+
+/* Backup tooltip */
+.db-backup-item { position: relative; }
+.db-backup-tooltip {
+  display: none;
+  position: fixed;
+  z-index: 10000;
+  background: var(--ink);
+  color: #fff;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-xs);
+  line-height: 1.5;
+  white-space: nowrap;
+  pointer-events: none;
+  box-shadow: 0 4px 12px rgba(0,0,0,.25);
+  max-width: min(90vw, 400px);
+  overflow: hidden;
+}
+.db-backup-tooltip.show { display: block; }
+
+/* ============================================================
+   PASSWORD TOGGLE (eye icon)
+   ============================================================ */
+.pwd-toggle-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.pwd-toggle-wrap {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+}
+.pwd-toggle-wrap input {
+  padding-right: 32px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.pwd-toggle-btn {
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  bottom: 2px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 2px 6px;
+  color: var(--ink-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  border-radius: var(--radius-sm);
+}
+.pwd-toggle-btn:hover { color: var(--ink); background: rgba(0,0,0,.04); }
+.pwd-toggle-btn .icon svg { width: 18px; height: 18px; display: block; }
+
+/* ============================================================
+   Blogger-specific fixes
+   ============================================================ */
+#main-section { display: none; }
+body { margin: 0 !important; padding: 0 !important; }
+
+[data-theme="dark"] body { background-color: var(--paper) !important; }
+[data-theme="dark"] body > div:not([id^="fp-view"]):not([id="header-root"]):not([id="footer-root"]):not(.skip-link) {
+  background: transparent !important;
+}
+[data-theme="dark"] a { color: var(--green) !important; }
+[data-theme="dark"] .brand-name { color: var(--ink) !important; }
+[data-theme="dark"] .brand-tagline { color: var(--ink-soft) !important; }
+[data-theme="dark"] .nav-link.active { color: var(--green) !important; }
+[data-theme="dark"] h1, [data-theme="dark"] h2, [data-theme="dark"] h3, [data-theme="dark"] h4 { color: var(--ink) !important; }
+[data-theme="dark"] label, [data-theme="dark"] .export-hint { color: var(--ink-soft) !important; }
+[data-theme="dark"] .toast { background: var(--ink) !important; color: var(--paper) !important; }
+[data-theme="dark"] .local-tag { background: var(--gold) !important; color: var(--ink) !important; }
+
+]]></b:skin>
+</head>
+<body>
+<b:section class='main' id='main-section' maxwidgets='0' showaddelement='no'/>
+<a href="#main" class="skip-link">Aller au contenu</a>
+<div id="header-root"></div>
+
+<main id="main">
+
+<!-- ==================== HOME VIEW ==================== -->
+<div id="fp-view-home" class="fp-view">
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="animate-in">
+      <div class="hero-eyebrow-row">
+        <span class="stamp" id="hero-stamp">🇩🇿 INRY-BIBLIO</span>
+      </div>
+      <h1 data-i18n="hero.title"></h1>
+      <p class="hero-subtitle" data-i18n="hero.subtitle"></p>
+      <form class="search-bar" id="hero-search-form">
+        <input type="search" id="hero-search-input" data-i18n-placeholder="hero.searchPlaceholder" autocomplete="off" />
+        <button class="btn btn-primary" type="submit"><span data-i18n="hero.cta"></span></button>
+      </form>
+      <div class="hero-stats">
+        <div>
+          <div class="hero-stat-num" id="stat-docs">0</div>
+          <div class="hero-stat-label" data-i18n="hero.stat1"></div>
+        </div>
+        <div>
+          <div class="hero-stat-num" id="stat-subjects">0</div>
+          <div class="hero-stat-label" data-i18n="hero.stat2"></div>
+        </div>
+        <div>
+          <div class="hero-stat-num" id="stat-levels">0</div>
+          <div class="hero-stat-label" data-i18n="hero.stat3"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual animate-in delay-2">
+      <div class="dossier-stack">
+        <div class="dossier-card back-2"></div>
+        <div class="dossier-card back-1"></div>
+        <div class="dossier-card front">
+          <div class="dossier-line short"></div>
+          <div class="dossier-line"></div>
+          <div class="dossier-line"></div>
+          <div class="dossier-line tiny"></div>
+          <div class="dossier-line short" style="margin-top:1.5rem;"></div>
+          <div class="dossier-line"></div>
+          <div class="dossier-line tiny"></div>
+          <svg class="dossier-stamp-seal" viewBox="0 0 100 100" fill="none" style="color:var(--red-stamp);">
+            <circle cx="50" cy="50" r="46" stroke="currentColor" stroke-width="3" stroke-dasharray="5 4"/>
+            <circle cx="50" cy="50" r="36" stroke="currentColor" stroke-width="2"/>
+            <text x="50" y="46" font-size="11" text-anchor="middle" fill="currentColor" font-family="Fraunces, serif" font-weight="700">BAC</text>
+            <text x="50" y="60" font-size="9" text-anchor="middle" fill="currentColor" font-family="Fraunces, serif">2026</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2 data-i18n="filters.level"></h2>
+    </div>
+    <div class="quick-grid" id="levels-grid"></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="section-header">
+      <h2 data-i18n="filters.subject"></h2>
+    </div>
+    <div class="quick-grid" id="subjects-grid"></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="section-header">
+      <h2 data-i18n="nav.bacbem"></h2>
+      <a href="#library?type=bac-bem" class="btn btn-ghost" data-i18n="card.viewDetails"></a>
+    </div>
+    <div class="doc-grid" id="featured-grid"></div>
+  </div>
+</section>
+</div>
+
+<!-- ==================== LIBRARY VIEW ==================== -->
+<div id="fp-view-library" class="fp-view" style="display:none;">
+<section class="section" style="padding-bottom:0;">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <div class="eyebrow" data-i18n="nav.library"></div>
+        <h2 data-i18n="hero.cta"></h2>
+      </div>
+      <form id="search-form" style="display:flex; gap:0.5rem;">
+        <input type="search" id="filter-search" class="filter-select" style="min-width:240px;" data-i18n-placeholder="hero.searchPlaceholder" />
+      </form>
+    </div>
+
+    <div class="filters-bar">
+      <select id="filter-level" class="filter-select"></select>
+      <select id="filter-stream" class="filter-select"></select>
+      <select id="filter-subject" class="filter-select"></select>
+      <select id="filter-type" class="filter-select"></select>
+      <select id="filter-trimestre" class="filter-select"></select>
+      <select id="filter-year" class="filter-select"></select>
+      <button class="btn btn-ghost" id="filter-reset" data-i18n="filters.reset"></button>
+      <button class="btn btn-ghost" id="fav-filter-btn"><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span> <span data-i18n="library.favorites">Favoris</span></button>
+      <span class="filters-meta" id="filters-count"></span>
+    </div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0;">
+  <div class="container">
+    <div class="doc-grid" id="library-grid"></div>
+  </div>
+</section>
+</div>
+
+<!-- ==================== ASSISTANT VIEW ==================== -->
+<div id="fp-view-assistant" class="fp-view" style="display:none;">
+<main class="assistant-page">
+  <div class="assistant-header">
+    <div class="assistant-header-text">
+      <h2 data-i18n="assistant.title"></h2>
+      <p data-i18n="assistant.subtitle"></p>
+    </div>
+    <span class="provider-pill" id="provider-pill"></span>
+  </div>
+
+  <div class="assistant-key-row">
+    <select id="assistant-key-select" class="filter-select"></select>
+    <div id="assistant-custom-row" style="display:none; gap:var(--space-2); flex:1;">
+      <select id="assistant-custom-provider" class="filter-select" style="max-width:160px;">
+        <option value="openai">OpenAI</option>
+        <option value="anthropic">Anthropic</option>
+        <option value="google">Google</option>
+      </select>
+      <input type="password" id="assistant-custom-key" class="filter-select" data-i18n-placeholder="assistant.customKeyPlaceholder" autocomplete="off" style="flex:1;" />
+    </div>
+    <button class="btn btn-secondary btn-sm" id="assistant-add-key-btn" title="Ajouter une clé API" style="flex-shrink:0;">+</button>
+  </div>
+
+  <div id="assistant-add-key-panel" class="admin-section" style="display:none; margin-bottom:var(--space-3); padding:var(--space-4);">
+    <div class="form-row" style="margin-bottom:var(--space-3);">
+      <label data-i18n="admin.provider"></label>
+      <select id="assistant-add-provider" class="filter-select">
+        <option value="anthropic">Anthropic (Claude)</option>
+        <option value="openai" selected="selected">OpenAI (GPT)</option>
+        <option value="google">Google (Gemini)</option>
+        <option value="custom">Autre (compatible OpenAI)</option>
+      </select>
+    </div>
+    <div class="form-row" style="margin-bottom:var(--space-3);">
+      <label data-i18n="admin.model"></label>
+      <input type="text" id="assistant-add-model" class="filter-select" placeholder="gpt-4.1" value="gpt-4.1" />
+    </div>
+    <div class="form-row" style="margin-bottom:var(--space-3);" id="assistant-add-endpoint-row">
+      <label data-i18n="admin.endpoint"></label>
+      <input type="text" id="assistant-add-endpoint" class="filter-select" placeholder="https://votre-serveur.com/v1/chat/completions" />
+    </div>
+    <div class="form-row" style="margin-bottom:var(--space-3);">
+      <label data-i18n="admin.apiKey"></label>
+      <input type="password" id="assistant-add-apikey" class="filter-select" data-i18n-placeholder="admin.apiKeyPlaceholder" autocomplete="off" />
+    </div>
+    <div style="display:flex; gap:var(--space-2); align-items:center;">
+      <button class="btn btn-primary btn-sm" id="assistant-add-key-save" data-i18n="admin.save"></button>
+      <button class="btn btn-ghost btn-sm" id="assistant-add-key-cancel" data-i18n="admin.cancel"></button>
+      <span class="save-confirm" id="assistant-add-key-confirm" data-i18n="admin.saved"></span>
+    </div>
+  </div>
+
+  <div class="chat-toolbar" id="chat-toolbar">
+    <button class="btn btn-ghost btn-sm" id="conv-toggle-btn" title="Conversations">☰</button>
+    <input type="text" id="chat-search-inp" placeholder="🔍 Rechercher dans le chat…" style="flex:1;max-width:300px;padding:var(--space-2)var(--space-3);border:2px solid var(--kraft);border-radius:var(--radius-md);background:var(--surface);color:var(--ink);font-size:var(--fs-xs);display:none;" />
+    <div style="display:flex;gap:var(--space-1);margin-inline-start:auto;">
+      <button class="btn btn-ghost btn-sm" id="saved-prompts-btn" title="Prompts sauvegardés">📋</button>
+      <button class="btn btn-ghost btn-sm" id="export-chat-btn" title="Exporter le chat">↓</button>
+      <button class="btn btn-ghost btn-sm" id="toggle-search-btn" title="Rechercher">🔍</button>
+    </div>
+  </div>
+
+  <div class="conv-sidebar" id="conv-sidebar" style="display:none;">
+    <div class="conv-sidebar-header">
+      <strong>Conversations</strong>
+      <button class="btn btn-primary btn-sm" id="conv-new-btn">+ Nouvelle</button>
+    </div>
+    <div class="conv-list" id="conv-list"></div>
+  </div>
+
+  <div class="chat-area" id="chat-area" style="display:flex;flex-direction:column;flex:1;min-height:0;">
+    <div class="chat-scroll" id="chat-scroll"></div>
+
+    <div class="chat-empty" id="chat-empty">
+      <div></div>
+      <h3 data-i18n="assistant.title" style="font-family:var(--font-display); font-size:var(--fs-lg); color:var(--ink);"></h3>
+      <p data-i18n="assistant.subtitle"></p>
+      <div id="chat-empty-recent" style="margin-top:var(--space-4);"></div>
+    </div>
+
+    <div class="chat-suggestions" id="suggestion-chips" style="display:none;"></div>
+    <div class="chat-attachments" id="chat-attachments"></div>
+  </div>
+
+  <div class="saved-prompts-panel" id="saved-prompts-panel" style="display:none;">
+    <div class="conv-sidebar-header">
+      <strong>Prompts sauvegardés</strong>
+      <button class="btn btn-ghost btn-sm" id="close-prompts-btn">✕</button>
+    </div>
+    <div class="conv-list" id="prompts-list"></div>
+  </div>
+
+  <form class="chat-input-row" id="chat-form">
+    <div class="chat-input-main">
+      <label class="btn btn-secondary btn-attach" id="chat-attach-btn" title="Joindre un fichier">
+        <span id="attach-icon"></span>
+        <input type="file" id="chat-file-input" accept="image/*,.pdf,.txt" style="display:none;" />
+      </label>
+      <textarea id="chat-textarea" rows="1" dir="auto" data-i18n-placeholder="assistant.placeholder" required="required"></textarea>
+      <button class="btn btn-primary" type="submit"><span class="btn-send-icon"></span> <span data-i18n="assistant.send"></span></button>
+    </div>
+    <div class="chat-input-tools">
+      <button class="btn btn-secondary btn-sm" id="chat-img-btn"><span>Image</span></button>
+      <button class="btn btn-secondary btn-sm" id="chat-canvas-btn"><span>Canvas</span></button>
+      <button class="btn btn-ghost btn-sm" id="chat-clear-btn"><span data-i18n="assistant.clear"></span></button>
+    </div>
+  </form>
+</main>
+</div>
+
+<!-- ==================== ADMIN VIEW ==================== -->
+<div id="fp-view-admin" class="fp-view admin-page" style="display:none;">
+<div class="admin-lock" id="admin-lock-screen">
+  <div id="lock-icon"></div>
+  <h2 data-i18n="admin.title" style="font-size:var(--fs-lg);"></h2>
+  <p style="color:var(--ink-soft); font-size:var(--fs-sm); margin-top:0.5rem;" data-i18n="admin.subtitle"></p>
+  <form class="admin-lock-form" id="admin-login-form">
+    <input type="password" id="admin-password-input" data-i18n-placeholder="admin.passwordPlaceholder" required="required" />
+    <div class="admin-error" id="admin-error"></div>
+    <button class="btn btn-primary" type="submit" data-i18n="admin.login"></button>
+  </form>
+</div>
+
+<div id="admin-content" class="hidden">
+  <div class="admin-toprow">
+    <div>
+      <div class="eyebrow" data-i18n="nav.admin"></div>
+      <h2 data-i18n="admin.title" style="font-size:var(--fs-xl);"></h2>
+    </div>
+    <button class="btn btn-secondary btn-sm" id="admin-logout-btn" data-i18n="admin.logout"></button>
+  </div>
+
+  <div class="admin-tabs">
+    <button class="admin-tab-btn active" data-tab="docs">📄 Documents</button>
+    <button class="admin-tab-btn" data-tab="keys">🔑 Clés API</button>
+    <button class="admin-tab-btn" data-tab="password">🔒 Mot de passe</button>
+  </div>
+
+  <!-- ============== DOCUMENTS TAB ============== -->
+  <div class="admin-tab-panel" id="tab-panel-docs">
+
+    <div class="admin-sub-tabs">
+      <button class="admin-sub-tab active" data-subtab="docs-add">➕ Ajouter</button>
+      <button class="admin-sub-tab" data-subtab="docs-list">📋 Liste</button>
+      <button class="admin-sub-tab" data-subtab="docs-db">💾 Base de données</button>
+      <button class="admin-sub-tab" data-subtab="docs-import">📥 Import</button>
+    </div>
+
+    <div class="admin-sub-panel" id="sub-panel-docs-add">
+      <div class="admin-section" id="doc-form-section">
+        <h3><span id="doc-form-icon"></span> <span id="doc-form-title-heading" data-i18n="admin.addDoc"></span></h3>
+        <form id="doc-form">
+          <div class="form-row-cols-3">
+            <div class="form-row">
+              <label data-i18n="admin.titleFr"></label>
+              <input type="text" id="doc-form-title-fr" required="required" />
+            </div>
+            <div class="form-row">
+              <label data-i18n="admin.titleAr"></label>
+              <input type="text" id="doc-form-title-ar" dir="rtl" />
+            </div>
+            <div class="form-row">
+              <label data-i18n="admin.titleEn"></label>
+              <input type="text" id="doc-form-title-en" />
+            </div>
+          </div>
+          <div class="form-row-cols-3">
+            <div class="form-row">
+              <label data-i18n="admin.descFr"></label>
+              <textarea id="doc-form-desc-fr" rows="2"></textarea>
+            </div>
+            <div class="form-row">
+              <label data-i18n="admin.descAr"></label>
+              <textarea id="doc-form-desc-ar" rows="2" dir="rtl"></textarea>
+            </div>
+            <div class="form-row">
+              <label data-i18n="admin.descEn"></label>
+              <textarea id="doc-form-desc-en" rows="2"></textarea>
+            </div>
+          </div>
+          <div class="form-row" style="display:flex;gap:var(--space-3);align-items:center;flex-wrap:wrap;">
+            <button class="btn btn-secondary btn-sm" id="spell-check-btn" type="button" data-i18n="admin.spellCheck"></button>
+            <label style="display:flex;align-items:center;gap:var(--space-1);font-size:var(--fs-xs);cursor:pointer;">
+              <input type="checkbox" id="auto-translate-toggle" checked="checked" />
+              <span>Traduction auto (FR → AR/EN)</span>
+            </label>
+          </div>
+          <div class="form-row-cols">
+            <div class="form-row">
+              <label data-i18n="admin.level"></label>
+              <select id="doc-form-level" required="required"></select>
+            </div>
+            <div class="form-row">
+              <label data-i18n="admin.stream"></label>
+              <select id="doc-form-stream"></select>
+            </div>
+          </div>
+          <div class="form-row-cols">
+            <div class="form-row">
+              <label data-i18n="admin.subject"></label>
+              <select id="doc-form-subject" required="required"></select>
+            </div>
+            <div class="form-row">
+              <label data-i18n="admin.type"></label>
+              <select id="doc-form-type" required="required"></select>
+            </div>
+          </div>
+          <div class="form-row-cols-3">
+            <div class="form-row">
+              <label data-i18n="admin.year"></label>
+              <input type="number" id="doc-form-year" min="2000" max="2100" />
+            </div>
+            <div class="form-row">
+              <label data-i18n="admin.trimestre"></label>
+              <select id="doc-form-trimestre"></select>
+            </div>
+            <div class="form-row">
+              <label data-i18n="admin.pages"></label>
+              <input type="number" id="doc-form-pages" min="1" />
+            </div>
+          </div>
+          <div class="form-row-cols">
+            <div class="form-row">
+              <label data-i18n="admin.wilaya"></label>
+              <select id="doc-form-wilaya"></select>
+            </div>
+            <div class="form-row">
+              <label data-i18n="admin.size"></label>
+              <input type="text" id="doc-form-size" placeholder="1.2 MB" />
+            </div>
+          </div>
+          <div class="form-row-cols">
+            <div class="form-row">
+              <label data-i18n="admin.host"></label>
+              <select id="doc-form-host"></select>
+            </div>
+            <div class="form-row" style="visibility:hidden;"></div>
+          </div>
+          <div class="form-row">
+            <label data-i18n="admin.previewUrl"></label>
+            <input type="url" id="doc-form-preview-url" required="required" placeholder="https://drive.google.com/file/d/ID/preview" />
+            <span class="export-hint" data-i18n="admin.previewUrlHint"></span>
+          </div>
+          <div class="form-row">
+            <label data-i18n="admin.downloadUrl"></label>
+            <input type="url" id="doc-form-download-url" required="required" placeholder="https://drive.google.com/uc?export=download&amp;id=ID" />
+            <span class="export-hint" data-i18n="admin.downloadUrlHint"></span>
+          </div>
+          <div class="form-row-cols">
+            <div class="form-row">
+              <label data-i18n="admin.source"></label>
+              <input type="text" id="doc-form-source" placeholder="dzexams, eddirasa, ency-education…" />
+            </div>
+            <div class="form-row">
+              <label data-i18n="admin.urlSource"></label>
+              <input type="url" id="doc-form-url-source" placeholder="https://www.dzexams.com/ar/sujets/..." />
+            </div>
+          </div>
+          <div class="form-row">
+            <label data-i18n="admin.urlPdf"></label>
+            <input type="url" id="doc-form-url-pdf" placeholder="https://www.dzexams.com/uploads/sujets/..." />
+          </div>
+          <div class="doc-form-actions">
+            <button class="btn btn-primary" type="submit" id="doc-form-submit-btn" data-i18n="admin.save"></button>
+            <button class="btn btn-secondary" type="button" id="doc-form-cancel-btn" data-i18n="admin.cancel"></button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="admin-sub-panel hidden" id="sub-panel-docs-list">
+      <div class="admin-section">
+        <div class="admin-doc-search-row">
+          <h3 style="margin-bottom:0;" data-i18n="admin.docManagerTitle"></h3>
+          <input type="search" id="admin-doc-search" class="filter-select" data-i18n-placeholder="admin.searchDocsPlaceholder" style="min-width:240px;" />
+        </div>
+        <div class="admin-doc-table-wrap">
+          <table class="admin-doc-table">
+            <thead>
+              <tr>
+                <th style="width:36px;"><input type="checkbox" id="select-all-docs" title="Tout sélectionner" /></th>
+                <th data-i18n="admin.docTableTitle" data-sort="title" class="sortable" title="Cliquer pour trier"></th>
+                <th data-i18n="admin.docTableSubject" data-sort="subject" class="sortable" title="Cliquer pour trier"></th>
+                <th data-i18n="admin.docTableType" data-sort="type" class="sortable" title="Cliquer pour trier"></th>
+                <th data-i18n="admin.docTableTrimestre" data-sort="trimestre" class="sortable" title="Cliquer pour trier"></th>
+                <th data-i18n="admin.docTableYear" data-sort="year" class="sortable" title="Cliquer pour trier"></th>
+                <th data-i18n="admin.docTableHost" data-sort="host" class="sortable" title="Cliquer pour trier"></th>
+                <th data-i18n="admin.docTableSource" data-sort="source" class="sortable" title="Cliquer pour trier"></th>
+                <th style="width:36px;" title="Lien source"></th>
+                <th data-i18n="admin.docTableActions"></th>
+              </tr>
+            </thead>
+            <tbody id="admin-doc-table-body">
+              <tr><td colspan="10" style="text-align:center;padding:1.5rem;color:var(--ink-soft);">Chargement…</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="admin-sub-panel hidden" id="sub-panel-docs-db">
+      <div class="admin-section">
+        <h3><span id="export-icon"></span> <span data-i18n="admin.exportDb"></span></h3>
+        <p class="export-hint" data-i18n="admin.exportHint" style="margin-bottom:1rem;"></p>
+        <button class="btn btn-secondary" id="export-db-btn"><span id="export-btn-icon"></span> <span data-i18n="admin.exportDb"></span></button>
+      </div>
+      <div class="admin-section">
+        <h3><span id="import-icon"></span> <span>Importer / Sauvegardes</span></h3>
+        <p class="export-hint" style="margin-bottom:1rem;">Importe un fichier db.json ou restaure une sauvegarde locale.</p>
+        <div style="display:flex;gap:var(--space-2);align-items:center;flex-wrap:wrap;">
+          <input type="file" id="import-db-file-input" accept=".json" style="flex:1;min-width:200px;padding:var(--space-2);border:2px solid var(--kraft);border-radius:var(--radius-sm);font-size:var(--fs-sm);background:var(--surface);" />
+          <button class="btn btn-primary" id="import-db-btn">Importer</button>
+          <button class="btn btn-ghost btn-sm" id="reset-db-btn">↺ Réinitialiser</button>
+        </div>
+        <div id="db-backup-list" style="margin-top:var(--space-3);"></div>
+        <div class="admin-section" style="margin-top:var(--space-4);padding-top:var(--space-4);border-top:1px solid var(--kraft-line);">
+          <h4 style="font-size:var(--fs-sm);font-weight:600;margin-bottom:var(--space-2);">Synchronisation GitHub</h4>
+          <p class="export-hint" style="margin-bottom:var(--space-2);">Push automatique de db.json vers GitHub pour synchroniser entre PC.</p>
+          <div class="form-row" style="margin-bottom:var(--space-2);">
+            <label style="font-size:var(--fs-xs);">GitHub Personal Access Token</label>
+            <input type="password" id="github-pat-input" placeholder="ghp_xxxxxxxxxxxx" style="width:100%;padding:var(--space-2);border:1px solid var(--kraft-line);border-radius:var(--radius-sm);background:var(--surface);font-family:monospace;" />
+          </div>
+          <div style="display:flex;gap:var(--space-2);margin-bottom:var(--space-2);flex-wrap:wrap;">
+            <div class="form-row" style="flex:1;min-width:200px;">
+              <label style="font-size:var(--fs-xs);">Depot (owner/repo)</label>
+              <input type="text" id="github-repo-input" value="droidapk1002-beep/inry-biblio-assets" style="width:100%;padding:var(--space-2);border:1px solid var(--kraft-line);border-radius:var(--radius-sm);background:var(--surface);" />
+            </div>
+            <div class="form-row" style="flex:0 0 120px;">
+              <label style="font-size:var(--fs-xs);">Branche</label>
+              <input type="text" id="github-branch-input" value="main" style="width:100%;padding:var(--space-2);border:1px solid var(--kraft-line);border-radius:var(--radius-sm);background:var(--surface);" />
+            </div>
+            <div class="form-row" style="flex:0 0 250px;">
+              <label style="font-size:var(--fs-xs);">Chemin du fichier</label>
+              <input type="text" id="github-path-input" value="repo/data/db.json" style="width:100%;padding:var(--space-2);border:1px solid var(--kraft-line);border-radius:var(--radius-sm);background:var(--surface);" />
+            </div>
+          </div>
+          <div style="display:flex;gap:var(--space-2);align-items:center;flex-wrap:wrap;margin-bottom:var(--space-2);">
+            <button class="btn btn-primary btn-sm" id="github-push-btn">Pousser db.json vers GitHub</button>
+            <button class="btn btn-secondary btn-sm" id="github-save-config-btn">Sauvegarder la config</button>
+            <span id="github-push-status" style="font-size:var(--fs-xs);color:var(--ink-soft);"></span>
+          </div>
+          <label style="font-size:var(--fs-xs);display:flex;align-items:center;gap:var(--space-2);margin-bottom:var(--space-2);cursor:pointer;">
+            <input type="checkbox" id="github-auto-push" style="width:auto;" /> Pousser automatiquement apres chaque sauvegarde
+          </label>
+          <div id="github-push-log" style="font-size:var(--fs-xs);max-height:120px;overflow-y:auto;border:1px solid var(--kraft-line);border-radius:var(--radius-sm);padding:var(--space-2);display:none;"></div>
+        </div>
+        <div class="admin-section" style="margin-top:var(--space-4);padding-top:var(--space-4);border-top:1px solid var(--kraft-line);">
+          <label style="font-weight:600;font-size:var(--fs-sm);display:block;margin-bottom:var(--space-2);">Sauvegarde automatique</label>
+          <div style="display:flex;flex-direction:column;gap:var(--space-2);">
+            <label style="display:flex;align-items:center;gap:var(--space-2);font-size:var(--fs-sm);"><input type="radio" name="auto-backup-mode" value="off" /> Désactivée</label>
+            <label style="display:flex;align-items:center;gap:var(--space-2);font-size:var(--fs-sm);"><input type="radio" name="auto-backup-mode" value="interval" /> Intervalle régulier</label>
+            <label style="display:flex;align-items:center;gap:var(--space-2);font-size:var(--fs-sm);"><input type="radio" name="auto-backup-mode" value="fixed" /> Horaire fixe (chaque jour)</label>
+          </div>
+          <div id="auto-backup-interval-group" style="display:none;margin-top:var(--space-2);align-items:center;gap:var(--space-2);">
+            <span style="font-size:var(--fs-sm);">Toutes les</span>
+            <input type="number" id="auto-backup-interval-val" min="1" max="365" value="1" style="width:70px;padding:var(--space-1) var(--space-2);border:2px solid var(--kraft);border-radius:var(--radius-md);background:var(--surface);color:var(--ink);font-size:var(--fs-sm);" />
+            <select id="auto-backup-interval-unit" style="padding:var(--space-1) var(--space-2);border:2px solid var(--kraft);border-radius:var(--radius-md);background:var(--surface);color:var(--ink);font-size:var(--fs-sm);">
+              <option value="minutes">minutes</option>
+              <option value="hours" selected="selected">heures</option>
+              <option value="days">jours</option>
+            </select>
+          </div>
+          <div id="auto-backup-fixed-group" style="display:none;margin-top:var(--space-2);align-items:center;gap:var(--space-2);">
+            <span style="font-size:var(--fs-sm);">À</span>
+            <input type="time" id="auto-backup-fixed-hour" value="08:00" style="padding:var(--space-1) var(--space-2);border:2px solid var(--kraft);border-radius:var(--radius-md);background:var(--surface);color:var(--ink);font-size:var(--fs-sm);" />
+          </div>
+          <button class="btn btn-primary btn-sm" id="auto-backup-save" style="margin-top:var(--space-2);">Appliquer</button>
+          <span class="export-hint" style="display:block;margin-top:var(--space-1);">Une sauvegarde automatique est créée dans la liste ci-dessus selon l'horaire choisi.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="admin-sub-panel hidden" id="sub-panel-docs-import">
+      <div class="admin-section">
+        <h3>📥 Import par fichier JSON (dzexams)</h3>
+        <p class="export-hint">Importe un fichier JSON contenant des documents (format dzexams) pour les ajouter en un clic.</p>
+        <div style="display:flex;gap:var(--space-2);align-items:center;flex-wrap:wrap;margin-bottom:var(--space-3);">
+          <input type="file" id="import-manifest-input" accept=".json" style="flex:1;min-width:200px;padding:var(--space-2);border:2px solid var(--kraft);border-radius:var(--radius-sm);font-size:var(--fs-sm);background:var(--surface);" />
+          <button class="btn btn-primary" id="import-analyze-btn">Analyser</button>
+        </div>
+        <div id="import-preview-container" style="display:none;"></div>
+        <div style="margin-top:var(--space-4);padding-top:var(--space-4);border-top:1px solid var(--kraft-line);display:flex;gap:var(--space-2);align-items:center;flex-wrap:wrap;">
+          <button class="btn btn-secondary btn-sm" id="migrate-host-btn" title="Détecter le provider (google/mega/onedrive/dropbox) depuis l'URL des documents importés">🔄 Migrer hôtes</button>
+          <span style="font-size:var(--fs-xs);color:var(--ink-soft);">Met à jour la colonne Hébergeur d'après l'URL des documents</span>
+        </div>
+      </div>
+
+      <div class="admin-section" style="margin-top:var(--space-4);border-top:1px solid var(--kraft-line);padding-top:var(--space-4);">
+        <h3>📤 Export Manifest (cloud)</h3>
+        <p class="export-hint">Génère un fichier JSON manifeste avec tous les documents (compatible dzexams / fp-manifest-cli). Téléchargez-le ou copiez-le pour l'uploader sur Google Drive, MEGA, etc.</p>
+        <div style="display:flex;gap:var(--space-2);align-items:center;flex-wrap:wrap;margin-bottom:var(--space-2);">
+          <button class="btn btn-primary btn-sm" id="export-manifest-download-btn">📥 Télécharger le manifeste</button>
+          <button class="btn btn-secondary btn-sm" id="export-manifest-copy-btn">📋 Copier dans le presse-papier</button>
+        </div>
+        <div id="export-manifest-stats" style="font-size:var(--fs-xs);color:var(--ink-soft);margin-top:var(--space-1);"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== API KEYS TAB ============== -->
+  <div class="admin-tab-panel hidden" id="tab-panel-keys">
+    <div class="admin-section">
+      <h3><span id="settings-icon"></span> <span data-i18n="admin.keysList"></span></h3>
+      <div class="key-list" id="admin-key-list"></div>
+    </div>
+    <div class="admin-section">
+      <h3 data-i18n="admin.provider"></h3>
+      <form id="admin-key-form">
+        <div class="form-row-cols">
+          <div class="form-row">
+            <label data-i18n="admin.provider"></label>
+            <select id="admin-provider"></select>
+          </div>
+          <div class="form-row">
+            <label data-i18n="admin.model"></label>
+            <input type="text" id="admin-model" placeholder="claude-sonnet-4-6" />
+            <span class="export-hint" data-i18n="admin.modelHint"></span>
+            <a id="admin-model-help-link" href="#" target="_blank" rel="noopener" class="export-hint" style="text-decoration:underline; display:inline-block; margin-top:2px;" data-i18n="admin.modelHelpLink"></a>
+          </div>
+        </div>
+        <div class="form-row" id="admin-endpoint-row" style="display:none;">
+          <label data-i18n="admin.endpoint"></label>
+          <input type="url" id="admin-endpoint" placeholder="https://mon-api.exemple.com/v1/chat/completions" />
+          <span class="export-hint" data-i18n="admin.endpointHint"></span>
+        </div>
+        <div class="form-row">
+          <label data-i18n="admin.apiKey"></label>
+          <input type="password" id="admin-api-key" data-i18n-placeholder="admin.apiKeyPlaceholder" autocomplete="off" />
+        </div>
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <button class="btn btn-primary" type="submit" data-i18n="admin.save"></button>
+          <span class="save-confirm" id="admin-save-confirm" data-i18n="admin.saved"></span>
+        </div>
+      </form>
+    </div>
+    <div class="admin-section">
+      <h3 data-i18n="admin.systemPrompt"></h3>
+      <div class="form-row">
+        <textarea id="admin-system-prompt" rows="10"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============== PASSWORD TAB ============== -->
+  <div class="admin-tab-panel hidden" id="tab-panel-password">
+    <div class="admin-section">
+      <h3><span id="password-icon"></span> <span data-i18n="admin.changePassword"></span></h3>
+      <form id="admin-password-form">
+        <div class="form-row">
+          <label data-i18n="admin.currentPassword"></label>
+          <input type="password" id="admin-current-password" required="required" autocomplete="off" />
+        </div>
+        <div class="form-row">
+          <label data-i18n="admin.newPassword"></label>
+          <input type="password" id="admin-new-password" required="required" minlength="6" autocomplete="off" />
+        </div>
+        <div class="form-row">
+          <label data-i18n="admin.confirmPassword"></label>
+          <input type="password" id="admin-confirm-password" required="required" minlength="6" autocomplete="off" />
+        </div>
+        <div class="admin-error" id="admin-password-error"></div>
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <button class="btn btn-primary" type="submit" data-i18n="admin.save"></button>
+          <span class="save-confirm" id="admin-password-save-confirm" data-i18n="admin.passwordChanged"></span>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</div>
+
+</main>
+
+<div id="footer-root"></div>
+<div id="modal-root"></div>
+<div id="global-toast" class="toast"></div>
+
+<!-- CDN URL config -->
+<script>
+//<![CDATA[
+  window.INRY_BASE_URL = 'https://cdn.jsdelivr.net/gh/droidapk1002-beep/inry-biblio-assets@main/repo/';
+  window.INRY_ROUTES = { home: '#home', library: '#library', assistant: '#assistant', admin: '#admin' };
+//]]>
+</script>
+
+<!-- External JS from CDN -->
+<script src='https://cdn.jsdelivr.net/gh/droidapk1002-beep/inry-biblio-assets@main/repo/js/icons.js'></script>
+<script src='https://cdn.jsdelivr.net/gh/droidapk1002-beep/inry-biblio-assets@main/repo/js/i18n.js'></script>
+<script src='https://cdn.jsdelivr.net/gh/droidapk1002-beep/inry-biblio-assets@main/repo/js/layout.js?v=40'></script>
+<script>//<![CDATA[
+(function(){
+  var _orig = window.openDocModal;
+  if(typeof _orig !== 'function') return;
+  window.openDocModal = function(docId){
+    _orig(docId);
+    var pv = document.getElementById('modal-preview');
+    if(!pv) return;
+    var fix = function(){
+      var ifr = pv.querySelector('iframe');
+      if(!ifr) return;
+      var s = ifr.src || '';
+      if(s.indexOf('docs.google.com/gview') !== -1){
+        var m = s.match(/id=([^&]+)/);
+        if(m) ifr.src = 'https://drive.google.com/file/d/' + m[1] + '/preview';
+      }
+    };
+    fix();
+    setTimeout(fix, 300);
+  };
+})();
+//]]></script>
+<script src='https://cdn.jsdelivr.net/gh/droidapk1002-beep/inry-biblio-assets@main/repo/js/documents.js?v=40'></script>
+<script src='https://cdn.jsdelivr.net/gh/droidapk1002-beep/inry-biblio-assets@main/repo/js/admin.js'></script>
+<script src='https://cdn.jsdelivr.net/gh/droidapk1002-beep/inry-biblio-assets@main/repo/js/assistant.js'></script>
+<script>
+//<![CDATA[
+/* ============================================================
+   ADMIN DOCUMENT MANAGER — add / edit / delete documents
+   ============================================================ */
+
+const LOCAL_DOCS_KEY = 'inry_local_docs';
+const DELETED_DOCS_KEY = 'inry_deleted_doc_ids';
+const PENDING_DOCS_KEY = 'inry_pending_docs';
+
+let sortState = { key: 'id', dir: 'desc' };
+
+function getLocalDocs() {
+  try { return JSON.parse(localStorage.getItem(LOCAL_DOCS_KEY) || '[]'); }
+  catch { return []; }
+}
+function saveLocalDocs(docs) {
+  localStorage.setItem(LOCAL_DOCS_KEY, JSON.stringify(docs));
+}
+function getDeletedIds() {
+  try { return JSON.parse(localStorage.getItem(DELETED_DOCS_KEY) || '[]'); }
+  catch { return []; }
+}
+function saveDeletedIds(ids) {
+  localStorage.setItem(DELETED_DOCS_KEY, JSON.stringify(ids));
+}
+function getPendingDocs() {
+  try { return JSON.parse(localStorage.getItem(PENDING_DOCS_KEY) || '[]'); }
+  catch { return []; }
+}
+function savePendingDocs(docs) {
+  localStorage.setItem(PENDING_DOCS_KEY, JSON.stringify(docs));
+}
+function approvePendingDoc(docId) {
+  const pending = getPendingDocs();
+  const idx = pending.findIndex(d => d.id === docId);
+  if (idx === -1) return;
+  const [doc] = pending.splice(idx, 1);
+  savePendingDocs(pending);
+  upsertLocalDoc(doc);
+  applyLocalDocOverrides();
+  renderAdminDocTable();
+}
+function rejectPendingDoc(docId) {
+  const pending = getPendingDocs();
+  const filtered = pending.filter(d => d.id !== docId);
+  savePendingDocs(filtered);
+  renderAdminDocTable();
+}
+function approveAllPending() {
+  const pending = getPendingDocs();
+  if (!pending.length) return;
+  pending.forEach(d => upsertLocalDoc(d));
+  savePendingDocs([]);
+  applyLocalDocOverrides();
+  renderAdminDocTable();
+  showToast(pending.length + ' document(s) validé(s)');
+}
+
+function applyLocalDocOverrides() {
+  if (!APP.db || !APP.db.documents) return;
+  const deleted = new Set(getDeletedIds());
+  const localDocs = getLocalDocs();
+  const localIds = new Set(localDocs.map(d => d.id));
+  const base = APP.db.documents.filter(d => !deleted.has(d.id) && !localIds.has(d.id));
+  APP.db.documents = [...base, ...localDocs.filter(d => !deleted.has(d.id))];
+}
+
+function upsertLocalDoc(doc) {
+  const docs = getLocalDocs();
+  const idx = docs.findIndex(d => d.id === doc.id);
+  if (idx >= 0) docs[idx] = doc;
+  else docs.push(doc);
+  saveLocalDocs(docs);
+  const deleted = getDeletedIds().filter(id => id !== doc.id);
+  saveDeletedIds(deleted);
+  scheduleAutoPush();
+}
+
+function deleteDocEverywhere(id) {
+  saveLocalDocs(getLocalDocs().filter(d => d.id !== id));
+  const deleted = getDeletedIds();
+  if (!deleted.includes(id)) { deleted.push(id); saveDeletedIds(deleted); }
+  scheduleAutoPush();
+}
+
+function nextDocId(allDocs) {
+  const nums = allDocs.map(d => parseInt((d.id || '').replace('doc-',''), 10)).filter(n => !isNaN(n));
+  const max = nums.length ? Math.max(...nums) : 0;
+  return 'doc-' + String(max + 1).padStart(4, '0');
+}
+
+let editingDocId = null;
+let editingIsPending = false;
+let titleAutoFill = true;
+let descAutoFill = true;
+let titleTimer = null;
+let descTimer = null;
+
+function initDocManager() {
+  if (!APP.db) { console.error('[INRY-Biblio] APP.db est vide'); return; }
+  populateDocFormSelects();
+  renderAdminDocTable();
+  wireDocManagerEvents();
+  wireImportBackupUI();
+  wireAutoBackupUI();
+  startAutoBackup();
+  wireGithubSync();
+}
+
+function populateDocFormSelects() {
+  const levelSel = document.getElementById('doc-form-level');
+  const streamSel = document.getElementById('doc-form-stream');
+  const subjectSel = document.getElementById('doc-form-subject');
+  const typeSel = document.getElementById('doc-form-type');
+  const hostSel = document.getElementById('doc-form-host');
+  const wilayaSel = document.getElementById('doc-form-wilaya');
+  const trimestreSel = document.getElementById('doc-form-trimestre');
+  if (!levelSel || !streamSel || !subjectSel || !typeSel || !hostSel) return;
+  levelSel.innerHTML = APP.db.levels.map(grp => '<optgroup label="' + escapeAttr(localized(grp.name)) + '">' + grp.years.map(y => '<option value="' + escapeAttr(y.id) + '">' + escapeHTML(localized(y.name)) + '</option>').join('') + '</optgroup>').join('');
+  streamSel.innerHTML = '<option value="">—</option>' + APP.db.streams.map(s => '<option value="' + escapeAttr(s.id) + '">' + escapeHTML(localized(s.name)) + '</option>').join('');
+  subjectSel.innerHTML = APP.db.subjects.map(s => '<option value="' + escapeAttr(s.id) + '">' + escapeHTML(localized(s.name)) + '</option>').join('');
+  typeSel.innerHTML = APP.db.documentTypes.map(ty => '<option value="' + escapeAttr(ty.id) + '">' + escapeHTML(localized(ty.name)) + '</option>').join('');
+  hostSel.innerHTML = '<option value="drive">Google Drive</option><option value="mega">Mega</option><option value="other">Autre</option>';
+  if (wilayaSel) { const wl = APP.db.wilayas || []; wilayaSel.innerHTML = '<option value="">— ' + t('admin.noWilaya') + '</option><option value="National">' + t('admin.nationalWilaya') + '</option>' + wl.map(w => '<option value="' + escapeAttr(localized(w.name)) + '">' + escapeHTML(w.code) + ' — ' + escapeHTML(localized(w.name)) + '</option>').join(''); }
+  if (trimestreSel) { const tl = APP.db.trimestres || []; trimestreSel.innerHTML = '<option value="">— ' + t('admin.noTrimestre') + '</option>' + tl.map(tr => '<option value="' + escapeAttr(tr.id) + '">' + escapeHTML(localized(tr.name)) + '</option>').join(''); }
+}
+
+function renderAdminDocTable() {
+  const tbody = document.getElementById('admin-doc-table-body');
+  const searchVal = (document.getElementById('admin-doc-search')?.value || '').toLowerCase().trim();
+  const pendingDocs = getPendingDocs();
+  const hiddenIds = getHiddenIds();
+  let docs = [...APP.db.documents];
+  const sk = sortState.key, sd = sortState.dir;
+  docs.sort((a, b) => { let va, vb; if (sk === 'id') { va = parseInt(a.id.replace('doc-',''), 10) || 0; vb = parseInt(b.id.replace('doc-',''), 10) || 0; } else if (sk === 'title') { va = (localized(a.title) || '').toLowerCase(); vb = (localized(b.title) || '').toLowerCase(); } else { va = (a[sk] != null ? String(a[sk]) : '').toLowerCase(); vb = (b[sk] != null ? String(b[sk]) : '').toLowerCase(); } if (va < vb) return sd === 'asc' ? -1 : 1; if (va > vb) return sd === 'asc' ? 1 : -1; return 0; });
+  if (searchVal) { docs = docs.filter(d => { const hay = [localized(d.title), d.id, d.subject, d.level].join(' ').toLowerCase(); return hay.includes(searchVal); }); }
+  const selAllChecked = localStorage.getItem('_inry_select_all') === 'true' ? 'checked' : '';
+  let html = '';
+  html += '<tr class="selection-toolbar"><td colspan="8" style="padding:0.5rem 1rem;background:var(--surface);border-bottom:1px solid var(--kraft-line);"><div style="display:flex;gap:var(--space-2);align-items:center;justify-content:center;flex-wrap:wrap;"><button class="btn btn-ghost btn-xs" id="select-all-btn">☐ Tout</button><button class="btn btn-ghost btn-xs" id="deselect-all-btn">☐ Aucun</button><span style="color:var(--ink-soft);font-size:var(--fs-xs);" id="sel-count"></span><button class="btn btn-danger btn-xs" id="delete-selected-btn" style="display:none;">🗑 Supprimer</button><button class="btn btn-secondary btn-xs" id="hide-selected-btn" style="display:none;">👁 Masquer</button><button class="btn btn-secondary btn-xs" id="unhide-selected-btn" style="display:none;">👁 Afficher</button><button class="btn btn-primary btn-xs" id="bulk-edit-btn" style="display:none;">✏️ Modifier</button></div></td></tr>';
+  html += '<tr id="bulk-edit-panel" style="display:none;"><td colspan="8" style="padding:0.75rem 1rem;background:var(--surface-alt,#f5f0e8);border-bottom:2px solid var(--kraft-line);"><div style="display:flex;gap:var(--space-3);align-items:flex-end;flex-wrap:wrap;"><div style="font-weight:700;font-size:var(--fs-sm);width:100%;">✏️ Modifier la sélection — ne coche que les champs à changer :</div><label style="font-size:var(--fs-xs);"><input type="checkbox" id="bulk-chk-level"> Niveau <select id="bulk-val-level" disabled style="display:block;margin-top:2px;"></select></label><label style="font-size:var(--fs-xs);"><input type="checkbox" id="bulk-chk-stream"> Filière <select id="bulk-val-stream" disabled style="display:block;margin-top:2px;"></select></label><label style="font-size:var(--fs-xs);"><input type="checkbox" id="bulk-chk-subject"> Matière <select id="bulk-val-subject" disabled style="display:block;margin-top:2px;"></select></label><label style="font-size:var(--fs-xs);"><input type="checkbox" id="bulk-chk-type"> Type <select id="bulk-val-type" disabled style="display:block;margin-top:2px;"></select></label><label style="font-size:var(--fs-xs);"><input type="checkbox" id="bulk-chk-host"> Hébergeur <input type="text" id="bulk-val-host" disabled list="bulk-datalist-host" placeholder="Google Drive / Mega…" style="display:block;margin-top:2px;width:140px;"></label><label style="font-size:var(--fs-xs);"><input type="checkbox" id="bulk-chk-wilaya"> Wilaya <select id="bulk-val-wilaya" disabled style="display:block;margin-top:2px;"></select></label><label style="font-size:var(--fs-xs);"><input type="checkbox" id="bulk-chk-trimestre"> Trimestre <select id="bulk-val-trimestre" disabled style="display:block;margin-top:2px;"></select></label><label style="font-size:var(--fs-xs);"><input type="checkbox" id="bulk-chk-year"> Année <input type="number" id="bulk-val-year" disabled placeholder="2025" min="2000" max="2099" style="display:block;margin-top:2px;width:90px;"></label><label style="font-size:var(--fs-xs);"><input type="checkbox" id="bulk-chk-source"> Source <input type="text" id="bulk-val-source" disabled placeholder="…" style="display:block;margin-top:2px;width:120px;"></label><label style="font-size:var(--fs-xs);"><input type="checkbox" id="bulk-chk-url-source"> URL Source <input type="url" id="bulk-val-url-source" disabled list="bulk-datalist-url-source" placeholder="https://…" style="display:block;margin-top:2px;width:180px;"></label><label style="font-size:var(--fs-xs);"><input type="checkbox" id="bulk-chk-url-pdf"> URL PDF <input type="url" id="bulk-val-url-pdf" disabled list="bulk-datalist-url-pdf" placeholder="https://…" style="display:block;margin-top:2px;width:180px;"></label><button class="btn btn-primary btn-xs" id="bulk-apply-btn">✅ Appliquer</button><button class="btn btn-ghost btn-xs" id="bulk-cancel-btn">✖ Annuler</button><span id="bulk-confirm" style="color:var(--green);font-size:var(--fs-xs);font-weight:600;"></span><datalist id="bulk-datalist-host"><option value="Google Drive"><option value="Mega"><option value="Autre"></datalist><datalist id="bulk-datalist-url-source"></datalist><datalist id="bulk-datalist-url-pdf"></datalist></div></td></tr>';
+
+  if (pendingDocs.length) {
+    html += '<tr class="pending-section-header"><td colspan="8" style="padding:0.75rem 1rem;background:var(--gold);color:var(--ink);font-weight:700;">⏳ ' + pendingDocs.length + ' document(s) en attente de validation</td></tr>';
+    pendingDocs.forEach(doc => { const subject = APP.db.subjects.find(s => s.id === doc.subject); const typeName = APP.db.documentTypes.find(ty => ty.id === doc.type); const isHidden = hiddenIds.includes(doc.id); html += '<tr data-doc-id="' + escapeAttr(doc.id) + '" style="background:var(--cream);' + (isHidden ? 'opacity:0.5;' : '') + '"><td><input type="checkbox" class="doc-select-cb" data-doc-id="' + escapeAttr(doc.id) + '" ' + selAllChecked + '></td><td class="doc-table-title">' + escapeHTML(localized(doc.title)) + ' <span class="local-tag" style="background:var(--gold);color:var(--ink);">en attente</span>' + (isHidden ? ' <span class="local-tag" style="background:var(--ink-soft);">masqué</span>' : '') + '</td><td>' + escapeHTML(subject ? localized(subject.name) : doc.subject) + '</td><td>' + escapeHTML(typeName ? localized(typeName.name) : doc.type) + '</td><td>—</td><td class="ltr-only">' + escapeHTML(doc.year || '—') + '</td><td style="text-transform:capitalize;">' + escapeHTML(doc.host) + '</td><td style="text-transform:capitalize;">' + escapeHTML(doc.source || '—') + '</td><td style="white-space:nowrap;">' + (doc.urlSource ? '<button class="btn-source-eye" data-url="' + escapeAttr(doc.urlSource) + '" title="Voir la source">📄</button>' : '') + (doc.previewUrl || doc.downloadUrl || doc.urlPdf ? '<button class="btn-preview-pdf" data-url="' + escapeAttr(doc.previewUrl || doc.downloadUrl || doc.urlPdf) + '" title="Aperçu PDF">👁</button>' : '') + ((!doc.urlSource && !doc.previewUrl && !doc.urlPdf && !doc.downloadUrl) ? '—' : '') + '</td><td class="doc-table-actions"><button class="btn btn-secondary btn-sm edit-pending-btn" data-doc-id="' + escapeAttr(doc.id) + '">' + icon('settings') + '</button><button class="btn btn-primary btn-sm approve-pending-btn" data-doc-id="' + escapeAttr(doc.id) + '">✓ Valider</button><button class="btn btn-danger btn-sm reject-pending-btn" data-doc-id="' + escapeAttr(doc.id) + '">✕ Rejeter</button></td></tr>'; });
+    html += '<tr><td colspan="10" style="padding:0.5rem 1rem;"><button class="btn btn-primary btn-sm" id="approve-all-pending-btn">✓ Tout valider</button></td></tr>';
+  }
+
+  if (docs.length) {
+    html += '<tr class="pending-section-header"><td colspan="10" style="padding:0.75rem 1rem;background:var(--kraft);font-weight:600;">✅ Documents publiés (' + docs.length + ')</td></tr>';
+    html += docs.map(doc => { const subject = APP.db.subjects.find(s => s.id === doc.subject); const typeName = APP.db.documentTypes.find(ty => ty.id === doc.type); const trimestreName = APP.db.trimestres?.find(tr => tr.id === doc.trimestre); const isLocal = getLocalDocs().some(d => d.id === doc.id); const isHidden = hiddenIds.includes(doc.id); return '<tr data-doc-id="' + escapeAttr(doc.id) + '"' + (isHidden ? ' style="opacity:0.5;"' : '') + '><td><input type="checkbox" class="doc-select-cb" data-doc-id="' + escapeAttr(doc.id) + '" ' + selAllChecked + '></td><td class="doc-table-title">' + escapeHTML(localized(doc.title)) + ' ' + (isLocal ? '<span class="local-tag">local</span>' : '') + (isHidden ? ' <span class="local-tag" style="background:var(--ink-soft);">masqué</span>' : '') + '</td><td>' + escapeHTML(subject ? localized(subject.name) : '—') + '</td><td>' + escapeHTML(typeName ? localized(typeName.name) : doc.type) + '</td><td>' + escapeHTML(trimestreName ? localized(trimestreName.name) : '—') + '</td><td class="ltr-only">' + escapeHTML(doc.year || '—') + '</td><td style="text-transform:capitalize;">' + escapeHTML(doc.host) + '</td><td style="text-transform:capitalize;">' + escapeHTML(doc.source || '—') + '</td><td style="white-space:nowrap;">' + (doc.urlSource ? '<button class="btn-source-eye" data-url="' + escapeAttr(doc.urlSource) + '" title="Voir la source">📄</button>' : '') + (doc.previewUrl || doc.downloadUrl || doc.urlPdf ? '<button class="btn-preview-pdf" data-url="' + escapeAttr(doc.previewUrl || doc.downloadUrl || doc.urlPdf) + '" title="Aperçu PDF">👁</button>' : '') + ((!doc.urlSource && !doc.previewUrl && !doc.urlPdf && !doc.downloadUrl) ? '—' : '') + '</td><td class="doc-table-actions"><button class="btn btn-secondary btn-sm edit-doc-btn" data-doc-id="' + escapeAttr(doc.id) + '">' + icon('settings') + '</button><button class="btn btn-danger btn-sm delete-doc-btn" data-doc-id="' + escapeAttr(doc.id) + '">' + icon('trash') + '</button></td></tr>'; }).join('');
+  }
+
+  if (!html) { html = '<tr><td colspan="10" style="text-align:center; padding:1.5rem; color:var(--ink-soft);">' + t('empty.title') + '</td></tr>'; }
+  tbody.innerHTML = html;
+
+  const selCountEl = document.getElementById('sel-count');
+  const deleteSelBtn = document.getElementById('delete-selected-btn');
+  const hideSelBtn = document.getElementById('hide-selected-btn');
+  const unhideSelBtn = document.getElementById('unhide-selected-btn');
+  const bulkEditBtn = document.getElementById('bulk-edit-btn');
+  const bulkPanel = document.getElementById('bulk-edit-panel');
+
+  function updateSelectionUI() {
+    const checked = tbody.querySelectorAll('.doc-select-cb:checked');
+    const count = checked.length;
+    const hIds = getHiddenIds();
+    const hasHidden = [...checked].some(cb => hIds.includes(cb.dataset.docId));
+    const hasVisible = [...checked].some(cb => !hIds.includes(cb.dataset.docId));
+    if (selCountEl) selCountEl.textContent = count ? count + ' sélectionné(s)' : '';
+    if (deleteSelBtn) { deleteSelBtn.disabled = count === 0; deleteSelBtn.style.display = count === 0 ? 'none' : ''; }
+    if (hideSelBtn) { hideSelBtn.disabled = count === 0; hideSelBtn.style.display = hasVisible && count > 0 ? '' : 'none'; }
+    if (unhideSelBtn) { unhideSelBtn.style.display = hasHidden ? '' : 'none'; }
+    if (bulkEditBtn) { bulkEditBtn.disabled = count === 0; bulkEditBtn.style.display = count === 0 ? 'none' : ''; }
+  }
+
+  tbody.querySelectorAll('.doc-select-cb').forEach(cb => { cb.addEventListener('change', updateSelectionUI); });
+  document.getElementById('select-all-btn')?.addEventListener('click', () => { tbody.querySelectorAll('.doc-select-cb').forEach(cb => { cb.checked = true; }); localStorage.setItem('_inry_select_all', 'true'); updateSelectionUI(); });
+  document.getElementById('deselect-all-btn')?.addEventListener('click', () => { tbody.querySelectorAll('.doc-select-cb').forEach(cb => { cb.checked = false; }); localStorage.setItem('_inry_select_all', 'false'); updateSelectionUI(); });
+
+  if (deleteSelBtn) { deleteSelBtn.addEventListener('click', () => { const ids = [...tbody.querySelectorAll('.doc-select-cb:checked')].map(cb => cb.dataset.docId); if (!window.confirm('Supprimer ' + ids.length + ' document(s) définitivement ?')) return; ids.forEach(id => { deleteDocEverywhere(id); const p = getPendingDocs().filter(d => d.id !== id); savePendingDocs(p); }); applyLocalDocOverrides(); renderAdminDocTable(); showToast(ids.length + ' document(s) supprimé(s)'); }); }
+  if (hideSelBtn) { hideSelBtn.addEventListener('click', () => { const ids = [...tbody.querySelectorAll('.doc-select-cb:checked')].map(cb => cb.dataset.docId); const hidden = getHiddenIds(); ids.forEach(id => { if (!hidden.includes(id)) hidden.push(id); }); saveHiddenIds(hidden); renderAdminDocTable(); showToast(ids.length + ' document(s) masqué(s)'); }); }
+  if (unhideSelBtn) { unhideSelBtn.addEventListener('click', () => { const ids = [...tbody.querySelectorAll('.doc-select-cb:checked')].map(cb => cb.dataset.docId); const hidden = getHiddenIds().filter(id => !ids.includes(id)); saveHiddenIds(hidden); renderAdminDocTable(); showToast(ids.length + ' document(s) ré-affiché(s)'); }); }
+
+  if (bulkEditBtn && bulkPanel) {
+    const bL = document.getElementById('bulk-val-level'), bS = document.getElementById('bulk-val-stream'), bSu = document.getElementById('bulk-val-subject'), bT = document.getElementById('bulk-val-type'), bulkHost = document.getElementById('bulk-val-host'), bW = document.getElementById('bulk-val-wilaya'), bTr = document.getElementById('bulk-val-trimestre'), bY = document.getElementById('bulk-val-year'), bSrc = document.getElementById('bulk-val-source'), bUS = document.getElementById('bulk-val-url-source'), bUP = document.getElementById('bulk-val-url-pdf');
+    if (bL) bL.innerHTML = '<option value="">— choisir —</option>' + (APP.db.levels||[]).flatMap(grp => grp.years.map(y => '<option value="' + escapeAttr(y.id) + '">' + escapeHTML(localized(y.name)) + '</option>')).join('');
+    if (bS) bS.innerHTML = '<option value="">— choisir —</option>' + (APP.db.streams||[]).map(s => '<option value="' + escapeAttr(s.id) + '">' + escapeHTML(localized(s.name)) + '</option>').join('');
+    if (bSu) bSu.innerHTML = '<option value="">— choisir —</option>' + (APP.db.subjects||[]).map(s => '<option value="' + escapeAttr(s.id) + '">' + escapeHTML(localized(s.name)) + '</option>').join('');
+    if (bT) bT.innerHTML = '<option value="">— choisir —</option>' + (APP.db.documentTypes||[]).map(ty => '<option value="' + escapeAttr(ty.id) + '">' + escapeHTML(localized(ty.name)) + '</option>').join('');
+    if (bW) bW.innerHTML = '<option value="">— choisir —</option><option value="National">National</option>' + (APP.db.wilayas||[]).map(w => '<option value="' + escapeAttr(localized(w.name)) + '">' + escapeHTML(w.code) + ' — ' + escapeHTML(localized(w.name)) + '</option>').join('');
+    if (bTr) bTr.innerHTML = '<option value="">— choisir —</option>' + (APP.db.trimestres||[]).map(tr => '<option value="' + escapeAttr(tr.id) + '">' + escapeHTML(localized(tr.name)) + '</option>').join('');
+    const urlSourceVals = [...new Set((APP.db.documents||[]).map(d => d.urlSource).filter(Boolean))];
+    const urlPdfVals = [...new Set((APP.db.documents||[]).map(d => d.previewUrl || d.downloadUrl || d.urlPdf).filter(Boolean))];
+    const dlUrlSource = document.getElementById('bulk-datalist-url-source');
+    const dlUrlPdf = document.getElementById('bulk-datalist-url-pdf');
+    if (dlUrlSource) dlUrlSource.innerHTML = urlSourceVals.map(u => '<option value="' + escapeAttr(u) + '">').join('');
+    if (dlUrlPdf) dlUrlPdf.innerHTML = urlPdfVals.map(u => '<option value="' + escapeAttr(u) + '">').join('');
+    ['bulk-chk-level','bulk-chk-stream','bulk-chk-subject','bulk-chk-type','bulk-chk-host','bulk-chk-wilaya','bulk-chk-trimestre','bulk-chk-year','bulk-chk-source','bulk-chk-url-source','bulk-chk-url-pdf'].forEach(cId => { const c = document.getElementById(cId); if (c) c.addEventListener('change', () => { const ctrl = c.parentElement.querySelector('select, input[type="number"], input[type="text"], input[type="url"]'); if (ctrl) ctrl.disabled = !c.checked; }); });
+    bulkEditBtn.addEventListener('click', () => { bulkPanel.style.display = bulkPanel.style.display === 'none' ? '' : 'none'; const bc = document.getElementById('bulk-confirm'); if (bc) bc.textContent = ''; });
+    document.getElementById('bulk-cancel-btn')?.addEventListener('click', () => { bulkPanel.style.display = 'none'; });
+    document.getElementById('bulk-apply-btn')?.addEventListener('click', () => {
+      const ids = [...tbody.querySelectorAll('.doc-select-cb:checked')].map(cb => cb.dataset.docId);
+      if (!ids.length) return;
+      const fields = {};
+      if (document.getElementById('bulk-chk-level')?.checked) fields.level = bL.value;
+      if (document.getElementById('bulk-chk-stream')?.checked) fields.stream = bS.value || null;
+      if (document.getElementById('bulk-chk-subject')?.checked) fields.subject = bSu.value;
+      if (document.getElementById('bulk-chk-type')?.checked) fields.type = bT.value;
+      if (document.getElementById('bulk-chk-host')?.checked && bulkHost.value.trim()) fields.host = bulkHost.value.trim();
+      if (document.getElementById('bulk-chk-wilaya')?.checked) fields.wilaya = bW.value || null;
+      if (document.getElementById('bulk-chk-trimestre')?.checked) fields.trimestre = bTr.value || null;
+      if (document.getElementById('bulk-chk-year')?.checked && bY.value) fields.year = parseInt(bY.value, 10);
+      if (document.getElementById('bulk-chk-source')?.checked && bSrc.value.trim()) fields.source = bSrc.value.trim();
+      if (document.getElementById('bulk-chk-url-source')?.checked && bUS.value.trim()) fields.urlSource = bUS.value.trim();
+      if (document.getElementById('bulk-chk-url-pdf')?.checked && bUP.value.trim()) fields.urlPdf = bUP.value.trim();
+      if (!Object.keys(fields).length) { showToast('Coche au moins un champ'); return; }
+      let count = 0;
+      (APP.db.documents||[]).forEach(doc => { if (ids.includes(doc.id)) { Object.assign(doc, fields); count++; } });
+      try { const pending = getPendingDocs(); if (pending.length) { pending.forEach(doc => { if (ids.includes(doc.id)) { Object.assign(doc, fields); count++; } }); savePendingDocs(pending); } } catch(e) {}
+      renderAdminDocTable();
+      const bc = document.getElementById('bulk-confirm');
+      if (bc) bc.textContent = '✅ ' + count + ' document(s) modifié(s)';
+      showToast(count + ' document(s) modifié(s)');
+    });
+  }
+
+  tbody.querySelectorAll('.edit-doc-btn').forEach(btn => { btn.addEventListener('click', () => openDocFormForEdit(btn.dataset.docId)); });
+  tbody.querySelectorAll('.delete-doc-btn').forEach(btn => { btn.addEventListener('click', () => confirmDeleteDoc(btn.dataset.docId)); });
+  tbody.querySelectorAll('.edit-pending-btn').forEach(btn => { btn.addEventListener('click', () => openDocFormForEdit(btn.dataset.docId)); });
+  tbody.querySelectorAll('.approve-pending-btn').forEach(btn => { btn.addEventListener('click', () => approvePendingDoc(btn.dataset.docId)); });
+  tbody.querySelectorAll('.reject-pending-btn').forEach(btn => { btn.addEventListener('click', () => rejectPendingDoc(btn.dataset.docId)); });
+  const approveAllBtn = document.getElementById('approve-all-pending-btn');
+  if (approveAllBtn) approveAllBtn.addEventListener('click', approveAllPending);
+  tbody.querySelectorAll('.btn-source-eye').forEach(btn => { btn.addEventListener('click', () => window.open(btn.dataset.url, '_blank')); });
+  tbody.querySelectorAll('.btn-preview-pdf').forEach(btn => { btn.addEventListener('click', () => window.open(btn.dataset.url, '_blank')); });
+  updateSelectionUI();
+  updateSortIndicators();
+  wireSortHeaders();
+}
+
+function updateSortIndicators() { document.querySelectorAll('.admin-doc-table th.sortable').forEach(th => { const key = th.dataset.sort; const text = th.textContent.replace(/[▲▼].*$/, '').trim(); th.textContent = key === sortState.key ? text + ' ' + (sortState.dir === 'asc' ? '▲' : '▼') : text; }); }
+function wireSortHeaders() { document.querySelectorAll('.admin-doc-table th.sortable').forEach(th => { th.removeEventListener('click', sortClickHandler); th.addEventListener('click', sortClickHandler); }); }
+function sortClickHandler(e) { const key = e.currentTarget.dataset.sort; if (sortState.key === key) { sortState.dir = sortState.dir === 'asc' ? 'desc' : 'asc'; } else { sortState.key = key; sortState.dir = 'asc'; } renderAdminDocTable(); }
+
+function openDocFormForEdit(docId) {
+  let doc = APP.db.documents.find(d => d.id === docId);
+  editingIsPending = false;
+  if (!doc) { doc = getPendingDocs().find(d => d.id === docId); if (!doc) return; editingIsPending = true; }
+  editingDocId = docId;
+  titleAutoFill = true; descAutoFill = true;
+  ['doc-form-title-ar','doc-form-title-en','doc-form-desc-ar','doc-form-desc-en'].forEach(id => { const el = document.getElementById(id); if (el) el.dataset.autofilled = 'true'; });
+  document.getElementById('doc-form-title-fr').value = doc.title.fr || '';
+  document.getElementById('doc-form-title-ar').value = doc.title.ar || '';
+  document.getElementById('doc-form-title-en').value = doc.title.en || '';
+  document.getElementById('doc-form-desc-fr').value = doc.description?.fr || '';
+  document.getElementById('doc-form-desc-ar').value = doc.description?.ar || '';
+  document.getElementById('doc-form-desc-en').value = doc.description?.en || '';
+  if (doc.title.fr) document.getElementById('doc-form-title-fr').dispatchEvent(new Event('input', { bubbles: true }));
+  if (doc.description?.fr) document.getElementById('doc-form-desc-fr').dispatchEvent(new Event('input', { bubbles: true }));
+  document.getElementById('doc-form-level').value = doc.level || '';
+  document.getElementById('doc-form-stream').value = doc.stream || '';
+  document.getElementById('doc-form-subject').value = doc.subject || '';
+  document.getElementById('doc-form-type').value = doc.type || '';
+  document.getElementById('doc-form-year').value = doc.year || '';
+  document.getElementById('doc-form-trimestre').value = doc.trimestre || '';
+  document.getElementById('doc-form-wilaya').value = doc.wilaya || '';
+  document.getElementById('doc-form-pages').value = doc.pages || '';
+  document.getElementById('doc-form-size').value = doc.size || '';
+  document.getElementById('doc-form-host').value = doc.host || 'drive';
+  document.getElementById('doc-form-preview-url').value = doc.previewUrl || '';
+  document.getElementById('doc-form-download-url').value = doc.downloadUrl || '';
+  document.getElementById('doc-form-source').value = doc.source || '';
+  document.getElementById('doc-form-url-source').value = doc.urlSource || '';
+  document.getElementById('doc-form-url-pdf').value = doc.urlPdf || '';
+  document.getElementById('doc-form-title-heading').textContent = t('admin.editDoc');
+  document.getElementById('doc-form-submit-btn').textContent = t('admin.saveChanges');
+  document.querySelectorAll('.admin-sub-tab').forEach(function(b) { b.classList.remove('active'); });
+  document.querySelector('.admin-sub-tab[data-subtab="docs-add"]')?.classList.add('active');
+  document.querySelectorAll('#tab-panel-docs .admin-sub-panel').forEach(function(p) { p.classList.add('hidden'); });
+  document.getElementById('sub-panel-docs-add')?.classList.remove('hidden');
+}
+
+function resetDocForm() {
+  editingDocId = null; editingIsPending = false;
+  document.getElementById('doc-form').reset();
+  document.getElementById('doc-form-title-heading').textContent = t('admin.addDoc');
+  document.getElementById('doc-form-submit-btn').textContent = t('admin.save');
+  titleAutoFill = true; descAutoFill = true;
+  ['doc-form-title-ar','doc-form-title-en','doc-form-desc-ar','doc-form-desc-en'].forEach(id => { const el = document.getElementById(id); if (el) { el.dataset.autofilled = 'false'; el.placeholder = ''; } });
+  if (titleTimer) clearTimeout(titleTimer);
+  if (descTimer) clearTimeout(descTimer);
+}
+
+function confirmDeleteDoc(docId) {
+  let doc = APP.db.documents.find(d => d.id === docId);
+  if (!doc) doc = getPendingDocs().find(d => d.id === docId);
+  if (!doc) return;
+  if (!window.confirm(t('admin.confirmDelete') + '\n\n"' + localized(doc.title) + '"')) return;
+  deleteDocEverywhere(docId); applyLocalDocOverrides(); renderAdminDocTable(); showToast(t('admin.docDeleted'));
+  if (editingDocId === docId) resetDocForm();
+}
+
+async function tryFetchFileSize(url) { if (!url) return null; try { const res = await fetch(url, { method: 'HEAD' }); const len = res.headers.get('Content-Length'); if (len && parseInt(len) > 0) return formatFileSize(parseInt(len)); } catch {} return null; }
+async function tryFetchPageCount(url) { if (!url) return null; try { const res = await fetch(url, { headers: { Range: 'bytes=0-15360' } }); const text = await res.text(); const m = text.match(/\/Type\s*\/Pages[^>]*\/Count\s+(\d+)/); if (m && m[1]) { const c = parseInt(m[1], 10); if (c > 0 && c < 500) return c; } } catch {} return null; }
+function formatFileSize(bytes) { if (bytes < 1024) return bytes + ' B'; if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB'; if (bytes < 1073741824) return (bytes / 1048576).toFixed(1) + ' MB'; return (bytes / 1073741824).toFixed(1) + ' GB'; }
+
+async function translateText(text, targetLang) { if (!text.trim()) return ''; try { const res = await fetch('https://api.mymemory.translated.net/get?q=' + encodeURIComponent(text.slice(0, 500)) + '&langpair=fr|' + targetLang); const data = await res.json(); return data.responseData?.translatedText || text; } catch { return text; } }
+
+function wireDocManagerEvents() {
+  const form = document.getElementById('doc-form');
+  const titleFr = document.getElementById('doc-form-title-fr');
+  const titleAr = document.getElementById('doc-form-title-ar');
+  const titleEn = document.getElementById('doc-form-title-en');
+  titleAutoFill = true; titleTimer = null;
+  function isAutoTranslateOn() { var cb = document.getElementById('auto-translate-toggle'); return cb && cb.checked; }
+  titleFr.addEventListener('input', () => { if (!titleAutoFill || !isAutoTranslateOn()) return; clearTimeout(titleTimer); const val = titleFr.value; if (!val) { titleAr.value = ''; titleEn.value = ''; return; } titleTimer = setTimeout(async () => { if (titleAr.value === '' || titleAr.dataset.autofilled === 'true') { titleAr.dataset.autofilled = 'true'; titleAr.placeholder = '...'; titleAr.value = await translateText(val, 'ar'); if (titleAr.dataset.autofilled === 'true') titleAr.placeholder = ''; } if (titleEn.value === '' || titleEn.dataset.autofilled === 'true') { titleEn.dataset.autofilled = 'true'; titleEn.placeholder = '...'; titleEn.value = await translateText(val, 'en'); if (titleEn.dataset.autofilled === 'true') titleEn.placeholder = ''; } }, 600); });
+  titleAr.addEventListener('input', () => { titleAr.dataset.autofilled = 'false'; titleAutoFill = false; });
+  titleEn.addEventListener('input', () => { titleEn.dataset.autofilled = 'false'; titleAutoFill = false; });
+  const descFr = document.getElementById('doc-form-desc-fr');
+  const descAr = document.getElementById('doc-form-desc-ar');
+  const descEn = document.getElementById('doc-form-desc-en');
+  descAutoFill = true; descTimer = null;
+  descFr.addEventListener('input', () => { if (!descAutoFill || !isAutoTranslateOn()) return; clearTimeout(descTimer); const val = descFr.value; if (!val) { descAr.value = ''; descEn.value = ''; return; } descTimer = setTimeout(async () => { if (descAr.value === '' || descAr.dataset.autofilled === 'true') { descAr.dataset.autofilled = 'true'; descAr.placeholder = '...'; descAr.value = await translateText(val, 'ar'); if (descAr.dataset.autofilled === 'true') descAr.placeholder = ''; } if (descEn.value === '' || descEn.dataset.autofilled === 'true') { descEn.dataset.autofilled = 'true'; descEn.placeholder = '...'; descEn.value = await translateText(val, 'en'); if (descEn.dataset.autofilled === 'true') descEn.placeholder = ''; } }, 600); });
+  descAr.addEventListener('input', () => { descAr.dataset.autofilled = 'false'; descAutoFill = false; });
+  descEn.addEventListener('input', () => { descEn.dataset.autofilled = 'false'; descAutoFill = false; });
+  const previewUrl = document.getElementById('doc-form-preview-url');
+  const downloadUrl = document.getElementById('doc-form-download-url');
+  const sizeField = document.getElementById('doc-form-size');
+  const pagesField = document.getElementById('doc-form-pages');
+  async function tryAutoFetchFromUrl(url) { if (!url) return; if (!sizeField.value) { const size = await tryFetchFileSize(url); if (size) sizeField.value = size; } if (!pagesField.value) { const pages = await tryFetchPageCount(url); if (pages) pagesField.value = pages; } }
+  [previewUrl, downloadUrl].forEach(field => { if (!field) return; field.addEventListener('paste', () => { setTimeout(() => tryAutoFetchFromUrl(field.value.trim()), 100); }); field.addEventListener('input', () => { if (field.value.trim()) setTimeout(() => tryAutoFetchFromUrl(field.value.trim()), 300); }); });
+  document.querySelectorAll('#doc-form input, #doc-form textarea').forEach(el => { el.addEventListener('keydown', (e) => { if (e.key === 'Tab' && !el.value && el.placeholder) el.value = el.placeholder; }); });
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const tFr = document.getElementById('doc-form-title-fr').value.trim();
+    const tAr = document.getElementById('doc-form-title-ar').value.trim();
+    const tEn = document.getElementById('doc-form-title-en').value.trim();
+    const pUrl = document.getElementById('doc-form-preview-url').value.trim();
+    const dUrl = document.getElementById('doc-form-download-url').value.trim();
+    if (!tFr || !pUrl || !dUrl) { showToast(t('admin.requiredFieldsMissing')); return; }
+    const id = editingDocId || nextDocId(APP.db.documents);
+    const existing = editingDocId ? APP.db.documents.find(d => d.id === editingDocId) : null;
+    const existingPending = editingDocId && !existing ? getPendingDocs().find(d => d.id === editingDocId) : null;
+    const doc = { id, title: { fr: tFr, ar: tAr || tFr, en: tEn || tFr }, level: document.getElementById('doc-form-level').value, stream: document.getElementById('doc-form-stream').value || null, subject: document.getElementById('doc-form-subject').value, type: document.getElementById('doc-form-type').value, year: parseInt(document.getElementById('doc-form-year').value, 10) || new Date().getFullYear(), trimestre: document.getElementById('doc-form-trimestre').value || null, wilaya: document.getElementById('doc-form-wilaya').value.trim() || null, description: { fr: document.getElementById('doc-form-desc-fr').value.trim(), ar: document.getElementById('doc-form-desc-ar').value.trim(), en: document.getElementById('doc-form-desc-en').value.trim() }, fileType: 'pdf', pages: parseInt(document.getElementById('doc-form-pages').value, 10) || 1, size: document.getElementById('doc-form-size').value.trim() || '—', previewUrl: pUrl, downloadUrl: dUrl, host: document.getElementById('doc-form-host').value, source: document.getElementById('doc-form-source').value.trim() || existing?.source || existingPending?.source || '', urlSource: document.getElementById('doc-form-url-source').value.trim() || existing?.urlSource || existingPending?.urlSource || '', urlPdf: document.getElementById('doc-form-url-pdf').value.trim() || existing?.urlPdf || existingPending?.urlPdf || '', downloads: existing?.downloads || existingPending?.downloads || 0, rating: existing?.rating || existingPending?.rating || 0, tags: existing?.tags || existingPending?.tags || [] };
+    if (editingIsPending) { const pending = getPendingDocs(); const idx = pending.findIndex(d => d.id === id); if (idx >= 0) pending[idx] = doc; else pending.push(doc); savePendingDocs(pending); } else { upsertLocalDoc(doc); applyLocalDocOverrides(); }
+    renderAdminDocTable(); resetDocForm(); showToast(editingDocId ? t('admin.docUpdated') : t('admin.docAdded'));
+  });
+  document.getElementById('doc-form-cancel-btn').addEventListener('click', resetDocForm);
+  const searchInput = document.getElementById('admin-doc-search');
+  if (searchInput) searchInput.addEventListener('input', debounce(renderAdminDocTable, 200));
+  document.getElementById('export-db-btn').addEventListener('click', exportDbJson);
+  const spellCheckBtn = document.getElementById('spell-check-btn');
+  if (spellCheckBtn) { spellCheckBtn.addEventListener('click', async () => { const frText = document.getElementById('doc-form-desc-fr').value.trim(); if (!frText) { showToast('Remplis d\'abord la description en français.'); return; } const key = typeof getSelectedKey === 'function' ? getSelectedKey() : null; if (!key) { showToast('Configure une clé API dans l\'onglet IA.'); return; } spellCheckBtn.textContent = '⏳ Correction…'; spellCheckBtn.disabled = true; try { const corrected = await correctTextWithAI(frText, key); if (corrected && corrected !== frText) { document.getElementById('doc-form-desc-fr').value = corrected; document.getElementById('doc-form-desc-fr').dispatchEvent(new Event('input', { bubbles: true })); showToast('Description corrigée !'); } else { showToast('Aucune correction nécessaire.'); } } catch (err) { showToast('Erreur: ' + err.message); } spellCheckBtn.textContent = t('admin.spellCheck') || 'Corriger l\'orthographe'; spellCheckBtn.disabled = false; }); }
+}
+
+async function correctTextWithAI(text, keyConfig) {
+  const apiKey = (typeof sanitizeApiKey === 'function') ? sanitizeApiKey(keyConfig.apiKey) : keyConfig.apiKey.trim();
+  const prompt = 'Corrige les fautes d\'orthographe et de grammaire du texte suivant en français. Ne change PAS le contenu, corrige UNIQUEMENT les erreurs. Réponds UNIQUEMENT avec le texte corrigé.\n\n' + text.slice(0, 1000);
+  if (keyConfig.provider === 'openai') { const res = await fetch('https://api.openai.com/v1/chat/completions', { method: 'POST', headers: { 'Content-Type': 'application/json', 'Authorization': 'Bearer ' + apiKey }, body: JSON.stringify({ model: keyConfig.model || 'gpt-4.1', messages: [{ role: 'user', content: prompt }], max_tokens: 500 }) }); if (!res.ok) throw new Error('HTTP ' + res.status); const data = await res.json(); return data.choices?.[0]?.message?.content?.trim() || text; }
+  if (keyConfig.provider === 'anthropic') { const res = await fetch('https://api.anthropic.com/v1/messages', { method: 'POST', headers: { 'Content-Type': 'application/json', 'x-api-key': apiKey, 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' }, body: JSON.stringify({ model: keyConfig.model, max_tokens: 500, messages: [{ role: 'user', content: prompt }] }) }); if (!res.ok) throw new Error('HTTP ' + res.status); const data = await res.json(); return (data.content || []).filter(b => b.type === 'text').map(b => b.text).join('\n').trim() || text; }
+  if (keyConfig.provider === 'google') { const res = await fetch('https://generativelanguage.googleapis.com/v1beta/models/' + keyConfig.model + ':generateContent?key=' + apiKey, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ contents: [{ role: 'user', parts: [{ text: prompt }] }] }) }); if (!res.ok) throw new Error('HTTP ' + res.status); const data = await res.json(); return data.candidates?.[0]?.content?.parts?.map(p => p.text).join('\n').trim() || text; }
+  throw new Error('Fournisseur non supporté');
+}
+
+async function exportDbJson() {
+  try { const exportObj = await buildExportObj(); const blob = new Blob([JSON.stringify(exportObj, null, 2)], { type: 'application/json' }); const url = URL.createObjectURL(blob); const a = document.createElement('a'); a.href = url; a.download = 'db.json'; document.body.appendChild(a); a.click(); document.body.removeChild(a); URL.revokeObjectURL(url); saveDbBackup('db.json', exportObj); renderDbBackupList(); showToast(t('admin.exported')); } catch (err) { showToast('Erreur export: ' + err.message); }
+}
+/* ---- PAT Encryption (AES-GCM) ---- */
+var GH_PAT_KEY_STORAGE = 'inry_gh_pat_key';
+
+function getOrCreatePatKey() {
+  var stored = localStorage.getItem(GH_PAT_KEY_STORAGE);
+  if (stored) return stored;
+  var arr = new Uint8Array(32);
+  crypto.getRandomValues(arr);
+  var key = btoa(String.fromCharCode.apply(null, arr));
+  localStorage.setItem(GH_PAT_KEY_STORAGE, key);
+  return key;
+}
+
+async function encryptPat(pat) {
+  if (!pat) return null;
+  try {
+    var keyB64 = getOrCreatePatKey();
+    var keyBytes = Uint8Array.from(atob(keyB64), c => c.charCodeAt(0));
+    var cryptoKey = await crypto.subtle.importKey('raw', keyBytes, 'AES-GCM', false, ['encrypt']);
+    var iv = new Uint8Array(12);
+    crypto.getRandomValues(iv);
+    var encoded = new TextEncoder().encode(pat);
+    var encrypted = await crypto.subtle.encrypt({ name: 'AES-GCM', iv: iv }, cryptoKey, encoded);
+    return { iv: btoa(String.fromCharCode.apply(null, iv)), data: btoa(String.fromCharCode.apply(null, new Uint8Array(encrypted))) };
+  } catch(e) { console.error('PAT encrypt error:', e); return null; }
+}
+
+async function decryptPat(encryptedObj) {
+  if (!encryptedObj || !encryptedObj.iv || !encryptedObj.data) return '';
+  try {
+    var keyB64 = localStorage.getItem(GH_PAT_KEY_STORAGE);
+    if (!keyB64) return '';
+    var keyBytes = Uint8Array.from(atob(keyB64), c => c.charCodeAt(0));
+    var cryptoKey = await crypto.subtle.importKey('raw', keyBytes, 'AES-GCM', false, ['decrypt']);
+    var iv = Uint8Array.from(atob(encryptedObj.iv), c => c.charCodeAt(0));
+    var data = Uint8Array.from(atob(encryptedObj.data), c => c.charCodeAt(0));
+    var decrypted = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: iv }, cryptoKey, data);
+    return new TextDecoder().decode(decrypted);
+  } catch(e) { console.error('PAT decrypt error:', e); return ''; }
+}
+
+function buildExportObj() { var ghCfg = getGithubConfig(); var patPromise = encryptPat(ghCfg.pat); var result = { meta: APP.db.meta, levels: APP.db.levels, streams: APP.db.streams, subjects: APP.db.subjects, documentTypes: APP.db.documentTypes, wilayas: APP.db.wilayas, institutions: APP.db.institutions, hosts: APP.db.hosts, documents: APP.db.documents, hidden: { docIds: getHiddenIds(), levelIds: getEntityHiddenIds('levels'), streamIds: getEntityHiddenIds('streams'), subjectIds: getEntityHiddenIds('subjects') }, githubSync: { encryptedPAT: null, patKey: localStorage.getItem(GH_PAT_KEY_STORAGE) || '', repo: ghCfg.repo || '', branch: ghCfg.branch || 'main', path: ghCfg.path || 'repo/data/db.json', autoPush: getGithubAutoPush() } }; return patPromise.then(function(enc) { if (enc) result.githubSync.encryptedPAT = enc; return result; }); }
+
+const DB_BACKUPS_KEY = 'inry_db_backups';
+const MAX_BACKUPS = 5;
+function computeDbStats(data) { var docs = data.documents || []; var total = docs.length; var subjects = {}; var types = {}; var years = {}; docs.forEach(function(d) { var s = APP.db.subjects.find(function(s) { return s.id === d.subject; }); var sn = s ? (localized(s.name) || d.subject) : d.subject; subjects[sn] = (subjects[sn] || 0) + 1; var tp = APP.db.documentTypes.find(function(t) { return t.id === d.type; }); var tn = tp ? (localized(tp.name) || d.type) : d.type; types[tn] = (types[tn] || 0) + 1; if (d.year) years[d.year] = (years[d.year] || 0) + 1; }); return { total: total, subjects: subjects, types: types, years: Object.keys(years).sort() }; }
+function getDbBackups() { try { return JSON.parse(localStorage.getItem(DB_BACKUPS_KEY)) || []; } catch(e) { return []; } }
+function saveDbBackup(name, data) { var json = JSON.stringify(data); var sizeBytes = new Blob([json]).size; var sizeLabel = sizeBytes < 1024 ? sizeBytes + ' o' : sizeBytes < 1048576 ? (sizeBytes / 1024).toFixed(1) + ' Ko' : (sizeBytes / 1048576).toFixed(1) + ' Mo'; var stats = computeDbStats(data); var backups = getDbBackups(); backups.unshift({ id: Date.now(), name: name || 'db.json', timestamp: new Date().toISOString(), size: sizeLabel, stats: stats, data: data }); if (backups.length > MAX_BACKUPS) backups = backups.slice(0, MAX_BACKUPS); try { localStorage.setItem(DB_BACKUPS_KEY, JSON.stringify(backups)); } catch(e) { showToast('Stockage local saturé'); } }
+function deleteDbBackup(id) { localStorage.setItem(DB_BACKUPS_KEY, JSON.stringify(getDbBackups().filter(function(b) { return b.id !== id; }))); }
+function renderDbBackupList() {
+  var el = document.getElementById('db-backup-list'); if (!el) return;
+  var backups = getDbBackups();
+  if (!backups.length) { el.innerHTML = '<div style="padding:var(--space-3);font-size:var(--fs-xs);color:var(--ink-soft);text-align:center;">Aucune sauvegarde locale</div>'; return; }
+  el.innerHTML = backups.map(function(b) { var s = b.stats || {}; var tip = []; tip.push('📄 ' + s.total + ' document' + (s.total > 1 ? 's' : '')); if (b.size) tip.push('💾 ' + b.size); if (s.years && s.years.length) tip.push('📅 ' + s.years[0] + (s.years.length > 1 ? '–' + s.years[s.years.length - 1] : '')); return '<div class="db-backup-item" style="display:flex;align-items:center;gap:var(--space-2);padding:var(--space-2);border:1px solid var(--kraft-line);border-radius:var(--radius-sm);margin-bottom:var(--space-1);"><div class="db-backup-tooltip" data-tt="' + escapeHTML(tip.join('<br>')) + '">' + tip.join('<br>') + '</div><span style="flex:1;font-size:var(--fs-xs);"><strong>' + escapeHTML(b.name || 'db.json') + '</strong>' + (b.size ? ' <span style="color:var(--ink-soft);font-size:9px;">(' + escapeHTML(b.size) + ')</span>' : '') + '<br><span style="color:var(--ink-soft);font-size:10px;">' + new Date(b.timestamp).toLocaleString() + '</span></span><button class="btn btn-primary btn-sm db-backup-restore-btn" data-backup-id="' + b.id + '">Restaurer</button><button class="btn btn-ghost btn-sm db-backup-del-btn" data-backup-id="' + b.id + '">✕</button></div>'; }).join('');
+  el.querySelectorAll('.db-backup-restore-btn').forEach(function(btn) { btn.addEventListener('click', function() { var backup = getDbBackups().find(function(b) { return b.id === parseInt(btn.dataset.backupId); }); if (!backup) return; if (!confirm('Restaurer "' + (backup.name || 'db.json') + '" ?')) return; importDbData(backup.data); }); });
+  el.querySelectorAll('.db-backup-del-btn').forEach(function(btn) { btn.addEventListener('click', function() { deleteDbBackup(parseInt(btn.dataset.backupId)); renderDbBackupList(); }); });
+  el.querySelectorAll('.db-backup-item').forEach(function(item) { var tip = item.querySelector('.db-backup-tooltip'); if (!tip) return; function showTip(e) { var rect = item.getBoundingClientRect(); tip.classList.add('show'); tip.style.left = Math.min(rect.left, window.innerWidth - 320) + 'px'; var spaceBelow = window.innerHeight - rect.bottom; if (spaceBelow >= 132) { tip.style.top = (rect.bottom + 8) + 'px'; tip.style.bottom = 'auto'; } else { tip.style.top = 'auto'; tip.style.bottom = (window.innerHeight - rect.top + 8) + 'px'; } } item.addEventListener('mouseenter', showTip); item.addEventListener('mousemove', showTip); item.addEventListener('mouseleave', function() { tip.classList.remove('show'); }); });
+}
+
+function importDbData(data) { try { if (!data || !data.meta || !data.documents) { showToast('Fichier invalide'); return; } localStorage.setItem('inry_custom_db', JSON.stringify(data)); localStorage.removeItem('inry_local_docs'); localStorage.removeItem('inry_deleted_ids'); showToast('Base importée ! Rechargement…'); setTimeout(function() { location.reload(); }, 800); } catch(err) { showToast('Erreur: ' + err.message); } }
+
+var autoBackupTimer = null;
+var AUTO_BACKUP_KEY = 'inry_auto_backup';
+var AUTO_BACKUP_LAST_KEY = 'inry_auto_backup_last';
+var AUTO_BACKUP_CHECK_INTERVAL = 30000;
+function getAutoBackupConfig() { try { var raw = localStorage.getItem(AUTO_BACKUP_KEY); if (!raw) return { mode: 'off' }; return JSON.parse(raw); } catch(e) { return { mode: 'off' }; } }
+function setAutoBackupConfig(cfg) { try { localStorage.setItem(AUTO_BACKUP_KEY, JSON.stringify(cfg)); } catch(e) {} }
+function stopAutoBackup() { if (autoBackupTimer) { clearInterval(autoBackupTimer); autoBackupTimer = null; } }
+function getDbDataForBackup() { var custom = localStorage.getItem('inry_custom_db'); if (custom) { try { return JSON.parse(custom); } catch(e) {} } var local = localStorage.getItem('inry_local_docs'); var deleted = localStorage.getItem('inry_deleted_ids'); return { meta: APP.db ? APP.db.meta : { version: 1 }, documents: local ? JSON.parse(local) : (APP.db ? APP.db.documents : []), subjects: APP.db ? APP.db.subjects : [], documentTypes: APP.db ? APP.db.documentTypes : [], studyLevels: APP.db ? APP.db.studyLevels : [], removedIds: deleted ? JSON.parse(deleted) : [] }; }
+function shouldRunBackup(cfg) { var now = Date.now(); var last = 0; try { last = parseInt(localStorage.getItem(AUTO_BACKUP_LAST_KEY)) || 0; } catch(e) {} if (cfg.mode === 'interval') { var ms = parseInt(cfg.value) * (cfg.unit === 'minutes' ? 60000 : cfg.unit === 'hours' ? 3600000 : 86400000); if (isNaN(ms) || ms <= 0) return false; return (now - last) >= ms; } if (cfg.mode === 'fixed') { var d = new Date(); var target = new Date(d.getFullYear(), d.getMonth(), d.getDate(), parseInt(cfg.hour) || 0, parseInt(cfg.minute) || 0); if (target <= new Date(last)) return false; return now >= target.getTime(); } return false; }
+function performAutoBackup() { var cfg = getAutoBackupConfig(); if (cfg.mode === 'off') return; if (!shouldRunBackup(cfg)) return; try { localStorage.setItem(AUTO_BACKUP_LAST_KEY, String(Date.now())); } catch(e) {} var data = getDbDataForBackup(); if (!data || !data.documents) return; saveDbBackup('auto-' + new Date().toISOString().slice(0,10), data); }
+function startAutoBackup() { stopAutoBackup(); var cfg = getAutoBackupConfig(); if (cfg.mode === 'off') return; performAutoBackup(); autoBackupTimer = setInterval(performAutoBackup, AUTO_BACKUP_CHECK_INTERVAL); }
+function wireAutoBackupUI() {
+  var cfg = getAutoBackupConfig(); var modeRadios = document.querySelectorAll('input[name="auto-backup-mode"]');
+  if (!modeRadios.length) return;
+  modeRadios.forEach(function(r) { r.checked = r.value === cfg.mode; });
+  toggleAutoBackupGroups(cfg.mode);
+  modeRadios.forEach(function(r) { r.addEventListener('change', function() { toggleAutoBackupGroups(r.value); }); });
+  document.getElementById('auto-backup-interval-val').value = cfg.value || 1;
+  document.getElementById('auto-backup-interval-unit').value = cfg.unit || 'hours';
+  var h = ('0' + (cfg.hour || 8)).slice(-2); var m = ('0' + (cfg.minute || 0)).slice(-2);
+  document.getElementById('auto-backup-fixed-hour').value = h + ':' + m;
+  document.getElementById('auto-backup-save').addEventListener('click', function() { var mode = document.querySelector('input[name="auto-backup-mode"]:checked'); if (!mode) return; var newCfg = { mode: mode.value }; if (mode.value === 'interval') { newCfg.value = parseInt(document.getElementById('auto-backup-interval-val').value) || 1; newCfg.unit = document.getElementById('auto-backup-interval-unit').value; } else if (mode.value === 'fixed') { var tp = document.getElementById('auto-backup-fixed-hour').value.split(':'); newCfg.hour = parseInt(tp[0]) || 0; newCfg.minute = parseInt(tp[1]) || 0; } setAutoBackupConfig(newCfg); startAutoBackup(); showToast(mode.value === 'off' ? 'Sauvegarde auto désactivée' : 'Sauvegarde auto activée'); });
+}
+function toggleAutoBackupGroups(mode) { var ig = document.getElementById('auto-backup-interval-group'); var fg = document.getElementById('auto-backup-fixed-group'); if (ig) ig.style.display = mode === 'interval' ? 'flex' : 'none'; if (fg) fg.style.display = mode === 'fixed' ? 'flex' : 'none'; }
+function wireImportBackupUI() {
+  document.getElementById('import-db-btn').addEventListener('click', function() { var fi = document.getElementById('import-db-file-input'); var file = fi.files[0]; if (!file) { showToast('Selectionne un fichier db.json.'); return; } var reader = new FileReader(); reader.onload = function(e) { try { importDbData(JSON.parse(e.target.result)); } catch(err) { showToast('Erreur: ' + err.message); } }; reader.readAsText(file); });
+  document.getElementById('reset-db-btn').addEventListener('click', function() { if (!confirm('Reinitialiser la base ?')) return; localStorage.removeItem('inry_custom_db'); localStorage.removeItem('inry_local_docs'); localStorage.removeItem('inry_deleted_ids'); localStorage.removeItem('inry_hidden_doc_ids'); showToast('Base reinitialisee. Rechargement...'); setTimeout(function() { location.reload(); }, 800); });
+  renderDbBackupList();
+}
+
+function loadHiddenIdsFromDefault(defaultDb) {
+  if (!defaultDb || !defaultDb.hidden) return;
+  var h = defaultDb.hidden;
+  if (h.docIds && !localStorage.getItem('inry_hidden_doc_ids')) localStorage.setItem('inry_hidden_doc_ids', JSON.stringify(h.docIds));
+}
+
+var _origLoadData = typeof loadData === 'function' ? loadData : null;
+async function loadDataWithHidden() {
+  var base = INRY_BASE_URL || '';
+  var [dbRes, i18nRes] = await Promise.all([
+    fetch(base + 'data/db.json'),
+    fetch(base + 'data/i18n.json')
+  ]);
+  var defaultDb = await dbRes.json();
+  loadHiddenIdsFromDefault(defaultDb);
+  var customDb = localStorage.getItem('inry_custom_db');
+  if (customDb) {
+    try { APP.db = JSON.parse(customDb); } catch(e) { APP.db = defaultDb; }
+  } else {
+    APP.db = defaultDb;
+  }
+  APP.i18n = await i18nRes.json();
+}
+
+const GH_CONFIG_KEY = 'inry_github_sync';
+const GH_AUTO_PUSH_KEY = 'inry_github_auto_push';
+
+function getGithubConfig() {
+  try {
+    var raw = localStorage.getItem(GH_CONFIG_KEY);
+    return raw ? JSON.parse(raw) : { pat: '', repo: 'droidapk1002-beep/inry-biblio-assets', branch: 'main', path: 'repo/data/db.json' };
+  } catch(e) { return { pat: '', repo: 'droidapk1002-beep/inry-biblio-assets', branch: 'main', path: 'repo/data/db.json' }; }
+}
+
+function saveGithubConfig(cfg) {
+  try { localStorage.setItem(GH_CONFIG_KEY, JSON.stringify(cfg)); } catch(e) {}
+}
+
+function getGithubAutoPush() {
+  return localStorage.getItem(GH_AUTO_PUSH_KEY) === 'true';
+}
+
+function setGithubAutoPush(val) {
+  try { localStorage.setItem(GH_AUTO_PUSH_KEY, val ? 'true' : 'false'); } catch(e) {}
+}
+
+function githubLog(msg, isError) {
+  var el = document.getElementById('github-push-log');
+  var status = document.getElementById('github-push-status');
+  if (el) {
+    el.style.display = 'block';
+    var line = document.createElement('div');
+    line.style.color = isError ? 'var(--red-stamp)' : 'var(--ink-soft)';
+    line.style.marginBottom = '2px';
+    line.textContent = '[' + new Date().toLocaleTimeString() + '] ' + msg;
+    el.appendChild(line);
+    el.scrollTop = el.scrollHeight;
+  }
+  if (status) {
+    status.textContent = isError ? msg : msg;
+    status.style.color = isError ? 'var(--red-stamp)' : 'var(--green)';
+  }
+}
+
+async function pushDbToGithub() {
+  var cfg = getGithubConfig();
+  if (!cfg.pat) { showToast('Token GitHub manquant'); githubLog('Token GitHub manquant', true); return; }
+  if (!cfg.repo || !cfg.branch || !cfg.path) { showToast('Config GitHub incomplete'); githubLog('Config GitHub incomplete', true); return; }
+
+  var statusEl = document.getElementById('github-push-status');
+  if (statusEl) { statusEl.textContent = 'Push en cours...'; statusEl.style.color = 'var(--ink-soft)'; }
+  githubLog('Preparation du push...');
+
+  try {
+    applyLocalDocOverrides();
+    var exportObj = await buildExportObj();
+    var content = JSON.stringify(exportObj, null, 2);
+    var encodedContent = btoa(unescape(encodeURIComponent(content)));
+
+    var apiUrl = 'https://api.github.com/repos/' + cfg.repo + '/contents/' + cfg.path;
+    var headers = { 'Authorization': 'token ' + cfg.pat, 'Accept': 'application/vnd.github.v3+json' };
+
+    var existingSha = null;
+    var getRes = await fetch(apiUrl + '?ref=' + cfg.branch, { headers: headers });
+    if (getRes.ok) {
+      var existing = await getRes.json();
+      existingSha = existing.sha;
+      githubLog('Fichier existant trouve, SHA: ' + existingSha.substring(0, 8));
+    } else if (getRes.status === 404) {
+      githubLog('Fichier inexistant, creation...');
+    } else {
+      var errText = await getRes.text();
+      githubLog('Erreur lecture: ' + getRes.status + ' ' + errText, true);
+      showToast('Erreur lecture GitHub');
+      return;
+    }
+
+    var body = { message: 'chore(db): update db.json via inry-biblio admin [' + new Date().toISOString().slice(0, 19) + ']', content: encodedContent, branch: cfg.branch };
+    if (existingSha) body.sha = existingSha;
+
+    var putRes = await fetch(apiUrl, { method: 'PUT', headers: headers, body: JSON.stringify(body) });
+    if (putRes.ok) {
+      var result = await putRes.json();
+      githubLog('Push reussi ! Commit: ' + (result.commit && result.commit.sha || '').substring(0, 8));
+      showToast('db.json pousse sur GitHub');
+      saveDbBackup('github-push', exportObj);
+      renderDbBackupList();
+    } else {
+      var errBody = await putRes.text();
+      githubLog('Erreur push: ' + putRes.status + ' ' + errBody, true);
+      showToast('Erreur push GitHub');
+    }
+  } catch(err) {
+    githubLog('Erreur reseau: ' + err.message, true);
+    showToast('Erreur: ' + err.message);
+  }
+}
+
+function wireGithubSync() {
+  var patInput = document.getElementById('github-pat-input');
+  var repoInput = document.getElementById('github-repo-input');
+  var branchInput = document.getElementById('github-branch-input');
+  var pathInput = document.getElementById('github-path-input');
+  var pushBtn = document.getElementById('github-push-btn');
+  var saveCfgBtn = document.getElementById('github-save-config-btn');
+  var autoPushCheck = document.getElementById('github-auto-push');
+
+  var cfg = getGithubConfig();
+  if (patInput) patInput.value = cfg.pat || '';
+  if (repoInput) repoInput.value = cfg.repo || '';
+  if (branchInput) branchInput.value = cfg.branch || 'main';
+  if (pathInput) pathInput.value = cfg.path || 'repo/data/db.json';
+  if (autoPushCheck) autoPushCheck.checked = getGithubAutoPush();
+
+  if (saveCfgBtn) {
+    saveCfgBtn.addEventListener('click', function() {
+      var newCfg = {
+        pat: patInput ? patInput.value.trim() : '',
+        repo: repoInput ? repoInput.value.trim() : '',
+        branch: branchInput ? branchInput.value.trim() : 'main',
+        path: pathInput ? pathInput.value.trim() : 'repo/data/db.json'
+      };
+      saveGithubConfig(newCfg);
+      showToast('Config GitHub sauvegardee');
+      githubLog('Config sauvegardee');
+    });
+  }
+
+  if (pushBtn) {
+    pushBtn.addEventListener('click', function() {
+      var cfg2 = getGithubConfig();
+      cfg2.pat = patInput ? patInput.value.trim() : cfg2.pat;
+      cfg2.repo = repoInput ? repoInput.value.trim() : cfg2.repo;
+      cfg2.branch = branchInput ? branchInput.value.trim() : cfg2.branch;
+      cfg2.path = pathInput ? pathInput.value.trim() : cfg2.path;
+      saveGithubConfig(cfg2);
+      pushDbToGithub();
+    });
+  }
+
+  if (autoPushCheck) {
+    autoPushCheck.addEventListener('change', function() {
+      setGithubAutoPush(autoPushCheck.checked);
+      showToast(autoPushCheck.checked ? 'Auto-push active' : 'Auto-push desactive');
+    });
+  }
+}
+
+var _autoPushTimer = null;
+function scheduleAutoPush() {
+  if (!getGithubAutoPush()) return;
+  if (_autoPushTimer) clearTimeout(_autoPushTimer);
+  _autoPushTimer = setTimeout(function() {
+    var cfg = getGithubConfig();
+    if (cfg.pat) pushDbToGithub();
+  }, 2000);
+}
+
+function guessLevel(raw) { const map = { '1am': 'm1','2am': 'm2','3am': 'm3','4am': 'm4','1as': 's1','2as': 's2','3as': 's3','ap1': 'p1','ap2': 'p2','ap3': 'p3','ap4': 'p4','ap5': 'p5' }; return map[raw] || raw; }
+function guessSubject(raw, db) { const sub = (db.subjects || []).find(s => raw.includes(s.id) || raw.includes(localized(s.name).toLowerCase())); return sub ? sub.id : raw; }
+function guessType(raw, db) { const map = { devoir: 'devoir', composition: 'devoir', examen: 'examen', fiche: 'fiche', cours: 'cours', serie: 'serie', exercice: 'exercice', sujet: 'bac-bem', bac: 'bac-bem', bem: 'bac-bem', corrige: 'corrige', correction: 'corrige' }; if (raw && typeof raw === 'string') { const lc = raw.toLowerCase(); for (const [k, v] of Object.entries(map)) { if (lc.includes(k)) return v; } } return raw || 'devoir'; }
+function guessStream(raw, db) { const map = { science: 'sci', maths: 'math', technique: 'tech', lettre: 'lettres', gestion: 'eco', economie: 'eco', langues: 'langues', philo: 'philo' }; if (raw && typeof raw === 'string') { const lc = raw.toLowerCase(); for (const [k, v] of Object.entries(map)) { if (lc.includes(k)) return v; } } return raw || null; }
+function guessTrimestre(raw) { const map = { '1': 't1', '2': 't2', '3': 't3', '01': 't1', '02': 't2', '03': 't3', premier: 't1', deuxieme: 't2', troisieme: 't3', '1er': 't1', '2eme': 't2', '3eme': 't3' }; if (raw && typeof raw === 'string') { const lc = raw.toLowerCase().trim(); if (map[lc]) return map[lc]; if (lc.includes('1')) return 't1'; if (lc.includes('2')) return 't2'; if (lc.includes('3')) return 't3'; } return raw || null; }
+function extractDriveId(url) { if (!url) return ''; const m = url.match(/[?&]id=([^&]+)/) || url.match(/\/d\/([^/?#&]+)/) || url.match(/\/file\/d\/([^/?#&]+)/); return m ? m[1] : ''; }
+function toDrivePreview(id) { return id ? 'https://drive.google.com/file/d/' + id + '/preview' : ''; }
+function toDriveDownload(id) { return id ? 'https://drive.google.com/uc?export=download&id=' + id : ''; }
+function stripEmoji(str) { return str.replace(/[\u{1F600}-\u{1F64F}\u{1F300}-\u{1F5FF}\u{1F680}-\u{1F6FF}\u{1F1E0}-\u{1F1FF}\u{2600}-\u{26FF}\u{2700}-\u{27BF}\u{FE00}-\u{FE0F}\u{2702}\u{2795}\u{2796}\u{274C}\u{274E}\u{2757}\u{203C}\u{2049}\u{2139}\u{24C2}\u{2934}\u{2935}\u{2B05}\u{2B06}\u{2B07}\u{2B1B}\u{2B1C}\u{2B50}\u{2B55}\u{3030}\u{303D}\u{3297}\u{3299}]/gu, '').trim(); }
+async function translateFromAr(text, targetLang) { if (!text.trim()) return ''; const cleaned = stripEmoji(text); try { const res = await fetch('https://api.mymemory.translated.net/get?q=' + encodeURIComponent(cleaned.slice(0, 500)) + '&langpair=ar|' + targetLang); const data = await res.json(); return data.responseData?.translatedText || cleaned; } catch { return cleaned; } }
+function detectProviderFromUrl(url) { if (!url) return null; if (url.includes('mega.nz')) return 'mega'; if (url.includes('drive.google.com')) return 'google'; if (url.includes('dropbox.com')) return 'dropbox'; if (url.includes('sharepoint.com') || url.includes('onedrive.live.com')) return 'onedrive'; return null; }
+function migrateHostFromUrl() { const pending = getPendingDocs(); const localDocs = getLocalDocs(); let updated = 0; pending.forEach(d => { const provider = detectProviderFromUrl(d.previewUrl) || detectProviderFromUrl(d.downloadUrl); if (provider && d.host !== provider) { d.host = provider; updated++; } }); savePendingDocs(pending); localDocs.forEach(d => { const provider = detectProviderFromUrl(d.previewUrl) || detectProviderFromUrl(d.downloadUrl); if (provider && d.host !== provider) { d.host = provider; updated++; } }); saveLocalDocs(localDocs); applyLocalDocOverrides(); renderAdminDocTable(); showToast(updated + ' document(s) mis à jour'); }
+async function batchAddAll(parsedDocs, rawDocs) { let idCounter = Math.max(0, ...APP.db.documents.map(d => parseInt((d.id||'').replace('doc-',''),10)).filter(n=>!isNaN(n)), ...getPendingDocs().map(d => parseInt((d.id||'').replace('doc-',''),10)).filter(n=>!isNaN(n))); const pending = getPendingDocs(); let count = 0; for (let i = 0; i < parsedDocs.length; i++) { const d = parsedDocs[i]; const [frTitle, enTitle] = await Promise.all([d.title.fr || translateFromAr(d.title.ar, 'fr'), d.title.en || translateFromAr(d.title.ar, 'en')]); idCounter++; pending.push({ id: 'doc-' + String(idCounter).padStart(4, '0'), title: { fr: frTitle, ar: d.title.ar, en: enTitle }, level: d.level, stream: d.stream || null, subject: d.subject, type: d.type, year: d.year, trimestre: d.trimestre || null, wilaya: d.wilaya, description: { fr: frTitle, ar: d.title.ar, en: enTitle }, fileType: 'pdf', pages: d.pages, size: d.size, previewUrl: d.previewUrl, downloadUrl: d.downloadUrl, host: d.host, source: d.source || '', urlSource: d.urlSource || '', urlPdf: d.urlPdf || '', downloads: 0, rating: 0, tags: [] }); count++; } savePendingDocs(pending); renderAdminDocTable(); showToast(count + ' document(s) importé(s) — en attente de validation'); }
+function openAdminPdfPreview(url) { const overlay = document.createElement('div'); overlay.className = 'pdf-preview-overlay'; overlay.style.cssText = 'position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.7);display:flex;align-items:center;justify-content:center;'; overlay.addEventListener('click', e => { if (e.target === overlay) close(); }); const box = document.createElement('div'); box.style.cssText = 'position:relative;width:90vw;height:90vh;background:#fff;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;'; const header = document.createElement('div'); header.style.cssText = 'display:flex;align-items:center;justify-content:space-between;padding:8px 12px;background:#f5f5f5;border-bottom:1px solid #ddd;'; const title = document.createElement('span'); title.textContent = '📄 Aperçu PDF'; title.style.cssText = 'font-weight:600;'; const closeBtn = document.createElement('button'); closeBtn.textContent = '✕'; closeBtn.style.cssText = 'background:none;border:none;font-size:18px;cursor:pointer;padding:0 4px;'; closeBtn.addEventListener('click', close); header.appendChild(title); header.appendChild(closeBtn); const iframe = document.createElement('iframe'); iframe.src = url; iframe.style.cssText = 'flex:1;border:none;width:100%;'; iframe.allow = 'fullscreen'; box.appendChild(header); box.appendChild(iframe); overlay.appendChild(box); document.body.appendChild(overlay); function close() { overlay.remove(); document.removeEventListener('keydown', keyHandler); } function keyHandler(e) { if (e.key === 'Escape') close(); } document.addEventListener('keydown', keyHandler); }
+
+if (typeof escapeHTML !== 'function' || !escapeHTML(42)) {
+  window.escapeHTML = function(s) {
+    var d = document.createElement('div');
+    d.appendChild(document.createTextNode(String(s)));
+    return d.innerHTML;
+  };
+}
+//]]>
+</script>
+
+<script>
+//<![CDATA[
+
+function homeRender() {
+  document.title = t('siteName') + ' — ' + t('tagline');
+
+  var hiddenDocIds = new Set((function() { try { return JSON.parse(localStorage.getItem('inry_hidden_doc_ids') || '[]'); } catch(e) { return []; } })());
+  var visibleDocs = APP.db.documents.filter(function(d) { return !hiddenDocIds.has(d.id); });
+  document.getElementById('stat-docs').textContent = visibleDocs.length + '+';
+  document.getElementById('stat-subjects').textContent = APP.db.subjects.length;
+  document.getElementById('stat-levels').textContent = 4;
+
+  document.getElementById('hero-stamp').textContent = '🇩🇿 ' + t('siteName');
+
+  var levelsGrid = document.getElementById('levels-grid');
+  var levelCategories = [
+    { id: 'prescolaire', name: { fr: 'Préscolaire', ar: 'تحضيري', en: 'Preschool' }, levelIds: ['presco'] },
+    { id: 'primaire', name: { fr: 'Primaire', ar: 'ابتدائي', en: 'Primary' }, levelIds: ['p1','p2','p3','p4','p5'] },
+    { id: 'moyen', name: { fr: 'Moyen', ar: 'متوسط', en: 'Middle School' }, levelIds: ['m1','m2','m3','m4'] },
+    { id: 'lycee', name: { fr: 'Lycée', ar: 'ثانوي', en: 'High School' }, levelIds: ['s1','s2','s3'] }
+  ];
+  levelsGrid.innerHTML = levelCategories.map(function(cat) {
+    var count = APP.db.documents.filter(function(d) { return cat.levelIds.indexOf(d.level) >= 0 && !hiddenDocIds.has(d.id); }).length;
+    var years = APP.db.levels.flatMap(function(g) { return g.years; }).filter(function(y) { return cat.levelIds.indexOf(y.id) >= 0; });
+    return '<div class="level-category">' +
+      '<a class="quick-tile" href="javascript:void(0)" onclick="toggleLevelCategory(\'' + cat.id + '\')" data-cat="' + cat.id + '">' +
+        '<div class="quick-tile-icon">' + icon('book') + '</div>' +
+        '<div>' +
+          '<div class="quick-tile-name">' + escapeHTML(localized(cat.name)) + '</div>' +
+          '<div class="quick-tile-count">' + count + ' ' + t('filters.results') + '</div>' +
+        '</div>' +
+        '<span class="expand-icon">' + icon('chevronDown') + '</span>' +
+      '</a>' +
+      '<div class="level-subgrid" id="subgrid-' + cat.id + '" style="display:none;">' +
+        years.map(function(year) {
+          var yCount = APP.db.documents.filter(function(d) { return d.level === year.id && !hiddenDocIds.has(d.id); }).length;
+          return '<a class="quick-tile sub-tile" href="#library?level=' + year.id + '">' +
+            '<div class="quick-tile-icon">' + icon('fileText') + '</div>' +
+            '<div>' +
+              '<div class="quick-tile-name">' + escapeHTML(localized(year.name)) + '</div>' +
+              '<div class="quick-tile-count">' + yCount + ' ' + t('filters.results') + '</div>' +
+            '</div>' +
+          '</a>';
+        }).join('') +
+      '</div>' +
+    '</div>';
+  }).join('');
+
+  var subjectsGrid = document.getElementById('subjects-grid');
+  subjectsGrid.innerHTML = APP.db.subjects.map(function(sub) {
+    var count = APP.db.documents.filter(function(d) { return d.subject === sub.id && !hiddenDocIds.has(d.id); }).length;
+    return '<a class="quick-tile" href="#library?subject=' + sub.id + '">' +
+      '<div class="quick-tile-icon" style="color:' + sub.color + '; background:' + sub.color + '1a;">' + icon(sub.icon) + '</div>' +
+      '<div>' +
+        '<div class="quick-tile-name">' + escapeHTML(localized(sub.name)) + '</div>' +
+        '<div class="quick-tile-count">' + count + ' ' + t('filters.results') + '</div>' +
+      '</div>' +
+    '</a>';
+  }).join('');
+
+  var featured = APP.db.documents
+    .filter(function(d) { return d.type === 'bac-bem' && !hiddenDocIds.has(d.id); })
+    .sort(function(a, b) { return b.downloads - a.downloads; })
+    .slice(0, 6);
+  renderDocGrid('featured-grid', featured);
+
+  wireLayoutEvents();
+
+  document.getElementById('hero-search-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    var q = document.getElementById('hero-search-input').value.trim();
+    window.location.hash = 'library' + (q ? '?q=' + encodeURIComponent(q) : '');
+  });
+}
+
+function toggleLevelCategory(catId) {
+  var subgrid = document.getElementById('subgrid-' + catId);
+  if (!subgrid) return;
+  var isHidden = subgrid.style.display === 'none' || !subgrid.style.display;
+  subgrid.style.display = isHidden ? 'grid' : 'none';
+  var tile = document.querySelector('[data-cat="' + catId + '"]');
+  if (tile) tile.classList.toggle('expanded', isHidden);
+}
+
+function applyURLParamsToFilters() {
+  var hash = window.location.hash || '';
+  var qIdx = hash.indexOf('?');
+  if (qIdx < 0) return;
+  var params = new URLSearchParams(hash.substring(qIdx));
+  ['level', 'levelGroup', 'stream', 'subject', 'type', 'trimestre', 'year'].forEach(function(key) {
+    if (params.has(key)) APP.filters[key] = params.get(key);
+  });
+  if (params.has('q')) APP.filters.search = params.get('q');
+}
+
+function libraryRender() {
+  var docs = getFilteredDocs();
+  renderDocGrid('library-grid', docs);
+  document.getElementById('filters-count').textContent = docs.length + ' ' + t('filters.results');
+}
+
+function initLibraryPage() {
+  document.title = t('nav.library') + ' — ' + t('siteName');
+  applyURLParamsToFilters();
+  populateFilterBar();
+  wireFilterBar(libraryRender);
+  wireLayoutEvents();
+  libraryRender();
+
+  var sf = document.getElementById('search-form');
+  if (sf) sf.addEventListener('submit', function(e) { e.preventDefault(); });
+}
+
+/* ============================================================
+   INRY-BIBLIO — Routeur mono-page pour Blogger
+   Affiche l'une des 4 "vues" (home/library/assistant/admin) en
+   fonction du hash de l'URL (#home, #library, #assistant, #admin),
+   sans jamais recharger la page.
+   ============================================================ */
+
+function fpCurrentView() {
+  var h = (window.location.hash || '').replace(/^#\/?/, '').split(/[/?]/)[0];
+  if (h === 'library' || h === 'assistant' || h === 'admin') return h;
+  return 'home';
+}
+
+function fpRoute() {
+  var view = fpCurrentView();
+  ['home', 'library', 'assistant', 'admin'].forEach(function(v) {
+    var el = document.getElementById('fp-view-' + v);
+    if (el) el.style.display = (v === view) ? '' : 'none';
+  });
+
+  document.title = (view === 'assistant' ? t('assistant.title') + ' — ' : '') + t('siteName') + (view === 'home' ? ' — ' + t('tagline') : '');
+  document.getElementById('header-root').innerHTML = renderHeader(view);
+  document.getElementById('footer-root').innerHTML = renderFooter();
+  translateStaticDOM();
+  wireLayoutEvents();
+  var themeToggle = document.getElementById('theme-toggle');
+  if (themeToggle) {
+    themeToggle.innerHTML = icon(APP.theme === 'light' ? 'moon' : 'sun');
+    themeToggle.onclick = function() {
+      toggleTheme();
+      themeToggle.innerHTML = icon(APP.theme === 'light' ? 'moon' : 'sun');
+    };
+  }
+  window.scrollTo(0, 0);
+
+  try {
+    if (view === 'home') homeRender();
+    else if (view === 'library') initLibraryPage();
+    else if (view === 'assistant') initAssistantPage();
+    else if (view === 'admin') {
+      initAdminPage();
+      wireAdminTabs();
+      var lockIcon = document.getElementById('lock-icon');
+      if (lockIcon) lockIcon.innerHTML = icon('lock');
+      var settingsIcon = document.getElementById('settings-icon');
+      if (settingsIcon) settingsIcon.innerHTML = icon('settings');
+      var passwordIcon = document.getElementById('password-icon');
+      if (passwordIcon) passwordIcon.innerHTML = icon('lock');
+      var docFormIcon = document.getElementById('doc-form-icon');
+      if (docFormIcon) docFormIcon.innerHTML = icon('fileText');
+      var exportIcon = document.getElementById('export-icon');
+      if (exportIcon) exportIcon.innerHTML = icon('download');
+      var exportBtnIcon = document.getElementById('export-btn-icon');
+      if (exportBtnIcon) exportBtnIcon.innerHTML = icon('download');
+      var importIcon = document.getElementById('import-icon');
+      if (importIcon) importIcon.innerHTML = icon('upload');
+    }
+  } catch (e) {
+    console.error('[fpRoute:' + view + ']', e);
+  }
+}
+
+/* ============================================================
+   Admin tabs wiring + import helpers
+   ============================================================ */
+function wireAdminTabs() {
+  document.querySelectorAll('.admin-tab-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.admin-tab-btn').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      document.getElementById('tab-panel-docs').classList.toggle('hidden', btn.dataset.tab !== 'docs');
+      document.getElementById('tab-panel-keys').classList.toggle('hidden', btn.dataset.tab !== 'keys');
+      document.getElementById('tab-panel-password').classList.toggle('hidden', btn.dataset.tab !== 'password');
+    });
+  });
+  document.querySelectorAll('.admin-sub-tab').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      document.querySelectorAll('.admin-sub-tab').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      document.querySelectorAll('#tab-panel-docs .admin-sub-panel').forEach(function(p) { p.classList.add('hidden'); });
+      document.getElementById('sub-panel-' + btn.dataset.subtab).classList.remove('hidden');
+    });
+  });
+  var importAnalyzeBtn = document.getElementById('import-analyze-btn');
+  var importInput = document.getElementById('import-manifest-input');
+  if (importAnalyzeBtn && importInput) {
+    importAnalyzeBtn.addEventListener('click', function() {
+      var file = importInput.files[0];
+      if (!file) { showToast('Sélectionne un fichier JSON d\'abord.'); return; }
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        try {
+          var raw = JSON.parse(e.target.result);
+          var items = raw.items || raw.documents || raw.fichiers || raw.data || (Array.isArray(raw) ? raw : [raw]);
+          if (!items.length) { showToast('Aucun document trouvé dans le fichier.'); return; }
+          var normalized = items.map(normalizeImportItem);
+          renderImportPreview(normalized, items);
+        } catch(err) { showToast('Erreur de lecture: ' + err.message); }
+      };
+      reader.readAsText(file);
+    });
+  }
+  var migrateBtn = document.getElementById('migrate-host-btn');
+  if (migrateBtn) migrateBtn.addEventListener('click', migrateHostFromUrl);
+
+  var exportDlBtn = document.getElementById('export-manifest-download-btn');
+  if (exportDlBtn) exportDlBtn.addEventListener('click', downloadManifestJSON);
+  var exportCpBtn = document.getElementById('export-manifest-copy-btn');
+  if (exportCpBtn) exportCpBtn.addEventListener('click', copyManifestToClipboard);
+}
+
+function generateManifestJSON() {
+  var docs = getLocalDocs();
+  var items = docs.map(function(d) {
+    return {
+      titre: d.title ? (d.title.ar || d.title.fr || d.title.en || '') : '',
+      titreAr: d.title ? d.title.ar || '' : '',
+      titreFr: d.title ? d.title.fr || '' : '',
+      titreEn: d.title ? d.title.en || '' : '',
+      niveau: d.level || '',
+      filiere: d.stream || '',
+      matiere: d.subject || '',
+      type_doc_label: d.type || '',
+      annee: d.year || '',
+      trimestre: d.trimestre || '',
+      wilaya: d.wilaya || '',
+      tailleFichier: d.size || '',
+      pages: d.pages || '',
+      urlCloud: d.previewUrl || '',
+      urlPartage: d.downloadUrl || '',
+      provider: d.host || '',
+      source: d.source || '',
+      urlSource: d.urlSource || '',
+      urlPdf: d.urlPdf || ''
+    };
+  });
+  return { items: items, generatedAt: new Date().toISOString(), count: items.length, source: 'inry-biblio-blogger' };
+}
+
+function downloadManifestJSON() {
+  var manifest = generateManifestJSON();
+  if (!manifest.items.length) { showToast('Aucun document à exporter.'); return; }
+  var blob = new Blob([JSON.stringify(manifest, null, 2)], { type: 'application/json' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url;
+  a.download = 'manifest-inry-biblio-' + Date.now() + '.json';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  var stats = document.getElementById('export-manifest-stats');
+  if (stats) stats.textContent = manifest.items.length + ' document(s) exporté(s) — ' + manifest.generatedAt;
+  showToast(manifest.items.length + ' document(s) téléchargé(s)');
+}
+
+function copyManifestToClipboard() {
+  var manifest = generateManifestJSON();
+  if (!manifest.items.length) { showToast('Aucun document à exporter.'); return; }
+  var text = JSON.stringify(manifest, null, 2);
+  navigator.clipboard.writeText(text).then(function() {
+    var stats = document.getElementById('export-manifest-stats');
+    if (stats) stats.textContent = manifest.items.length + ' document(s) copiés — ' + manifest.generatedAt;
+    showToast(manifest.items.length + ' document(s) copiés dans le presse-papier');
+  }).catch(function() {
+    showToast('Erreur: impossible de copier');
+  });
+}
+
+function getFieldValue(item, aliases) {
+  for (var i = 0; i < aliases.length; i++) {
+    var alias = aliases[i];
+    var val;
+    if (alias.indexOf('.') !== -1) {
+      val = alias.split('.').reduce(function(o, k) { return (o != null ? o[k] : undefined); }, item);
+    } else {
+      val = item[alias];
+    }
+    if (val != null && val !== '') return val;
+  }
+  return '';
+}
+
+var IMPORT_ALIASES = {
+  'title.ar': ['titre', 'title.ar', 'title', 'العنوان'],
+  'title.fr': ['title.fr', 'titreFr', 'titre_fr'],
+  'title.en': ['title.en', 'titreEn', 'titre_en'],
+  level: ['niveau', 'level', 'grade', 'المستوى', 'classe'],
+  stream: ['filiere', 'stream', 'branch', 'الشعبة'],
+  subject: ['matiere', 'subject', 'subjectName', 'المادة'],
+  type: ['type_doc_label', 'type', 'type_doc', 'docType', 'النوع'],
+  year: ['annee', 'year', 'année', 'السنة'],
+  trimestre: ['trimestre', 'trimester', 'term', 'الفصل'],
+  wilaya: ['wilaya', 'codeWilaya', 'ولاية'],
+  size: ['tailleFichier', 'taille_octets', 'tailleOctets', 'size', 'fileSize', 'filesize', 'الحجم'],
+  pages: ['pages', 'nbrPages', 'pageCount', 'عدد الصفحات'],
+  previewUrl: ['urlCloud', 'url_cloud', 'previewUrl', 'cloudUrl', 'preview'],
+  downloadUrl: ['urlPartage', 'url_partage', 'downloadUrl', 'shareUrl', 'downloadLink'],
+  host: ['provider', 'site', 'host', 'website', 'platform'],
+  source: ['source', 'siteSource', 'origin'],
+  urlSource: ['urlSource', 'url_source', 'sourceUrl'],
+  urlPdf: ['urlPdf', 'url_pdf', 'pdfUrl'],
+  hasSolution: ['hasSolution', 'corrige', 'solution', 'avecCorrection', 'مع التصحيح']
+};
+
+function normalizeImportItem(item) {
+  var size = getFieldValue(item, IMPORT_ALIASES.size);
+  var sizeNum = parseInt(size, 10);
+  var sizeStr = !isNaN(sizeNum) && sizeNum > 0
+    ? (sizeNum >= 1048576 ? (sizeNum / 1048576).toFixed(1) + ' MB' : Math.round(sizeNum / 1024) + ' KB')
+    : String(size || '');
+  var hasSolution = getFieldValue(item, IMPORT_ALIASES.hasSolution);
+  return {
+    title: {
+      ar: getFieldValue(item, IMPORT_ALIASES['title.ar']),
+      fr: getFieldValue(item, IMPORT_ALIASES['title.fr']),
+      en: getFieldValue(item, IMPORT_ALIASES['title.en'])
+    },
+    level: getFieldValue(item, IMPORT_ALIASES.level),
+    stream: getFieldValue(item, IMPORT_ALIASES.stream) || null,
+    subject: getFieldValue(item, IMPORT_ALIASES.subject),
+    type: getFieldValue(item, IMPORT_ALIASES.type),
+    year: getFieldValue(item, IMPORT_ALIASES.year),
+    trimestre: getFieldValue(item, IMPORT_ALIASES.trimestre) || null,
+    wilaya: getFieldValue(item, IMPORT_ALIASES.wilaya) || '',
+    size: sizeStr,
+    pages: getFieldValue(item, IMPORT_ALIASES.pages) || '',
+    previewUrl: getFieldValue(item, IMPORT_ALIASES.previewUrl),
+    downloadUrl: getFieldValue(item, IMPORT_ALIASES.downloadUrl),
+    host: getFieldValue(item, IMPORT_ALIASES.host) || 'dzexams',
+    source: getFieldValue(item, IMPORT_ALIASES.source) || '',
+    urlSource: getFieldValue(item, IMPORT_ALIASES.urlSource) || '',
+    urlPdf: getFieldValue(item, IMPORT_ALIASES.urlPdf) || '',
+    tags: hasSolution ? ['solution'] : []
+  };
+}
+
+function renderImportPreview(parsedDocs, rawDocs) {
+  var container = document.getElementById('import-preview-container');
+  if (!container || !parsedDocs.length) return;
+  var html = '<div style="display:flex;align-items:center;gap:var(--space-2);margin-bottom:var(--space-2);flex-wrap:wrap;">';
+  html += '<h4 style="margin:0;">' + parsedDocs.length + ' document(s) trouvé(s)</h4>';
+  html += '<button class="btn btn-primary" id="import-add-all-btn">➕ Tout ajouter en une fois</button>';
+  html += '</div>';
+  html += '<div style="max-height:400px;overflow-y:auto;border:1px solid var(--kraft-line);border-radius:var(--radius-sm);">';
+  html += '<table class="admin-doc-table"><thead><tr>' +
+    '<th>Titre (AR)</th><th>Niveau</th><th>Matière</th><th>Type</th><th>Taille</th><th>Action</th>' +
+    '</tr></thead><tbody>';
+  parsedDocs.forEach(function(doc, i) {
+    html += '<tr>' +
+      '<td style="max-width:200px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" dir="rtl">' + escapeHTML(doc.title.ar.slice(0,60)) + '</td>' +
+      '<td>' + escapeHTML(doc.level) + '</td>' +
+      '<td>' + escapeHTML(doc.subject) + '</td>' +
+      '<td>' + escapeHTML(doc.type) + '</td>' +
+      '<td>' + escapeHTML(doc.size) + '</td>' +
+      '<td><button class="btn btn-primary btn-sm prefill-from-import-btn" data-index="' + i + '">Pré-remplir</button></td>' +
+      '</tr>';
+  });
+  html += '</tbody></table></div>';
+  html += '<p class="export-hint" style="margin-top:var(--space-2);">Cliquez sur "Pré-remplir" pour un document, ou "Tout ajouter en une fois" pour tous les importer directement.</p>';
+  container.innerHTML = html;
+  container.style.display = 'block';
+  container.querySelectorAll('.prefill-from-import-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var idx = parseInt(btn.dataset.index, 10);
+      prefillFormFromImport(parsedDocs[idx], rawDocs[idx]);
+    });
+  });
+  var addAllBtn = document.getElementById('import-add-all-btn');
+  if (addAllBtn) {
+    addAllBtn.addEventListener('click', function() { batchAddAll(parsedDocs, rawDocs); });
+  }
+}
+
+async function prefillFormFromImport(doc, raw) {
+  var setVal = function(id, val) { var el = document.getElementById(id); if (el) el.value = val; };
+  var frTitle = doc.title.fr || await translateFromAr(doc.title.ar, 'fr');
+  var enTitle = doc.title.en || await translateFromAr(doc.title.ar, 'en');
+  setVal('doc-form-title-fr', frTitle);
+  setVal('doc-form-title-ar', doc.title.ar);
+  setVal('doc-form-title-en', enTitle);
+  setVal('doc-form-desc-fr', frTitle);
+  setVal('doc-form-desc-ar', doc.title.ar);
+  setVal('doc-form-desc-en', enTitle);
+  setVal('doc-form-level', doc.level);
+  setVal('doc-form-stream', doc.stream || '');
+  setVal('doc-form-subject', doc.subject);
+  setVal('doc-form-type', doc.type);
+  setVal('doc-form-year', doc.year);
+  setVal('doc-form-trimestre', doc.trimestre || '');
+  setVal('doc-form-wilaya', doc.wilaya || '');
+  setVal('doc-form-pages', doc.pages);
+  setVal('doc-form-size', doc.size);
+  setVal('doc-form-host', doc.host);
+  setVal('doc-form-source', doc.source || '');
+  setVal('doc-form-url-source', doc.urlSource || '');
+  setVal('doc-form-url-pdf', doc.urlPdf || '');
+  setVal('doc-form-preview-url', doc.previewUrl);
+  setVal('doc-form-download-url', doc.downloadUrl);
+  document.querySelectorAll('.admin-sub-tab').forEach(function(b) { b.classList.remove('active'); });
+  var addTab = document.querySelector('.admin-sub-tab[data-subtab="docs-add"]');
+  if (addTab) addTab.classList.add('active');
+  document.querySelectorAll('#tab-panel-docs .admin-sub-panel').forEach(function(p) { p.classList.add('hidden'); });
+  var addPanel = document.getElementById('sub-panel-docs-add');
+  if (addPanel) addPanel.classList.remove('hidden');
+}
+
+async function fpBoot() {
+  try {
+    await loadDataWithHidden();
+    applyLocalDocOverrides();
+    applyLangToDocument();
+    document.getElementById('modal-root').innerHTML = renderDocModal();
+    window.addEventListener('hashchange', fpRoute);
+    fpRoute();
+  } catch (e) {
+    console.error('[fpBoot]', e);
+    var d = document.createElement('div');
+    d.style.cssText = 'position:fixed;top:0;left:0;right:0;background:#9c3b2e;color:#fff;padding:8px;z-index:9999;font-size:14px;';
+    d.textContent = 'Erreur de démarrage INRY-Biblio : ' + e.message;
+    document.body.prepend(d);
+  }
+}
+
+/* Hook global attendu par js/i18n.js après un changement de langue */
+function onLangChange() { fpRoute(); }
+
+fpBoot();
+
+//]]>
+</script>
+
+</body>
+</html>

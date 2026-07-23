@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src https://fonts.gstatic.com; img-src 'self' data: blob: https:; connect-src 'self' https://api.openai.com https://api.anthropic.com https://generativelanguage.googleapis.com https://api.mymemory.translated.net; frame-src https://drive.google.com; object-src 'none'; base-uri 'self';">
+<script>window.addEventListener('pageshow',function(e){if(e.persisted)location.reload();});</script>
+<title>INRY-Biblio — La bibliothèque numérique des élèves algériens</title>
+<meta name="description" content="Cours, exercices, devoirs, sujets BAC/BEM et corrigés pour les élèves algériens du primaire au secondaire.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700;900&family=Source+Sans+3:wght@400;600;700&family=Amiri:wght@400;700&family=Noto+Sans+Arabic:wght@400;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<link rel="stylesheet" href="css/tokens.css?v=39">
+<link rel="stylesheet" href="css/components.css?v=39">
+<link rel="stylesheet" href="css/assistant-admin.css?v=39">
+</head>
+<body>
+<a href="#main" class="skip-link">Aller au contenu</a>
+<div id="header-root"></div>
+
+<main id="main">
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="animate-in">
+        <div class="hero-eyebrow-row">
+          <span class="stamp" id="hero-stamp">🇩🇿 INRY-BIBLIO</span>
+        </div>
+        <h1 data-i18n="hero.title"></h1>
+        <p class="hero-subtitle" data-i18n="hero.subtitle"></p>
+        <form class="search-bar" id="hero-search-form">
+          <input type="search" id="hero-search-input" data-i18n-placeholder="hero.searchPlaceholder" autocomplete="off">
+          <button class="btn btn-primary" type="submit"><span data-i18n="hero.cta"></span></button>
+        </form>
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num" id="stat-docs">0</div>
+            <div class="hero-stat-label" data-i18n="hero.stat1"></div>
+          </div>
+          <div>
+            <div class="hero-stat-num" id="stat-subjects">0</div>
+            <div class="hero-stat-label" data-i18n="hero.stat2"></div>
+          </div>
+          <div>
+            <div class="hero-stat-num" id="stat-levels">0</div>
+            <div class="hero-stat-label" data-i18n="hero.stat3"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual animate-in delay-2">
+        <div class="dossier-stack">
+          <div class="dossier-card back-2"></div>
+          <div class="dossier-card back-1"></div>
+          <div class="dossier-card front">
+            <div class="dossier-line short"></div>
+            <div class="dossier-line"></div>
+            <div class="dossier-line"></div>
+            <div class="dossier-line tiny"></div>
+            <div class="dossier-line short" style="margin-top:1.5rem;"></div>
+            <div class="dossier-line"></div>
+            <div class="dossier-line tiny"></div>
+            <svg class="dossier-stamp-seal" viewBox="0 0 100 100" fill="none" style="color:var(--red-stamp);">
+              <circle cx="50" cy="50" r="46" stroke="currentColor" stroke-width="3" stroke-dasharray="5 4"/>
+              <circle cx="50" cy="50" r="36" stroke="currentColor" stroke-width="2"/>
+              <text x="50" y="46" font-size="11" text-anchor="middle" fill="currentColor" font-family="Fraunces, serif" font-weight="700">BAC</text>
+              <text x="50" y="60" font-size="9" text-anchor="middle" fill="currentColor" font-family="Fraunces, serif">2026</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-i18n="filters.level"></h2>
+      </div>
+      <div class="quick-grid" id="levels-grid"></div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-i18n="filters.subject"></h2>
+      </div>
+      <div class="quick-grid" id="subjects-grid"></div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-i18n="nav.bacbem"></h2>
+        <a href="library.html?type=bac-bem" class="btn btn-ghost" data-i18n="card.viewDetails"></a>
+      </div>
+      <div class="doc-grid" id="featured-grid"></div>
+    </div>
+  </section>
+</main>
+
+<div id="footer-root"></div>
+<div id="modal-root"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script src="js/icons.js?v=39"></script>
+<script src="js/i18n.js?v=39"></script>
+<script src="js/layout.js?v=39"></script>
+<script src="js/documents.js?v=39"></script>
+<script src="js/admin.js?v=39"></script>
+<script src="js/assistant.js?v=39"></script>
+<script src="js/doc-manager.js?v=39"></script>
+<script>
+async function init() {
+  await loadData();
+  applyLocalDocOverrides();
+  applyLangToDocument();
+  render();
+}
+
+function render() {
+  document.title = t('siteName') + ' — ' + t('tagline');
+  document.getElementById('header-root').innerHTML = renderHeader('home');
+  document.getElementById('footer-root').innerHTML = renderFooter();
+  document.getElementById('modal-root').innerHTML = renderDocModal();
+  translateStaticDOM();
+  document.getElementById('theme-toggle').innerHTML = icon(APP.theme === 'light' ? 'moon' : 'sun');
+
+  const hiddenIds = new Set((function() { try { return JSON.parse(localStorage.getItem('inry_hidden_doc_ids') || '[]'); } catch { return []; } })());
+
+  // stats
+  const visibleDocs = APP.db.documents.filter(d => !hiddenIds.has(d.id));
+  document.getElementById('stat-docs').textContent = visibleDocs.length + '+';
+  document.getElementById('stat-subjects').textContent = APP.db.subjects.length;
+  document.getElementById('stat-levels').textContent = 4;
+
+  document.getElementById('hero-stamp').textContent = '🇩🇿 ' + t('siteName');
+
+  // levels grid — 4 categories: Préscolaire, Primaire, Moyen, Lycée
+  const levelsGrid = document.getElementById('levels-grid');
+  const levelCategories = [
+    { id: 'prescolaire', name: { fr: 'Préscolaire', ar: 'تحضيري', en: 'Preschool' }, levelIds: ['presco'] },
+    { id: 'primaire', name: { fr: 'Primaire', ar: 'ابتدائي', en: 'Primary' }, levelIds: ['p1','p2','p3','p4','p5'] },
+    { id: 'moyen', name: { fr: 'Moyen', ar: 'متوسط', en: 'Middle School' }, levelIds: ['m1','m2','m3','m4'] },
+    { id: 'lycee', name: { fr: 'Lycée', ar: 'ثانوي', en: 'High School' }, levelIds: ['s1','s2','s3'] }
+  ];
+  levelsGrid.innerHTML = levelCategories.map(cat => {
+    const count = APP.db.documents.filter(d => cat.levelIds.includes(d.level) && !hiddenIds.has(d.id)).length;
+    const years = APP.db.levels.flatMap(g => g.years).filter(y => cat.levelIds.includes(y.id));
+    return `
+      <div class="level-category">
+        <a class="quick-tile" href="javascript:void(0)" onclick="toggleLevelCategory('${cat.id}')" data-cat="${cat.id}">
+          <div class="quick-tile-icon">${icon('book')}</div>
+          <div>
+            <div class="quick-tile-name">${localized(cat.name)}</div>
+            <div class="quick-tile-count">${count} ${t('filters.results')}</div>
+          </div>
+          <span class="expand-icon">${icon('chevronDown')}</span>
+        </a>
+        <div class="level-subgrid" id="subgrid-${cat.id}" style="display:none;">
+          ${years.map(year => {
+            const yCount = APP.db.documents.filter(d => d.level === year.id && !hiddenIds.has(d.id)).length;
+            return `
+              <a class="quick-tile sub-tile" href="library.html?level=${year.id}">
+                <div class="quick-tile-icon">${icon('fileText')}</div>
+                <div>
+                  <div class="quick-tile-name">${localized(year.name)}</div>
+                  <div class="quick-tile-count">${yCount} ${t('filters.results')}</div>
+                </div>
+              </a>
+            `;
+          }).join('')}
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  // subjects grid
+  const subjectsGrid = document.getElementById('subjects-grid');
+  subjectsGrid.innerHTML = APP.db.subjects.map(sub => {
+    const count = APP.db.documents.filter(d => d.subject === sub.id && !hiddenIds.has(d.id)).length;
+    return `
+      <a class="quick-tile" href="library.html?subject=${sub.id}">
+        <div class="quick-tile-icon" style="color:${sub.color}; background:${sub.color}1a;">${icon(sub.icon)}</div>
+        <div>
+          <div class="quick-tile-name">${localized(sub.name)}</div>
+          <div class="quick-tile-count">${count} ${t('filters.results')}</div>
+        </div>
+      </a>
+    `;
+  }).join('');
+
+  // featured BAC/BEM docs (top by downloads)
+  const featured = APP.db.documents
+    .filter(d => d.type === 'bac-bem' && !hiddenIds.has(d.id))
+    .sort((a, b) => b.downloads - a.downloads)
+    .slice(0, 6);
+  renderDocGrid('featured-grid', featured);
+
+  wireLayoutEvents();
+
+  document.getElementById('hero-search-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const q = document.getElementById('hero-search-input').value.trim();
+    window.location.href = 'library.html' + (q ? '?q=' + encodeURIComponent(q) : '');
+  });
+}
+
+function toggleLevelCategory(catId) {
+  const subgrid = document.getElementById('subgrid-' + catId);
+  if (!subgrid) return;
+  const isHidden = subgrid.style.display === 'none' || !subgrid.style.display;
+  subgrid.style.display = isHidden ? 'grid' : 'none';
+  const tile = document.querySelector(`[data-cat="${catId}"]`);
+  if (tile) tile.classList.toggle('expanded', isHidden);
+}
+
+function onLangChange() { render(); }
+
+init();
+</script>
+</body>
+</html>
